@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haseeb-Collection | Premium Streetwear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #000;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --dark-gray: #e5e5e5;
+            --accent: #003cff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Jost", sans-serif;
+        }
+
+        body {
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+         body {
+    background-color: #f5f5f5;
+    color: #1b1b1b;
+    line-height: 1.6;
+    overflow-x: hidden; /* Already correct */
+    overflow-y: auto; /* Ensure scroll is only when necessary */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-gray);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            height: 75px;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+        margin-top: -10px;
+        font-family: "Cinzel Decorative", serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4e4e4e;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            margin-top: 4px;
+
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: left;
+            gap: 20px;
+        }
+
+        .search-icon, .cart-icon {
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-icon:hover, .cart-icon:hover {
+            color: var(--accent);
+        }
+
+        .cart-count {
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            padding: 20px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            transform: translateY(-150%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--dark-gray);
+        }
+
+        /* Main Content Container */
+        .main-content {
+            margin-top: 70px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: -12px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .hero-content {
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            margin-bottom: 30px;
+            font-size: clamp(16px, 2vw, 18px);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+
+        /* Products Grid */
+        .products-section {
+            padding: 40px 3%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ececec;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 500;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--black);
+        }
+        input:focus, textarea:focus {
+  outline: none; /* Remove browser's default focus outline */
+  border: none;  /* Remove border if you want no border at all */
+  box-shadow: none; /* Sometimes the black border is actually a box-shadow */
+}
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 7px;
+
+        }
+
+        .product-card {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+
+        }
+        @media (max-width: 400px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .products-grid img {
+        height: 300px;
+    }
+    
+    .product-title {
+        font-size: 14px;
+    }
+    
+    .product-price {
+        font-size: 14px;
+    }
+}
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            transition: opacity 0.5s ease;
+            border-radius: 6px;
+        }
+
+        .product-card:hover .product-image {
+            opacity: 0.8;
+        }
+
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 400;
+        }
+
+        .product-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+            text-align: center;
+            display: flex;
+        }
+
+        .product-price {
+            font-weight: normal;
+        }
+
+        /* Product Detail Section */
+        .product-detail-section {
+            display: none;
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-to-shop {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-shop:hover {
+            color: var(--accent);
+        }
+
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .product-gallery {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 15px;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 1px solid var(--dark-gray);
+            transition: border-color 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            border-color: var(--black);
+        }
+
+        .thumbnail.active {
+            border-color: var(--black);
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .product-detail-content {
+            padding-top: 20px;
+        }
+
+        .product-detail-title {
+            font-size: clamp(24px, 3vw, 28px);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .product-detail-price {
+            font-size: clamp(20px, 2.5vw, 22px);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .product-detail-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .size-selector {
+            margin-bottom: 25px;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .size-option {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .size-option:hover {
+            border-color: var(--black);
+        }
+
+        .size-option.selected {
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 630px;
+            object-fit: cover;
+            border-radius: 1%;
+        }
+
+        .about-text h2 {
+            font-size: clamp(28px, 4vw, 32px);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--dark-gray);
+        }
+
+        .contact-form button {
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px 5% 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        .newsletter button {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #020eb4;;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                height: 70vh;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .product-detail-container,
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .thumbnail-container {
+                flex-direction: row;
+                order: 2;
+            }
+
+            .main-image, .about-image {
+                height: 300px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+
+        /* Cart Sidebar */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: var(--white);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 1001;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#cart-items li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--dark-gray);
+}
+
+.cart-total {
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: right;
+}
+
+.order-section button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.order-section button:hover {
+    background: var(--accent);
+}
+
+/* Toast Notification */
+.toast {
+    visibility: hidden;
+    min-width: 220px;
+    background-color: #181818;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 10px 14px;
+    position: fixed;
+    z-index: 1002;
+    opacity: 0;
+    font-size: 14px;
+    transition: opacity 0.5s, visibility 0.5s;
+    /* Position relative to cart icon */
+    right: 20px;
+    top: 70px; /* Adjust based on your header height */
+}
+
+/* Show toast */
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .toast {
+        right: 15px;
+        top: 60px; /* Adjust for mobile header height */
+        min-width: 180px;
+        font-size: 13px;
+        padding: 8px 12px;
+        height: fit-content;
+    }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .toast {
+        left: 46%;
+        bottom: 68%;
+        font-size: 14px;       /* Smaller text on mobile */
+        margin-right: 20px;
+        padding: 7px;
+        min-width: 190px;
+    }
+}
+
+/* Container for the search bar */
+.cute-search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid #0016da;
+  max-width: 500px;
+  margin: 30px auto;
+  transition: all 0.3s ease;
+
+}
+
+/* Focus style */
+.cute-search-container:focus-within {
+  box-shadow: 0 4px 16px rgba(255, 143, 171, 0.3);
+  border-color: #1c0080;
+}
+
+/* Input styling */
+.cute-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  font-family: "Jost", sans-serif;
+  margin-left: -10px;
+}
+
+/* Button styling */
+.cute-search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #181818;
+  font-size: 15px;
+  padding-left: 12px;
+  padding-right: 3px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cute-search-container {
+    padding: 8px 16px;
+    max-width: 90%;
+  }
+
+  .cute-search-input {
+    font-size: 15px;
+  }
+
+  .cute-search-button {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .cute-search-container {
+    flex-direction: row;
+    padding: 6px 12px;
+  }
+
+  .cute-search-input {
+    font-size: 14px;
+  }
+
+  .cute-search-button {
+    font-size: 16px;
+  }
+}
+@media (max-width: 300px) {
+      .search-bar {
+        width: 50px;
+      }
+
+      .cute-search-input {
+        font-size: 10px;
+;
+      }
+
+    }
+    @media (max-width: 400px) {
+    #search-bar {
+      width: 150px !important;
+      margin-left: 2px  !important;
+      margin-right: 2px  !important;
+    }
+  }
+  
+  .product-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Staggered delays for cards */
+  .product-card:nth-child(1) { transition-delay: 0.1s; }
+  .product-card:nth-child(2) { transition-delay: 0.2s; }
+  .product-card:nth-child(3) { transition-delay: 0.3s; }
+  .product-card:nth-child(4) { transition-delay: 0.4s; }
+  .product-card:nth-child(5) { transition-delay: 0.5s; }
+  .product-card:nth-child(6) { transition-delay: 0.6s; }
+  .product-card:nth-child(7) { transition-delay: 0.7s; }
+  .product-card:nth-child(8) { transition-delay: 0.8s; }
+  
+  /* Active animation state */
+  .animate-in {
+    opacity: 1 !important;
+    transform: translateY(30px) !important;
+  }
+
+  footer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  /* If your footer has columns/items that should animate separately */
+  .footer-column {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Stagger delays for footer items if needed */
+  .footer-column:nth-child(1) { transition-delay: 0.2s; }
+  .footer-column:nth-child(2) { transition-delay: 0.4s; }
+  .footer-column:nth-child(3) { transition-delay: 0.6s; }
+  
+  /* Keep your existing animate-in class */
+  .animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  /* About Section Animations */
+.about-section {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(-15deg) translateY(50px);
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.about-section.animate-in {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0) translateY(0);
+}
+
+/* Individual elements inside about section */
+.about-content {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease-out 0.3s; /* 0.3s delay */
+}
+
+.about-image {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s ease-out 0.3s;
+}
+
+.about-section.animate-in .about-content,
+.about-section.animate-in .about-image {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered animations for lists or multiple items */
+.about-feature {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.about-section.animate-in .about-feature:nth-child(1) {
+  transition-delay: 0.4s;
+}
+.about-section.animate-in .about-feature:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.about-section.animate-in .about-feature:nth-child(3) {
+  transition-delay: 0.8s;
+}
+
+.about-section.animate-in .about-feature {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Contact Section Animations */
+.contact-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contact-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contact Form Elements */
+.contact-form {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease-out 0.3s;
+}
+
+.contact-info {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.6s ease-out 0.4s;
+}
+
+.contact-section.animate-in .contact-form,
+.contact-section.animate-in .contact-info {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+/* Form Input Animations */
+.contact-input {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s ease-out;
+}
+
+.contact-section.animate-in .contact-input:nth-child(1) {
+  transition-delay: 0.5s;
+}
+.contact-section.animate-in .contact-input:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.contact-section.animate-in .contact-input:nth-child(3) {
+  transition-delay: 0.7s;
+}
+.contact-section.animate-in .contact-input:nth-child(4) {
+  transition-delay: 0.8s;
+}
+
+.contact-section.animate-in .contact-input {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Submit Button Special Animation */
+.contact-submit {
+  opacity: 0;
+  transform: scale(0.8) rotate(-5deg);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.9s;
+}
+
+.contact-section.animate-in .contact-submit {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+.product-badge {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    background: #f76b1a;
+    color: #fff;
+    padding: 6px;
+    font-size: 12px;
+    font-weight: normal;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    border-radius: 1px;
+    z-index: 2;
+}
+del{
+    color: #444;
+    font-size: 12px;
+}
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Keyframes for scroll animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initial state before appearing */
+.review-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+}
+
+/* When in view */
+.review-card.fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.reviews-section {
+  background: linear-gradient(to bottom, #fdfdfd, #f2f2f2);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.review-h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #202020;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 7px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.review-card p {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin: 10px 0 15px;
+  line-height: 1.5;
+}
+
+.stars {
+  font-size: 1rem;
+  color: #ffc400;
+  font-weight: 500;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .reviews-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .review-card {
+    padding: 10px;
+  }
+
+  .review-h2 {
+    font-size: 2rem;
+  }
+
+  .stars {
+    font-size: 14px;
+  }
+}
+
+.h2-line {
+  width: 80px;
+  height: 3px;
+  background-color: #000;
+  margin: 0 auto 30px;
+}
+ .slider-container {
+            max-width: 1500px;
+            margin: 2rem auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: -1rem;
+        }
+
+        .slider {
+            display: flex;
+            height: 500px;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 2rem;
+            padding-top: 4rem;
+        }
+
+        .slide-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.1rem;
+            max-width: 70%;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-top: -1rem;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .slider-btn {
+            background: rgba(255, 255, 255, 0.842);
+            color: #333;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .slider {
+                height: 350px;
+            }
+
+            .slide-content {
+                padding: 1.5rem;
+                padding-top: 3rem;
+            }
+
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p {
+                font-size: 0.9rem;
+                max-width: 100%;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                margin: 0 0.5rem;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider {
+                height: 250px;
+            }
+
+            .slide-content {
+                padding: 1rem;
+                padding-top: 2rem;
+            }
+
+            .slide-content h2 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .slider-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation for slide transition */
+        @keyframes fadeIn {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+
+        .slide.active {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+         .review-card.active {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+del{
+    margin-left: 3px;
+    font-weight: 500;
+}
+
+
+h5{
+    font-size: 1rem;
+    text-align: center;
+    color: #888888;
+    font-weight: normal;
+    letter-spacing: 1px;
+    
+}
+
+       
+        .ticker-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #000000;
+            padding: 10px 0;
+            border-bottom: 0.7px solid #b1b1b1;
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            color: white;
+            padding-left: 100%;
+            animation: ticker-scroll 100s linear infinite;
+        }
+        
+        @keyframes ticker-scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .ticker-item {
+            display: inline-block;
+            margin-right: 40px;
+            font-size: 18px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header id="header">
+
+        <div class="header-container">
+            <div class="logo" style="cursor: pointer;">
+                <h1 style="font-size: 20px; font-family: Cinzel Decorative, serif; text-align: center; margin-top: 9px; font-weight: normal;">HASEEB</h1>
+<p style="font-size:  7px; letter-spacing: 1.7px; margin-top: -8px; font-family: Jost, sans-serif; text-align: center;">COLLECTION</p>
+
+              </div>
+              
+            <nav style="justify-content: left; font-weight: 200;"  class="nav-links">
+                <a href="#home-section">Home</a>
+                <a href="#products-section">Shop</a>
+                <a href="#about-section">About</a>
+                <a href="#contact-section">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-bar" id="search-bar" style="border: 1.3px solid #e2e2e2; width: 200px; height: 40px; display: flex; align-items: center; margin-top: -2px;">
+                    <button class="cute-search-button" onclick="performSearch()" style="background: none; border: none; cursor: pointer; font-weight: 400; margin-right: -2px;">
+                      <i style="font-weight: 300" class="fa-regular fa-search"></i>
+                    </button>
+                    <input type="text" class="cute-search-input" id="cute-search" placeholder="Search products.." style="border: none; outline: none; flex: 1;"/>
+                  </div>
+                  
+              
+                    
+                <div class="cart-icon" id="open-cart" title="Open Cart" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
+                    <i class="fa-regular fa-shopping-bag"  style="font-weight: 300;"></i>
+                    <span class="cart-count" style="background: #000;">0</span>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i style="font-weight: 300;" class="fa-regular fa-bars"></i>
+                </div>
+            </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-links">
+                <a href="#home-section">Home</a>
+                <a href="#products-section">Shop</a>
+                <a href="#about-section">About</a>
+                <a href="#contact-section">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home-section">
+            <div class="hero-content">
+                <h1>Summer Collection 2025</h1>
+                <p>Discover our Premium streetwear essentials designed for urban explorers.</p>
+                <button class="btn" onclick="scrollToSection('#products-section')">Shop Now</button>
+            </div>
+        </section><br><br>
+
+         <h2 class="section-title" style="font-weight: 500;">EXPLORE OUR COLLECTION</h2><br><br>
+ <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://habitt.com/cdn/shop/files/FAR_7154re.jpg?v=1738559407" alt="Nature">
+                <div class="slide-content">
+                    <h2>The Premium designs</h2>
+                    <p>Experience the perfect blend of softness, style, and comfort with our premium bed sheets</p>
+                    
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://apricot.com.pk/cdn/shop/files/bedsheets_24.jpg?v=1728041970" alt="City">
+                <div class="slide-content">
+                    <h2>Luxury You Can Sleep In</h2>
+                    <p>Upgrade your sleep with our ultra-soft, breathable bed sheet collection.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://pkbrandsales.com/wp-content/uploads/2024/02/Export-Bedsheets-4.png" alt="Technology">
+                <div class="slide-content">
+                    <h2>Dream in Comfort</h2>
+                    <p>Wrap yourself in comfort every night with our premium-quality sheets..</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://jacknjill.pk/cdn/shop/products/010.jpg?v=1645273544&width=1946" alt="Food">
+                <div class="slide-content">
+                    <h2>Softness That Speaks Quality</h2>
+                    <p>Discover dreamy nights and stylish mornings with our latest bed sheet range.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-controls">
+            <button class="slider-btn prev-btn">❮</button>
+            <button class="slider-btn next-btn">❯</button>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+ 
+        <!-- Products Grid -->
+        <section class="products-section" id="products-section">
+                       <h5 style="margin-top: -3px;">EXCLUSIVE</h5>
+            <h2 class="section-title"  style="font-weight: 500;">FEATURED PRODUCTS</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-product="1" data-category="bed sheet">
+                    <span class="product-badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" alt="Classic Tee" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Classic Logo Tee</h3>
+                            <p class="product-price">Rs.1199 <del> Rs.1299</del></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product="2"data-category="bed sheet">
+                    <span class="product-badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80" alt="Overshirt" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Utility Overshirt</h3>
+                            <p class="product-price">$125.00  <del>1299</del></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-product="3"data-category="bed sheet">
+                    <span class="product-badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cargo Pants" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Tactical Cargo Pants</h3>
+                            <p class="product-price">$95.00 <del>1299</del></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-product="4" data-category="bed sheet">
+                    <span class="product-badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Hoodie" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Essential Hoodie</h3>
+                            <p class="product-price">$85.00 <del>1299.00</del></p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="product-card" data-product="5">
+                    <span class="product-badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cargo Pants" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Tactical Cargo Pants</h3>
+                            <p class="product-price">Rs. 125.00  <del>Rs.1299.00</del></p>
+                        </div>
+                    </div>
+                </div>
+
+                
+ <div class="product-card" data-product="6">
+    <span class="product-badge">Limited</span>
+                    <img src="https://www.mashalcouture.com/cdn/shop/files/designofkurtapajama_ef38660a-e46a-4f0d-b818-806efd7183e7.jpg?v=1709980688" alt="Cargo Pants" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Kurta For Men </h3>
+                            <p class="product-price">Rs. 1900.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="product-card" data-product="7">
+                    <span class="product-badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cargo Pants" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Tactical Cargo Pants</h3>
+                            <p class="product-price">$95.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="product-card" data-product="8">
+                    <span class="product-badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cargo Pants" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Tactical Cargo Pants</h3>
+                            <p class="product-price">$95.00</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+<!-- Product 1 --><!-- Product 1 --><!-- Product 1 --><!-- Product 1 --><!-- Product 1 --><!-- Product 1 --><!-- Product 1 -->
+
+          <section class="products-section" id="products-section">
+             <h5 style="margin-top: -3px;">PREMIUM</h5>
+            <h2 class="section-title"  style="font-weight: 500;" >OUR BEST SELLERS</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-product="1" data-category="bed sheet">
+                    <span class="product-badge">Trending Now</span>
+                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" alt="Classic Tee" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Classic Logo Tee</h3>
+                            <p class="product-price">$45.00 <del>1299</del></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product="2"data-category="bed sheet">
+                    <span class="product-badge">Trending Now</span>
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80" alt="Overshirt" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Utility Overshirt</h3>
+                            <p class="product-price">$125.00  <del>1299</del></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Product 4 -->
+                <div class="product-card" data-product="4" data-category="bed sheet">
+                    <span class="product-badge">Trending Now</span>
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Hoodie" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Essential Hoodie</h3>
+                            <p class="product-price">$85.00 <del>1299</del></p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="product-card" data-product="5">
+                    <span class="product-badge">Trending Now</span>
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cargo Pants" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Tactical Cargo Pants</h3>
+                            <p class="product-price">95.00</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- About Section -->
+
+
+<style>
+.premium-single-showcase {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Background image with 30% transparency */
+.premium-single-showcase::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://sanwara.com/cdn/shop/files/SY1_SK_975_OLV_1.jpg?v=1741691542');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4; /* 30% transparency */
+  z-index: 1;
+}
+
+.showcase-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 2; /* Ensure content appears above the background */
+}
+
+.showcase-content {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: flex-start;
+  min-height: 600px; /* Give some height to showcase the background */
+  justify-content: center;
+}
+
+.text-content {
+  max-width: 600px;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white background for text */
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.lead-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.details-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+}
+
+.shop-now-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 14px 32px;
+  background: #ffffffbd;
+  color: rgb(32, 32, 32);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #585858;
+
+}
+
+.shop-now-btn:hover {
+  background: #fafafa;
+  transform: translateY(-2px);
+  border: 1px solid #575757;
+}
+
+.btn-arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.shop-now-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Animations */
+.animate-slide {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .premium-single-showcase {
+    padding: 4rem 0;
+  }
+  
+  .text-content {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .lead-text {
+    font-size: 1rem;
+  }
+  
+  .details-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-wrapper {
+    padding: 0 1rem;
+  }
+  
+  .text-content {
+    padding: 1.5rem;
+  }
+  
+  .shop-now-btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+</style>
+
+<section class="premium-single-showcase" id="about-section">
+  <div class="showcase-wrapper">
+    <div class="showcase-content">
+      <div class="text-content animate-slide">
+        <h2 class="section-title">OUR JOURNEY</h2>
+        <p class="lead-text">Founded in 2025, Haseeb Collection began with a mission to provide stylish and high-quality kurtas that reflect both tradition and elegance.</p>
+        <div class="details-text">
+          <p>We believe everyone deserves to wear clothes that make them feel confident and proud. That's why each of our kurtas is carefully designed with attention to detail.</p>
+          <p>Our goal is to deliver premium craftsmanship at a munaasib (reasonable) price — because great style shouldn't come with a high cost.</p>
+        </div>
+        <a href="#" class="shop-now-btn">
+          Shop Now <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <!-- HTML: Customer Reviews Section -->
+        <section class="reviews-section" id="reviews">
+            <h2 class="review-h2" style="font-weight: 500;">WHAT OUR CUSTOMER SAYS</h2>
+            <div class="h2-line"></div><br><br>
+            
+            <div class="reviews-container">
+              <div class="review-card">
+                <h3>Ayesha Khan</h3>
+                <p>"Absolutely loved the quality of the bedsheets! the colors are vibrant and material is soft."</p>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="review-card">
+                <h3>Ali Raza</h3>
+                <p>Fast delivery and amazing fabric! Definitely ordering again, The packaging was neat</p>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+              </div>
+              <div class="review-card">
+                <h3>Fatima Noor</h3>
+                <p>"Got exactly what I saw on the website. Looks perfect on my bed!"</p>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="review-card">
+                <h3>Hamza Ali</h3>
+                <p>"Very comfortable and beautiful design. Recommended to everyone!"</p>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+            
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact-section">
+            <h2 class="section-title">CONTACT US</h2><br><br>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fa-regular fa-map-marker-alt"></i>S11, Quba Masjid, Orangi, Karachi</p>
+                    <p><i class="fa-regular fa-phone"></i> +92 3412825465</p>
+                    <p><i class="fa-regular fa-envelope"></i> haseebcollection903@gmail.com</p>
+                    <p><i class="fa-regular fa-clock"></i> Sun-Fri: 9AM - 12PM</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+<br>
+    <!-- Product Detail Section (Initially Hidden) -->
+    <section class="product-detail-section" id="product-detail-section">
+        <div class="back-to-shop" id="back-to-shop">
+            <i class="fa-regular fa-arrow-left"></i>
+            <span>Back to Shop</span>
+        </div>
+
+        <div class="product-detail-container">
+            <div class="product-gallery">
+                <div class="thumbnail-container" id="thumbnail-container">
+                    <!-- Thumbnails will be added dynamically -->
+                </div>
+                <img src="" class="main-image" id="main-image">
+            </div>
+
+            <div class="product-detail-content">
+                <h1 class="product-detail-title" id="product-title">Product Title</h1>
+                <p class="product-detail-price" id="product-price">$0.00</p>
+                <p class="product-detail-description" id="product-description">
+                    Product description will appear here.
+                </p>
+
+                <div class="size-selector">
+                    <h3>Quantity</h3>
+                    <div class="size-options" id="size-options">
+                        <!-- Size options will be added dynamically -->
+                    </div>
+                </div>
+
+                <button class="add-to-cart" id="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <style>
+   .payment-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  background: #fff;
+}
+
+.payment-feature {
+  flex: 1 1 45%;
+  max-width: 370px;
+  background: #ffffff;
+  border-radius: 2px;
+  padding: 15px;
+  text-align: center;
+}
+
+.payment-feature .icon {
+  font-size: 35px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.payment-feature h4 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+}
+
+.payment-feature p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* Responsive design for under 400px */
+@media (max-width: 400px) {
+  .payment-feature {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+</style>
+
+<div class="payment-section">
+  <div class="payment-feature">
+    <i class="fa-regular fa-gem icon"></i>
+    <h4>PREMIUM QUALITY</h4>
+    <p>Our products are crafted with exceptional attention to detail, guaranteeing top-notch quality every time.</p>
+  </div>
+
+  <div class="payment-feature">
+    <i class="fa-regular fa-truck-fast icon"></i>
+    <h4>FAST DELIVERY</h4>
+    <p>Enjoy delivery at reasonable price on all orders, ensuring a seamless shopping experience right to your doorstep.</p>
+  </div>
+
+  <div class="payment-feature">
+    <i class="fa-regular fa-credit-card icon"></i>
+    <h4>SECURE PAYMENT</h4>
+    <p>Shop with confidence using our secure payment options, designed to protect your personal information.</p>
+  </div>
+</div>
+
+
+<div class="ticker-container">
+    <div class="ticker-content">
+        <!-- Original Content -->
+        <span class="ticker-item"> New Arrival: Luxurious 1000 Thread Count Egyptian Cotton Bedsheets</span>
+        <span class="ticker-item"> Haseeb Collection - Voted Best Bedding Brand 2025</span>
+        <span class="ticker-item"> Limited Time Offer: Get 25% Off on Premium Silk Bedsheet Sets</span>
+        <span class="ticker-item"> Fast Shipping on All Orders Over Orangi Town</span>
+        <span class="ticker-item"> Experience Unmatched Comfort with Our Breathable Bamboo Fiber Collection</span>
+        <span class="ticker-item"> Over 5,000 5-Star Reviews from Satisfied Customers</span>
+        
+        <!-- Duplicate Content for Seamless Looping -->
+        <span class="ticker-item"> New Arrival: Luxurious 1000 Thread Count Egyptian Cotton Bedsheets</span>
+        <span class="ticker-item"> Haseeb Collection - Voted Best Bedding Brand 2025</span>
+        <span class="ticker-item"> Limited Time Offer: Get 25% Off on Premium Silk Bedsheet Sets</span>
+        <span class="ticker-item"> Fast Shipping on All Orders Over Orangi Town</span>
+        <span class="ticker-item"> Experience Unmatched Comfort with Our Breathable Bamboo Fiber Collection</span>
+        <span class="ticker-item"> Over 5,000 5-Star Reviews from Satisfied Customers</span>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-col">
+                <div class="footer-logo">Haseeb Collection</div>
+                <p>Premium streetwear for the modern urban explorer. Quality craftsmanship meets contemporary design.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#products-section">New Arrivals</a></li>
+                        <li><a href="#products-section">Men</a></li>
+                        <li><a href="#products-section">Women</a></li>
+                        <li><a href="#products-section">Accessories</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-links">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">2 days return policy</a></li>
+                        <li><a href="#">Delivery can take 4 days </a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Order Issues</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-links">
+                    <h3>Newsletter</h3>
+                    <div class="newsletter">
+                        <p>Subscribe for updates and exclusive offers</p>
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Haseeb Collection. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Cart Sidebar -->
+<div id="cart-sidebar" class="cart-sidebar">
+    <h2>Cart</h2>
+    <ul id="cart-items"></ul>
+    <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="9c0dc60b-4afe-4c0d-b953-cf8767abbed9">
+        <input type="text" name="name" placeholder="Your Name" required
+        style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px; outline: none; box-sizing: border-box; transition: border-color 0.3s ease;" />
+    
+    <input type="text" name="address" placeholder="Your Address" required
+        style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px; outline: none; box-sizing: border-box; transition: border-color 0.3s ease;" />
+    
+    <input type="tel" name="phone" placeholder="Your Phone Number" required
+        style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px; outline: none; box-sizing: border-box; transition: border-color 0.3s ease;" />
+    
+        <input type="hidden" name="order_details" id="order-details">
+        <input type="hidden" name="total_amount" id="total-price">
+        
+        <div class="cart-total">
+            <strong>Total:</strong> Rs. <span id="total-amount">0</span>
+        </div>
+        <div class="order-section">
+            <button id="confirm-order" type="submit">Confirm Order
+            </button><br>
+            <button id="clear-cart" type="button">Clear Cart
+            </button><br>
+            <button id="close-cart" type="button">Close
+            </button><br>
+        </div>
+    </form>
+</div>
+
+<!-- Cart Open Button -->
+
+
+</body>
+    <script>
+        
+        const reviewCards = document.querySelectorAll('.review-card');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('fade-in');
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+reviewCards.forEach(card => observer.observe(card));
+
+
+ // Update your existing JavaScript to this:
+  document.addEventListener('DOMContentLoaded', function() {
+    const animateOnScroll = function() {
+      const elements = document.querySelectorAll(
+        '.product-card, footer, .footer-column , .about-section , .contact-section , .reviews-section'
+      );
+      
+      elements.forEach(el => {
+        const elementPosition = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          el.classList.add('animate-in');
+        }
+      });
+    };
+    
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+  });
+
+  
+
+       const searchInput = document.getElementById('cute-search');
+
+searchInput.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    performSearch();
+  }
+});
+
+function performSearch() {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  const productCards = document.querySelectorAll('.product-card');
+  let found = false;
+
+  productCards.forEach(card => {
+    const title = card.querySelector('.product-title').textContent.toLowerCase();
+    const category = card.getAttribute('data-category')?.toLowerCase() || "";
+
+    if (title.includes(searchTerm) || category.includes(searchTerm)) {
+      card.style.display = 'block';
+      found = true;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  const noResults = document.getElementById('no-results');
+  if (noResults) {
+    noResults.style.display = found ? 'none' : 'block';
+  }
+}
+
+// Cart functionality
+const cart = [];
+const cartItems = document.getElementById('cart-items');
+const totalAmount = document.getElementById('total-amount');
+const orderDetails = document.getElementById('order-details');
+const totalPrice = document.getElementById('total-price');
+const openCartButton = document.getElementById('open-cart');
+const closeCartButton = document.getElementById('close-cart');
+const cartSidebar = document.getElementById('cart-sidebar');
+const toast = document.createElement('div');
+toast.className = 'toast';
+document.body.appendChild(toast);
+
+// Update Cart
+function updateCart() {
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} ${item.size ? '(Quantity: ' + item.size + ') ' : ''}(x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`;
+        cartItems.appendChild(li);
+        total += item.price * item.quantity;
+    });
+
+    totalAmount.textContent = total.toFixed(2);
+    totalPrice.value = total.toFixed(2);
+    orderDetails.value = JSON.stringify(cart);
+    
+    // Update cart count
+    const cartCount = document.querySelectorAll('.cart-count');
+    const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.forEach(count => {
+        count.textContent = itemCount;
+        count.style.display = itemCount > 0 ? 'flex' : 'none';
+    });
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<li>No items in cart.</li>';
+    }
+}
+
+// Show Toast Notification
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// Cart Sidebar Toggle
+openCartButton.addEventListener('click', () => {
+    cartSidebar.classList.add('active');
+});
+
+closeCartButton.addEventListener('click', () => {
+    cartSidebar.classList.remove('active');
+});
+
+// Clear Cart
+document.getElementById('clear-cart').addEventListener('click', () => {
+    cart.length = 0;
+    updateCart();
+    showToast('Cart cleared');
+});
+
+// Form Submission
+document.getElementById('order-form').addEventListener('submit', function(e) {
+    if (cart.length === 0) {
+        e.preventDefault();
+        showToast('Your cart is empty!');
+        return;
+    }
+    
+    showToast('Order submitted successfully!');
+});
+
+// Initialize cart
+updateCart();
+
+        // Product Data
+        const products = {
+            1: {
+                title: "Classic Logo Tee",
+                price: "$45.00",
+                description: "Our signature classic tee featuring the Falcon logo embroidery on the chest. Made from premium 100% organic cotton for superior comfort and durability. Regular fit with a slightly oversized silhouette for a contemporary streetwear look.",
+                images: [
+                    "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80",
+                    "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1664&q=80",
+                    "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1664&q=80"
+                ],
+                sizes: ["XS", "S", "M", "L", "XL"]
+            },
+            2: {
+                title: "Utility Overshirt",
+                price: "$125.00",
+                description: "A versatile overshirt crafted from a durable cotton-blend fabric with a water-repellent finish. Features multiple pockets and an adjustable fit for functional urban styling. Perfect for layering in transitional weather.",
+                images: [
+                    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80",
+                    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80",
+                    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80"
+                ],
+                sizes: ["S", "M", "L", "XL"]
+            },
+            3: {
+                title: "Tactical Cargo Pants",
+                price: "$95.00",
+                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
+                images: [
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                ],
+                sizes: ["28", "30", "32", "34", "36"]
+            },
+            4: {
+                title: "Essential Hoodie",
+                price: "$85.00",
+                description: "Our premium heavyweight hoodie with a relaxed fit. Features kangaroo pocket and ribbed cuffs for a classic look with modern comfort. Made from 80% cotton and 20% polyester for warmth and durability.",
+                images: [
+                    "https://img.freepik.com/premium-photo/pair-blue-running-sneakers-red-background_77190-7570.jpg?w=360",
+                    "https://static.vecteezy.com/system/resources/previews/013/144/078/non_2x/pair-of-blue-running-sneakers-on-white-background-isolated-photo.jpg",
+                    "https://static.vecteezy.com/system/resources/thumbnails/013/143/819/small/blue-running-sneaker-on-blue-background-close-up-photo.jpg"
+                ],
+                sizes: ["S", "M", "L", "XL"]
+            },
+             5: {
+                title: "Tactical Cargo Pants",
+                price: "$95.00",
+                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
+                images: [
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                ],
+                sizes: ["28", "30", "32", "34", "36"]
+            },
+             6: {
+                title: "Kurta For Men",
+                price: "1900",
+                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
+                images: [
+                    "https://i.etsystatic.com/35486431/r/il/a37e01/5798693741/il_570xN.5798693741_mzb4.jpg",
+                    "https://i.pinimg.com/736x/07/23/af/0723af8221e36851ea8aa533bd9aabf8.jpg",
+                    "https://d2wvwvig0d1mx7.cloudfront.net/data/org/194/media/img/cache/768x0/1702180_768x0.jpg"
+                ],
+                sizes: ["28", "30", "32", "34", "36"]
+            },
+             7: {
+                title: "Tactical Cargo Pants",
+                price: "$95.00",
+                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
+                images: [
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                ],
+                sizes: ["28", "30", "32", "34", "36"]
+            },
+             8: {
+                title: "Tactical Cargo Pants",
+                price: "$95.00",
+                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
+                images: [
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                ],
+                sizes: ["28", "30", "32", "34", "36"]
+            }
+        };
+
+        // DOM Elements
+        const productCards = document.querySelectorAll('.product-card');
+        const productDetailSection = document.getElementById('product-detail-section');
+        const mainContent = document.querySelector('.main-content');
+        const backToShop = document.getElementById('back-to-shop');
+        const thumbnailContainer = document.getElementById('thumbnail-container');
+        const mainImage = document.getElementById('main-image');
+        const productTitle = document.getElementById('product-title');
+        const productPrice = document.getElementById('product-price');
+        const productDescription = document.getElementById('product-description');
+        const sizeOptions = document.getElementById('size-options');
+        const addToCartBtn = document.getElementById('add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const header = document.getElementById('header');
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+
+
+        // Open Product Detail
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const productId = card.getAttribute('data-product');
+                const product = products[productId];
+
+                // Update product info
+                productTitle.textContent = product.title;
+                productPrice.textContent = product.price;
+                productDescription.textContent = product.description;
+                
+                // Set data attribute for product ID
+                productDetailSection.setAttribute('data-product-id', productId);
+
+                // Clear and update thumbnails
+                thumbnailContainer.innerHTML = '';
+                product.images.forEach((img, index) => {
+                    const thumbnail = document.createElement('img');
+                    thumbnail.src = img;
+                    thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                    thumbnail.addEventListener('click', () => {
+                        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                        thumbnail.classList.add('active');
+                        mainImage.src = img;
+                    });
+                    thumbnailContainer.appendChild(thumbnail);
+                });
+
+                // Set main image
+                mainImage.src = product.images[0];
+
+                // Update size options
+                sizeOptions.innerHTML = '';
+                product.sizes.forEach(size => {
+                    const sizeOption = document.createElement('div');
+                    sizeOption.className = 'size-option';
+                    sizeOption.textContent = size;
+                    sizeOption.addEventListener('click', () => {
+                        document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
+                        sizeOption.classList.add('selected');
+                        addToCartBtn.setAttribute('data-selected-size', size);
+                    });
+                    sizeOptions.appendChild(sizeOption);
+                });
+
+                // Default select first size
+                if (sizeOptions.firstChild) {
+                    sizeOptions.firstChild.classList.add('selected');
+                    addToCartBtn.setAttribute('data-selected-size', sizeOptions.firstChild.textContent);
+                }
+
+                // Hide main content and show product detail
+                mainContent.style.display = 'none';
+                productDetailSection.style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Back to Shop
+        backToShop.addEventListener('click', () => {
+            productDetailSection.style.display = 'none';
+            mainContent.style.display = 'block';
+            window.scrollTo(0, 0);
+        });
+
+        // Add to Cart from product detail page
+        addToCartBtn.addEventListener('click', () => {
+            const productId = productDetailSection.getAttribute('data-product-id');
+            const product = products[productId];
+            const selectedSize = addToCartBtn.getAttribute('data-selected-size');
+            
+            const existingItem = cart.find(item => 
+                item.name === product.title && item.size === selectedSize
+            );
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ 
+                    name: product.title, 
+                    price: parseFloat(product.price.replace('$', '').replace('Rs.', '')), 
+                    size: selectedSize,
+                    quantity: 1 
+                });
+            }
+
+            updateCart();
+            showToast(`${product.title} (Quantity: ${selectedSize}) added to cart`);
+        });
+
+        // Smooth scrolling function
+        function scrollToSection(selector) {
+            const target = document.querySelector(selector);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToSection(this.getAttribute('href'));
+            });
+           
+        });
+          document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dots = document.querySelectorAll('.dot');
+            
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            // Set initial position
+            updateSlider();
+            
+            // Next slide function
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateSlider();
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+            
+            // Update slider position and dots
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+                
+                // Add active class for animation
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentIndex].classList.add('active');
+            }
+            
+            // Button event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+            });
+            
+            // Touch events for mobile swipe
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+            
+            function handleSwipe() {
+                const difference = touchStartX - touchEndX;
+                if (difference > 50) {
+                    nextSlide(); // Swipe left
+                } else if (difference < -50) {
+                    prevSlide(); // Swipe right
+                }
+            }
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            
+            // Auto-slide (optional)
+            let autoSlideInterval = setInterval(nextSlide, 5000);
+            
+            // Pause auto-slide on hover/focus
+            const sliderContainer = document.querySelector('.slider-container');
+            sliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+            
+            sliderContainer.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // Focus management for accessibility
+            sliderContainer.addEventListener('focusin', () => {
+                clearInterval(autoSlideInterval);
+            });
+            
+            sliderContainer.addEventListener('focusout', () => {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            });
+              // Initialize cart from localStorage or create empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Update Cart and save to localStorage
+    function updateCart() {
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} ${item.size ? '(Quantity: ' + item.size + ') ' : ''}(x${item.quantity}) - Rs.${(item.price * item.quantity).toFixed(2)}`;
+            cartItems.appendChild(li);
+            total += item.price * item.quantity;
+        });
+
+        totalAmount.textContent = total.toFixed(2);
+        totalPrice.value = total.toFixed(2);
+        orderDetails.value = JSON.stringify(cart);
+        
+        // Update cart count
+        const cartCount = document.querySelectorAll('.cart-count');
+        const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.forEach(count => {
+            count.textContent = itemCount;
+            count.style.display = itemCount > 0 ? 'flex' : 'none';
+        });
+
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<li>No items in cart.</li>';
+        }
+
+        // Save cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Clear Cart (update this function too)
+    document.getElementById('clear-cart').addEventListener('click', () => {
+        cart.length = 0;
+        updateCart();
+        showToast('Cart cleared');
+        // Also remove from localStorage
+        localStorage.removeItem('cart');
+    });
+
+    // Initialize cart on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCart();
+        
+        // Rest of your existing DOMContentLoaded code...
+    });
+        });
+    </script>
+</body>
+</html>
