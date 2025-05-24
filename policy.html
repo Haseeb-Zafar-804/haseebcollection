@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies & Terms - Haseeb Collection</title>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #222222;
+            --secondary-color: #003553;
+            --accent-color: #1b1b1b;
+            --light-color: #f8f9fa;
+            --dark-color: #313131;
+            --gray-color: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Jost", sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            color: var(--dark-color);
+            line-height: 1.7;
+            background-color: #f5f7ff;
+        }
+        
+        .policy-container {
+            display: flex;
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
+        
+        .policy-nav {
+            width: 280px;
+            position: sticky;
+            top: 30px;
+            height: fit-content;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            padding: 25px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .policy-content {
+            flex: 1;
+            padding-bottom: 50px;
+        }
+        
+        .policy-nav h3 {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .policy-nav h3 i {
+            color: var(--accent-color);
+        }
+        
+        .policy-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .policy-nav a {
+            text-decoration: none;
+            color: var(--gray-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .policy-nav a i {
+            width: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .policy-nav a:hover {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+        
+        .policy-nav a.active {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .policy-section {
+            margin-bottom: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .policy-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+        
+        .policy-section h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .policy-section h2 i {
+            color: var(--accent-color);
+        }
+        
+        .policy-section h3 {
+            margin: 25px 0 15px;
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .policy-section h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 70%;
+            width: 4px;
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        
+        .policy-section ul, .policy-section ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .policy-section li::before {
+            content: '•';
+            position: absolute;
+            left: -5px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .policy-section ol {
+            counter-reset: item;
+        }
+        
+        .policy-section ol li {
+            counter-increment: item;
+            list-style-type: none;
+        }
+        
+        .policy-section ol li::before {
+            content: counter(item) ".";
+            color: var(--accent-color);
+            font-weight: bold;
+            left: -25px;
+        }
+        
+        .highlight-box {
+            background-color: rgba(72, 149, 239, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 992px) {
+            .policy-container {
+                flex-direction: column;
+                padding: 0 15px;
+                gap: 20px;
+            }
+            
+            .policy-nav {
+                width: 100%;
+                position: relative;
+                top: 0;
+                padding: 20px;
+            }
+            
+            .policy-nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .policy-nav a {
+                padding: 8px 15px;
+                background: rgba(67, 97, 238, 0.1);
+                border-radius: 20px;
+                font-size: 0.9rem;
+                border-left: none !important;
+            }
+            
+            .policy-nav a i {
+                display: none;
+            }
+            
+            .policy-section {
+                padding: 25px 20px;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .policy-nav a {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .policy-section {
+                padding: 20px 15px;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .policy-section {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .policy-section:nth-child(1) { animation-delay: 0.1s; }
+        .policy-section:nth-child(2) { animation-delay: 0.2s; }
+        .policy-section:nth-child(3) { animation-delay: 0.3s; }
+        .policy-section:nth-child(4) { animation-delay: 0.4s; }
+        .policy-section:nth-child(5) { animation-delay: 0.5s; }
+        .policy-section:nth-child(6) { animation-delay: 0.6s; }
+        .policy-section:nth-child(7) { animation-delay: 0.7s; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="policy-container">
+        <nav class="policy-nav">
+            <h3><i class="fa-regular fa-link"></i> Quick Links</h3>
+            <ul>
+                <li><a href="#return-policy" class="active"><i class="fa-regular fa-exchange-alt"></i> 2-Day Easy Return</a></li>
+                <li><a href="#delivery"><i class="fa-regular fa-truck"></i> 4-Day Delivery</a></li>
+                <li><a href="#cod"><i class="fa-regular fa-money-bill-wave"></i> Cash on Delivery</a></li>
+                <li><a href="#return-exchange"><i class="fa-regular fa-sync-alt"></i> Return & Exchange</a></li>
+                <li><a href="#order-help"><i class="fa-regular fa-question-circle"></i> Order Help</a></li>
+                <li><a href="#terms"><i class="fa-regular fa-file-contract"></i> Terms</a></li>
+                <li><a href="#privacy"><i class="fa-regular fa-lock"></i> Privacy</a></li>
+            </ul>
+        </nav>
+        
+        <div class="policy-content">
+            <section id="return-policy" class="policy-section">
+                <h2><i class="fa-regular fa-exchange-alt"></i> 2-Day Easy Return Policy</h2>
+                <p>We want you to be completely satisfied with your purchase. If you're not happy with your order, you can return it within 2 days of delivery for a full refund or exchange.</p>
+                
+                <div class="highlight-box">
+                    <h3>How to Initiate a Return</h3>
+                    <ul>
+                        <li>Contact our customer service within 48 hours of receiving your order</li>
+                        <li>Provide your order number and reason for return</li>
+                        <li>We'll WhatsApp you a return authorization and instructions</li>
+                    </ul>
+                </div>
+                
+                <h3>Conditions for Returns</h3>
+                <ul>
+                    <li>Item must be unused, unworn, and in original condition with tags attached</li>
+                    <li>Original packaging must be intact</li>
+                    <li>Proof of purchase required</li>
+                </ul>
+                
+                <h3>Refund Processing</h3>
+                <p>Refunds will be processed within 3-5 business days after we receive and inspect the returned item. The refund will be issued to your original payment method.</p>
+            </section>
+            
+            <section id="delivery" class="policy-section">
+                <h2><i class="fa-regular fa-truck"></i> Delivery Within 4 Days</h2>
+                <p>We guarantee delivery of your order within 4 business days for most locations in our service area.</p>
+                
+                <h3>Delivery Areas</h3>
+                <p>Our 4-day delivery guarantee applies to all major cities and towns within our service network. Some remote areas may experience slightly longer delivery times.</p>
+                
+                <div class="highlight-box">
+                    <h3>Tracking Your Order</h3>
+                    <ul>
+                        <li>You will receive a tracking number via email/SMS once your order ships</li>
+                        <li>Track your package in real-time through our website or mobile app</li>
+                        <li>Receive delivery notifications and estimated time of arrival</li>
+                    </ul>
+                </div>
+                
+                <h3>Delivery Exceptions</h3>
+                <p>Delivery times may be affected by circumstances beyond our control including weather conditions, customs delays for international orders, or incorrect address information provided.</p>
+            </section>
+            
+            <section id="cod" class="policy-section">
+                <h2><i class="fa-regular fa-money-bill-wave"></i> Pay with Cash on Delivery</h2>
+                <p>We offer Cash on Delivery (COD) as a convenient payment option for our customers.</p>
+                
+                <h3>COD Availability</h3>
+                <ul>
+                    <li>Available for orders up to ₹5,000</li>
+                    <li>Subject to availability in your area</li>
+                    <li>Not available for international orders</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <h3>COD Process</h3>
+                    <ul>
+                        <li>Place your order and select Cash on Delivery</li>
+                        <li>No advance payment required</li>
+                        <li>Pay the exact amount to the delivery agent when you receive your order</li>
+                    </ul>
+                </div>
+                
+                <h3>Important Notes</h3>
+                <ul>
+                    <li>Please have exact change ready</li>
+                    <li>We accept cash only - no checks or cards at delivery</li>
+                    <li>A nominal COD fee of ₹30 may apply to some orders</li>
+                </ul>
+            </section>
+            
+            <section id="return-exchange" class="policy-section">
+                <h2><i class="fa-regular fa-sync-alt"></i> Return & Exchange Info</h2>
+                <p>Our return and exchange policy is designed to make your shopping experience worry-free.</p>
+                
+                <h3>Eligibility for Returns/Exchanges</h3>
+                <ul>
+                    <li>Items must be returned within 2 days of delivery</li>
+                    <li>Original tags and packaging must be intact</li>
+                    <li>Proof of purchase required</li>
+                    <li>Some items marked "Final Sale" cannot be returned</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <h3>Exchange Process</h3>
+                    <ol>
+                        <li>Contact customer service to initiate exchange</li>
+                        <li>Return the original item following our return instructions</li>
+                        <li>Once received, we'll ship your replacement item</li>
+                    </ol>
+                </div>
+                
+                <h3>Return Shipping</h3>
+                <p>Customers are responsible for return shipping costs unless the return is due to our error (wrong item shipped, defective item, etc.). We provide prepaid return labels for our mistakes.</p>
+            </section>
+            
+            <section id="order-help" class="policy-section">
+                <h2><i class="fa-regular fa-question-circle"></i> Help with Order Issues</h2>
+                <p>We're here to help resolve any issues you may encounter with your order.</p>
+                
+                <div class="highlight-box">
+                    <h3>Common Issues & Solutions</h3>
+                    <ul>
+                        <li><strong>Wrong item received:</strong> Contact us immediately with photos of the item received</li>
+                        <li><strong>Damaged item:</strong> Send photos of the damage and packaging</li>
+                        <li><strong>Missing item:</strong> Check all packaging materials carefully, then contact us</li>
+                        <li><strong>Size/color not as expected:</strong> Refer to product description and size chart</li>
+                    </ul>
+                </div>
+                
+                <h3>Contacting Customer Service</h3>
+                <ul>
+                    <li><strong>Email:</strong> support@ourstore.com (response within 24 hours)</li>
+                    <li><strong>Phone:</strong> 1800-123-4567 (9am-9pm, 7 days a week)</li>
+                    <li><strong>Live Chat:</strong> Available on our website during business hours</li>
+                    <li><strong>WhatsApp:</strong> +91 98765 43210 (24/7 support)</li>
+                </ul>
+                
+                <h3>Dispute Resolution</h3>
+                <p>If you're unsatisfied with our resolution, you may escalate your concern to our customer relations team who will conduct a thorough review of your case.</p>
+            </section>
+            
+            <section id="terms" class="policy-section">
+                <h2><i class="fa-regular fa-file-contract"></i> Terms & Conditions</h2>
+                <p>By using our website and placing orders, you agree to the following terms and conditions:</p>
+                
+                <h3>General Terms</h3>
+                <ul>
+                    <li>All products are subject to availability</li>
+                    <li>We reserve the right to refuse service to anyone</li>
+                    <li>Prices are subject to change without notice</li>
+                    <li>We are not responsible for typographical errors</li>
+                </ul>
+                
+                <h3>Order Acceptance</h3>
+                <p>Your receipt of an order confirmation does not signify our acceptance of your order. We reserve the right to accept or decline your order for any reason after receipt.</p>
+                
+                <h3>Limitation of Liability</h3>
+                <p>Our total liability for any claim related to your use of our services shall not exceed the amount you paid for the product giving rise to the claim.</p>
+            </section>
+            
+            <section id="privacy" class="policy-section">
+                <h2><i class="fa-regular fa-lock"></i> Privacy Policy</h2>
+                <p>We are committed to protecting your privacy and personal information.</p>
+                
+                <h3>Information We Collect</h3>
+                <ul>
+                    <li>Personal information you provide when creating an account or placing an order</li>
+                    <li>Transaction and payment information</li>
+                    <li>Browsing behavior and website usage data</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <h3>How We Use Your Information</h3>
+                    <ul>
+                        <li>To process and fulfill your orders</li>
+                        <li>To communicate with you about your orders</li>
+                        <li>To improve our products and services</li>
+                        <li>For marketing purposes with your consent</li>
+                    </ul>
+                </div>
+                
+                <h3>Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure.</p>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelectorAll('.policy-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 30,
+                    behavior: 'smooth'
+                });
+                
+                // Add pulse animation to the target section
+                targetElement.style.animation = 'none';
+                setTimeout(() => {
+                    targetElement.style.animation = 'fadeIn 0.6s ease, pulse 1.5s ease';
+                }, 10);
+                
+                setTimeout(() => {
+                    targetElement.style.animation = 'fadeIn 0.6s ease';
+                }, 1500);
+            });
+        });
+        
+        // Update active link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.policy-section');
+            const navLinks = document.querySelectorAll('.policy-nav a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Add pulse animation keyframes dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4); }
+                70% { box-shadow: 0 0 0 10px rgba(67, 97, 238, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
