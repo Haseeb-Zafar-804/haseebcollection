@@ -2518,6 +2518,20 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Cart Sidebar -->
 <div id="cart-sidebar" class="cart-sidebar">
     <h2>Cart</h2>
+    <button id="close-cart" type="button" style="
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  color: rgb(49, 49, 49);
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: none;
+">×</button>
+
     <ul id="cart-items"></ul>
     <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="9c0dc60b-4afe-4c0d-b953-cf8767abbed9">
@@ -2541,8 +2555,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </button><br>
             <button id="clear-cart" type="button">Clear Cart
             </button><br>
-            <button id="close-cart" type="button">Close
-            </button><br>
+            <br>
         </div>
     </form>
 </div>
