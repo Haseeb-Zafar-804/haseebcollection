@@ -1802,7 +1802,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </div>
-                 <div class="product-card" data-product="5">
+                 <div class="product-card" data-product="6">
                     <span class="product-badge">Latest</span>
                     <img src="product6.jpg" alt="Cargo Pants" class="product-image">
                     <div class="product-info">
@@ -2093,10 +2093,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 #cart-items li img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
-    margin-top: -4rem;
+    margin-top: -3rem;
 }
 
 
@@ -2901,8 +2901,8 @@ function updateCart() {
         // Product image
         const img = document.createElement('img');
         img.src = item.image;
-        img.style.width = '70px';
-        img.style.height = '70px';
+        img.style.width = '80px';
+        img.style.height = '80px';
         img.style.objectFit = 'cover';
         li.appendChild(img);
 
@@ -2996,7 +2996,6 @@ closeCartButton.addEventListener('click', () => {
 document.getElementById('clear-cart').addEventListener('click', () => {
     cart.length = 0;
     updateCart();
-    showToast('Cart cleared');
 });
 
 // Submit Order
@@ -3058,7 +3057,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             3: {
                 title: "Royal Bloom King Size Bedsheet – Purple Fan Pattern",
-                price: "1,600",
+                price: "Rs. 1,600",
                 description: "A versatile overshirt crafted from a durable cotton-blend fabric with a water-repellent finish. Features multiple pockets and an adjustable fit for functional urban styling. Perfect for layering in transitional weather..",
                 images: [
                     "product3.jpg",
@@ -3069,7 +3068,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             4: {
                 title: "Textured Elegance King Bedsheet – Urban Striped Pattern",
-                price: "1,600",
+                price: "Rs. 1,600",
                 description: "A versatile overshirt crafted from a durable cotton-blend fabric with a water-repellent finish. Features multiple pockets and an adjustable fit for functional urban styling. Perfect for layering in transitional weather.",
                 images: [
                     "product4.jpg",
@@ -3080,7 +3079,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
              5: {
                 title: "Regal Hues Bedsheet – Dark Green, Ash Grey & Rustic Mustard",
-                price: "1,250",
+                price: "Rs. 1,250",
                 description: "A versatile overshirt crafted from a durable cotton-blend fabric with a water-repellent finish. Features multiple pockets and an adjustable fit for functional urban styling. Perfect for layering in transitional weather.",
                 images: [
                     "product5.jpg",
@@ -3091,7 +3090,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
              6: {
                 title: "Urban Lines – Earth-Tone Geometric Bed Set",
-                price: "1,250",
+                price: "Rs. 1,250",
                 description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
                 images: [
                     "product6.jpg",
@@ -3100,28 +3099,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                  sizes: ["1", "2", "3", "4"]
             },
-             7: {
-                title: "Tactical Cargo Pants",
-                price: "$95.00",
-                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
-                images: [
-                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-                ],
-                 sizes: ["1", "2", "3", "4"]
-            },
-             8: {
-                title: "Tactical Cargo Pants",
-                price: "$95.00",
-                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
-                images: [
-                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-                    "https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-                ],
-                sizes: ["1", "2", "3", "4"]
-            }
         };
 
         // DOM Elements
