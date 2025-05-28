@@ -2917,22 +2917,38 @@ function updateCart() {
             <div style="font-weight: 600; margin-top: 5px;">Rs. ${(item.price * item.quantity).toFixed(2)}</div>
         `;
 
-   // Remove button
 const removeBtn = document.createElement('button');
 removeBtn.innerHTML = '<i class="fa-regular fa-trash"></i>';
 removeBtn.style.position = 'absolute';
-removeBtn.style.top = '216px';
-removeBtn.style.right = '65px';
 removeBtn.style.background = 'none';
 removeBtn.style.border = 'none';
 removeBtn.style.cursor = 'pointer';
 removeBtn.style.color = '#999';
+
+// Function to set position based on screen width
+function setRemoveBtnPosition() {
+    if (window.innerWidth <= 768) { // mobile/tablet breakpoint
+        removeBtn.style.top = '197px';      // smaller top margin for mobile
+        removeBtn.style.right = '80px';    // smaller right margin for mobile
+    } else {
+        removeBtn.style.top = '197px';     // original desktop top
+        removeBtn.style.right = '65px';    // original desktop right
+    }
+}
+
+// Initial positioning
+setRemoveBtnPosition();
+
+// Update position on window resize
+window.addEventListener('resize', setRemoveBtnPosition);
+
 removeBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     cart.splice(index, 1);
     updateCart();
     showToast('Item removed from cart');
 });
+
 
 
         details.appendChild(removeBtn);
