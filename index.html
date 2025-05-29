@@ -2916,10 +2916,15 @@ function updateCart() {
 const removeBtn = document.createElement('button');
 removeBtn.innerHTML = '<i class="fa-regular fa-trash"></i>';
 removeBtn.style.position = 'absolute';
+removeBtn.style.overflow = 'hidden';
 removeBtn.style.background = 'none';
 removeBtn.style.border = 'none';
 removeBtn.style.cursor = 'pointer';
 removeBtn.style.color = '#999';
+
+window.addEventListener('resize', setRemoveBtnPosition);
+setRemoveBtnPosition(); // Call once initially
+
 
 // Function to set position based on screen width
 function setRemoveBtnPosition() {
