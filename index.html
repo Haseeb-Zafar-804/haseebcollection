@@ -507,10 +507,7 @@
             transition: background 0.3s ease;
             text-transform: uppercase;
             font-size: 14px;
-        }
-
-        .add-to-cart:hover {
-            background: var(--accent);
+            border-radius: 24px;
         }
 
         /* About Section */
@@ -818,12 +815,10 @@
     color: var(--white);
     border: none;
     cursor: pointer;
+    border-radius: 4px;
     transition: background 0.3s ease;
 }
 
-.order-section button:hover {
-    background: var(--accent);
-}
 
 /* Toast Notification */
 .toast {
@@ -1571,6 +1566,7 @@ h5{
 
         
     </style>
+    
 </head>
 <body>
     
@@ -2096,7 +2092,7 @@ document.addEventListener('DOMContentLoaded', function() {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    margin-top: -3rem;
+    margin-top: -3.4rem;
 }
 
 
@@ -2928,11 +2924,11 @@ removeBtn.style.color = '#999';
 // Function to set position based on screen width
 function setRemoveBtnPosition() {
     if (window.innerWidth <= 768) { // mobile/tablet breakpoint
-        removeBtn.style.top = '197px';      // smaller top margin for mobile
-        removeBtn.style.right = '80px';    // smaller right margin for mobile
+        removeBtn.style.top = '189px';     // original desktop top
+        removeBtn.style.right = '105px';   // smaller right margin for mobile
     } else {
-        removeBtn.style.top = '197px';     // original desktop top
-        removeBtn.style.right = '65px';    // original desktop right
+        removeBtn.style.top = '189px';     // original desktop top
+        removeBtn.style.right = '105px';    // original desktop right
     }
 }
 
@@ -2969,9 +2965,16 @@ removeBtn.addEventListener('click', (e) => {
         count.style.display = itemCount > 0 ? 'flex' : 'none';
     });
 
-    if (cart.length === 0) {
-        cartItems.innerHTML = '<li style="padding: 20px; text-align: center; color: #666;">Your cart is empty</li>';
-    }
+ if (cart.length === 0) {
+    cartItems.innerHTML = `
+       <li style="text-align: center; margin-bottom: 0; color: #999;">
+  <i class="far fa-shopping-cart" style="font-size: 40px; opacity: 0.4;"></i><br>
+  <span style="font-size: 14px;">Your Cart is Empty</span>
+</li>
+
+
+    `;
+}
 
     // Save to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -3020,7 +3023,7 @@ document.getElementById('order-form').addEventListener('submit', function (e) {
     }
 
     orderDetailsField.value = orderSummary;
-    totalPrice.value = cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
+    totalPrice.value = cart.reduce((sum, item) => sum + item.price * item.quantity *item.size , 0).toFixed(2);
 
     showToast('Order submitted successfully!');
 });
