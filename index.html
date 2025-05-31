@@ -56,7 +56,7 @@
         header {
             position: fixed;
             top: 0;
-            width: 100%;
+            width: 99.999%;
             background: var(--white);
             z-index: 1000;
             border-bottom: 1px solid var(--dark-gray);
@@ -72,7 +72,7 @@
             align-items: left;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         .logo {
@@ -118,7 +118,7 @@
         .header-actions {
             display: flex;
             align-items: left;
-            gap: 20px;
+            gap: 14px;
         }
 
         .search-icon, .cart-icon {
@@ -902,10 +902,11 @@
   display: flex;
   align-items: center;
   background-color: #fff;
-  padding: 10px 20px;
+  padding: 10px 10px;
   max-width: 500px;
-  margin: 30px auto;
+  margin: 20px auto;
   transition: all 0.3s ease;
+  margin-right: -20px;
 
 }
 
@@ -925,7 +926,7 @@
   color: #333;
   background-color: transparent;
   font-family: "Jost", sans-serif;
-  margin-left: -10px;
+  margin-left: -9px;
 }
 
 /* Button styling */
@@ -944,7 +945,8 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .cute-search-container {
-    padding: 8px 16px;
+    padding: 8px 10px;
+    margin-right: -8px;
     max-width: 90%;
   }
 
@@ -1603,6 +1605,7 @@ h5{
     <header id="header">
 
         <div class="header-container">
+
             <div class="logo" style="cursor: pointer;">
                 <h1 style="font-size: 20px; font-family: Cinzel Decorative, serif; text-align: center; margin-top: 9px; font-weight: normal;">HASEEB</h1>
 <p style="font-size:  7px; letter-spacing: 1.7px; margin-top: -8px; font-family: Jost, sans-serif; text-align: center;">COLLECTION</p>
@@ -1625,7 +1628,11 @@ h5{
                     <input type="text" class="cute-search-input" id="cute-search" placeholder="Search products.." style="border: none; outline: none; flex: 1;"/>
                   </div>
                   
-              
+<div class="wishlist-icon" title="Wishlist" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
+    <i class="fa-regular fa-heart" style="font-weight: 300;" onclick="openWishlist()"></i>
+    <span class="wishlist-count" style="background: #d80024; color: var(--white); border-radius: 50%; width: 18px; height: 18px; display: none; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
+</div>
+
                     
                 <div class="cart-icon" id="open-cart" title="Open Cart" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
                     <i class="fa-regular fa-shopping-bag"  style="font-weight: 300;"></i>
@@ -1654,7 +1661,7 @@ h5{
         <!-- Hero Section -->
         <section class="hero" id="home-section">
             <div class="hero-content">
-                <h1>Summer Collection 2025</h1>
+                <h1>Bedsheets Collection 2025</h1>
                  <p class="static-text">Discover our
 <span id="typing-text"></span>
 </p>
@@ -1780,14 +1787,12 @@ window.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </div>
-
-                <!-- Product 2 -->
-                <div class="product-card" data-product="2"data-category="bed sheet">
-                    <span class="product-badge">Latest</span>
-                    <img src="product2.jpg" alt="Overshirt" class="product-image">
+                 <div class="product-card" data-product="2"data-category="bed sheet">
+                <span class="product-badge">Latest</span>
+                <img src="product2.jpg" class="product-image">
                     <div class="product-info">
                         <div>
-                            <h3 class="product-title">Bold & Beautiful 3-Piece King Bedsheet Set - Floral Fan Print </h3>
+                            <h3 class="product-title">Royal Bloom King Size Bedsheet – Purple Fan Pattern</h3>
                             <p class="product-price">Rs. 1,600</p>
                         </div>
                     </div>
@@ -2118,9 +2123,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 #cart-items li img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
     margin-top: -3.4rem;
 }
 
@@ -2213,8 +2215,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </video>
     </div>
 </section>
-
-
 
 
 
@@ -2325,7 +2325,257 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </section>
+<style>
+  /* Mobile responsive styling */
+  @media (max-width: 768px) {
+    #wishlist-h5 {
+      display: flex;
+      text-align: center !important;
+      text-decoration: none;
+      color: #f3f3f3;
+    }
 
+    .section-title {
+      text-align: left !important;
+    }
+  }
+</style>
+
+    <!-- Wishlist Modal -->
+    <div class="wishlist-modal" id="wishlist-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f5f5f5; z-index: 1000; overflow-y: auto;">
+        <div style="padding: 40px 3%; max-width: 1400px; margin: 0 auto;">
+            <button onclick="closeWishlist()" style="float: left; font-size: 16px; margin-bottom: 20px; background: none; border: none; cursor: pointer;">&larr; Back</button>
+            <br><h5 id="wishlist-h5" style="font-size: 1rem;">Your Favorites</h5>
+            <h2 class="section-title" style="font-weight: 500;">Your Wishlist</h2>
+            
+            <div id="wishlist-grid" class="wishlist-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 7px;"></div>
+            
+            <div class="empty-wishlist" id="empty-wishlist" style="text-align: center; padding: 40px; display: none;">
+                <i class="fa-regular fa-heart" style="font-size: 50px; color: #ccc; margin-bottom: 20px;"></i>
+                <p style="color: #888;">Your wishlist is empty</p>
+                <button class="btn" onclick="closeWishlist(); scrollToSection('#products-section')" style="margin-top: 20px; color: #0e0e0e;">Browse Products</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+const wishlistGrid = document.getElementById('wishlist-grid');
+const emptyWishlist = document.getElementById('empty-wishlist');
+
+// Ensure products and cart exist globally
+// Example:
+// const products = { "prod1": {title: "Product 1", price: "Rs.1,000", images: ["url1"]}, ... };
+// let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateWishlist() {
+    // Remove invalid product IDs
+    wishlist = wishlist.filter(productId => !!products[productId]);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+    wishlistGrid.innerHTML = '';
+
+    if (wishlist.length === 0) {
+        emptyWishlist.style.display = 'block';
+        wishlistGrid.style.display = 'none';
+    } else {
+        emptyWishlist.style.display = 'none';
+        wishlistGrid.style.display = 'grid';
+
+        wishlist.forEach((productId, index) => {
+            const product = products[productId];
+            if (product) {
+                const wishlistItem = document.createElement('div');
+                wishlistItem.className = 'product-card';
+                wishlistItem.innerHTML = `
+                    <button class="remove-wishlist" data-index="${index}" 
+                        style="position: absolute; top: 10px; right: 10px; background: white; border: none; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;">
+                        <i class="fa-solid fa-heart" style="color: red;"></i>
+                    </button>
+                    <img src="${product.images[0]}" alt="${product.title}" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">${product.title}</h3>
+                            <p class="product-price">${product.price}</p>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-from-wishlist" data-product="${productId}" 
+                        style="width: 100%; padding: 10px; margin-top: 10px; background: #000; color: #fff; border: none; border-radius: 30px; cursor: pointer;">
+                        Add to Cart
+                    </button>
+                `;
+                wishlistGrid.appendChild(wishlistItem);
+            }
+        });
+    }
+
+    updateAllWishlistButtons();
+    updateWishlistCount();
+}
+
+function updateAllWishlistButtons() {
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        const productId = btn.getAttribute('data-product');
+        const isInWishlist = wishlist.includes(productId);
+        btn.innerHTML = `<i class="fa-${isInWishlist ? 'solid' : 'regular'} fa-heart"></i>`;
+        btn.querySelector('i').style.color = isInWishlist ? 'red' : '';
+    });
+}
+
+function updateWishlistCount() {
+    const wishlistCountElements = document.querySelectorAll('.wishlist-count');
+    wishlistCountElements.forEach(el => {
+        el.textContent = wishlist.length;
+        el.style.display = wishlist.length > 0 ? 'flex' : 'none';
+    });
+}
+
+function addToWishlist(productId) {
+    if (!wishlist.includes(productId)) {
+        wishlist.push(productId);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateWishlist();
+        showToast('Added to wishlist');
+        return true;
+    } else {
+        showToast('Already in wishlist');
+        return false;
+    }
+}
+
+function removeFromWishlistByProductId(productId) {
+    const index = wishlist.indexOf(productId);
+    if (index !== -1) {
+        wishlist.splice(index, 1);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateWishlist();
+        showToast('Removed from wishlist');
+    }
+}
+
+// This version removes by index only when explicitly removing via the button on wishlist modal
+function removeFromWishlist(index) {
+    if (index >= 0 && index < wishlist.length) {
+        wishlist.splice(index, 1);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateWishlist();
+        showToast('Removed from wishlist');
+    }
+}
+
+function addWishlistButtons() {
+    document.querySelectorAll('.product-card').forEach(card => {
+        const productId = card.getAttribute('data-product');
+        if (!productId) return;
+
+        const existingBtn = card.querySelector('.wishlist-btn');
+        if (existingBtn) existingBtn.remove();
+
+        const wishlistBtn = document.createElement('button');
+        wishlistBtn.className = 'wishlist-btn';
+        wishlistBtn.setAttribute('data-product', productId);
+        wishlistBtn.innerHTML = `<i class="fa-${wishlist.includes(productId) ? 'solid' : 'regular'} fa-heart"></i>`;
+
+        if (wishlist.includes(productId)) {
+            wishlistBtn.querySelector('i').style.color = 'red';
+        }
+
+        Object.assign(wishlistBtn.style, {
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            background: 'white',
+            border: 'none',
+            width: '30px',
+            height: '30px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            zIndex: '2'
+        });
+
+        card.appendChild(wishlistBtn);
+    });
+}
+
+document.addEventListener('click', function (e) {
+    // Add to cart from wishlist
+    if (e.target.closest('.add-to-cart-from-wishlist')) {
+        const btn = e.target.closest('.add-to-cart-from-wishlist');
+        const productId = btn.getAttribute('data-product');
+        const product = products[productId];
+        if (!product) return;
+
+        let existingItem = cart.find(item => item.id === productId);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({
+                id: productId,
+                name: product.title,
+                price: parseFloat(product.price.replace(/Rs\.|,/g, '')),
+                quantity: 1,
+                image: product.images[0]
+            });
+        }
+
+        updateCart();
+        showToast(`${product.title} added to cart`);
+        e.preventDefault();
+    }
+
+    // Remove from wishlist by index (from wishlist modal)
+    if (e.target.closest('.remove-wishlist')) {
+        const index = parseInt(e.target.closest('.remove-wishlist').getAttribute('data-index'));
+        removeFromWishlist(index);
+        e.preventDefault();
+    }
+
+    // Toggle wishlist button on product cards
+    if (e.target.closest('.wishlist-btn') || e.target.closest('.wishlist-btn i')) {
+        const btn = e.target.closest('.wishlist-btn');
+        const productId = btn.getAttribute('data-product');
+        if (!productId) return;
+
+        if (wishlist.includes(productId)) {
+            removeFromWishlistByProductId(productId);
+        } else {
+            addToWishlist(productId);
+        }
+        e.preventDefault();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Remove duplicates and save again
+    wishlist = Array.from(new Set(wishlist));
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+    updateWishlist();
+    addWishlistButtons();
+});
+
+function openWishlist() {
+    const wishlistModal = document.getElementById('wishlist-modal');
+    if (wishlistModal) {
+        wishlistModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        window.scrollTo(0, 0);
+        updateWishlist();
+    }
+}
+
+function closeWishlist() {
+    const wishlistModal = document.getElementById('wishlist-modal');
+    if (wishlistModal) {
+        wishlistModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+</script>
     <style>
    .payment-section {
   display: flex;
@@ -2950,6 +3200,10 @@ removeBtn.style.background = 'none';
 removeBtn.style.border = 'none';
 removeBtn.style.cursor = 'pointer';
 removeBtn.style.color = '#999';
+removeBtn.style.whiteSpace = "normal";
+removeBtn.style.wordBreak = "break-word";
+removeBtn.style.overflowWrap = "break-word";
+
 
 window.addEventListener('resize', setRemoveBtnPosition);
 setRemoveBtnPosition(); // Call once initially
