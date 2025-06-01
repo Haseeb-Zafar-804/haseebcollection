@@ -118,7 +118,7 @@
         .header-actions {
             display: flex;
             align-items: left;
-            gap: 14px;
+            gap: 16px;
         }
 
         .search-icon, .cart-icon {
@@ -323,7 +323,7 @@
             transition: transform 0.3s ease;
 
         }
-        @media (max-width: 400px) {
+        @media (max-width: 500px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 6px;
@@ -531,7 +531,7 @@
             object-fit: cover;
             border-radius: 1%;
         }
-
+.header-actions
         .about-text h2 {
             font-size: clamp(28px, 4vw, 32px);
             margin-bottom: 20px;
@@ -2480,21 +2480,22 @@ function addWishlistButtons() {
             wishlistBtn.querySelector('i').style.color = 'red';
         }
 
-        Object.assign(wishlistBtn.style, {
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            background: 'white',
-            border: 'none',
-            width: '30px',
-            height: '30px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            zIndex: '2'
-        });
+ Object.assign(wishlistBtn.style, {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    background: 'white',
+    border: 'none',
+    width: '38px',
+    height: '38px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    zIndex: '2',
+    fontSize: '17px' // ← Add this line
+});
 
         card.appendChild(wishlistBtn);
     });
@@ -2724,10 +2725,13 @@ function closeWishlist() {
     </footer>
     <!-- Cart Sidebar -->
 <div id="cart-sidebar" class="cart-sidebar">
-    <h2>Cart</h2>
-    <button id="close-cart" type="button" style="
+    <h2 style="font-weight: normal; font-size: 1.1em; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px; margin-bottom: 15px;">
+  Shopping Cart
+</h2>
+
+<button id="close-cart" type="button" style="
   position: absolute;
-  top: 13px;
+  top: 19px;
   right: 13px;
   color: rgb(49, 49, 49);
   font-size: 20px;
@@ -2737,7 +2741,12 @@ function closeWishlist() {
   cursor: pointer;
   border: none;
   background: none;
-">×</button>
+  display: flex;
+  align-items: center;
+  justify-content: center;
+">
+  <i class="fa-regular fa-times"></i>
+</button>
 
     <ul id="cart-items"></ul>
     <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
@@ -3255,7 +3264,7 @@ removeBtn.addEventListener('click', (e) => {
 
  if (cart.length === 0) {
     cartItems.innerHTML = `
-       <li style="text-align: center; margin-bottom: 0; color: #999;">
+       <li style="text-align: center; margin-bottom: 0; color: #000;">
   <i class="far fa-shopping-cart" style="font-size: 40px; opacity: 0.4;"></i><br>
   <span style="font-size: 14px;">Your Cart is Empty</span>
 </li>
