@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Details Recorder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --google-gray: #f1f1f1;
+            --google-dark-gray: #5f6368;
+            --google-light-gray: #f8f9fa;
+            --google-border: #dadce0;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+     body {
+    font-family: "Outfit", sans-serif; /* Ensure Outfit is imported via Google Fonts */
+    margin: 0;
+    padding: 0;
+    background-color: var(--google-light-gray);
+    color: #202124;
+    overflow-x: hidden;
+    overflow-y: auto;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-wrap: break-word;
+    -webkit-text-size-adjust: 100%; /* Prevents auto zooming on inputs in mobile */
+}
+
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(66, 133, 244, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--google-blue);
+            animation: spin 1s ease-in-out infinite;
+            z-index: 1000;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .spinner.active {
+            display: block;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: var(--google-dark-gray);
+            font-size: 20px;
+            margin-right: 20px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .menu-btn:hover {
+            background-color: var(--google-gray);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: var(--google-blue);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--google-dark-gray);
+        }
+
+       :root {
+  --sidebar-width: 260px; /* fallback if not set */
+  --google-gray: #f1f3f4;
+  --google-blue: #1a73e8;
+  --google-dark-gray: #3c4043;
+  --google-border: #dadce0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px; /* Hidden by default */
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Ensure it's above content */
+  overflow-y: auto;
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--google-border);
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Title */
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--google-dark-gray);
+}
+
+/* Close Button */
+.close-sidebar {
+  background: none;
+  border: none;
+  color: var(--google-dark-gray);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Content */
+.sidebar-content {
+  padding: 16px;
+}
+
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navigation */
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav-item {
+  margin-bottom: 4px;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: var(--google-dark-gray);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-nav-link:hover {
+  background-color: var(--google-gray);
+}
+
+.sidebar-nav-link.active {
+  background-color: rgba(66, 133, 244, 0.1);
+  color: var(--google-blue);
+}
+
+.sidebar-nav-icon {
+  margin-right: 12px;
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.sidebar-nav-text {
+  font-size: 14px;
+}
+
+/* Sections */
+.sidebar-section {
+  margin-bottom: 24px;
+}
+
+.sidebar-section-title {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--google-dark-gray);
+  padding: 8px 16px;
+  margin: 0;
+}
+
+
+        /* Main Content */
+        .main-content {
+            padding: 24px;
+            margin-left: 0; /* Default for mobile/smaller screens */
+            transition: margin-left 0.3s;
+        }
+
+        /* Editor Container */
+        .editor-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .editor-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--google-border);
+        }
+
+        .editor-title {
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid var(--google-border);
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-btn {
+            background-color: var(--google-blue);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background-color: #3367d6;
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto; /* Enable horizontal scrolling for tables on small screens */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* Ensures table doesn't get too cramped on smaller screens, allowing scroll */
+        }
+
+        .details-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background-color: var(--google-light-gray);
+            color: var(--google-dark-gray);
+            font-weight: 500;
+            border-bottom: 1px solid var(--google-border);
+        }
+
+        .details-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--google-border);
+            vertical-align: middle;
+        }
+
+        .details-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .editable-field {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            min-width: 100px;
+            display: inline-block;
+        }
+
+        .editable-field:hover {
+            border: 1px solid var(--google-border);
+            background-color: white;
+        }
+
+        .editable-field:focus {
+            outline: none;
+            border: 1px solid var(--google-blue);
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--google-dark-gray);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .action-btn:hover {
+            background-color: var(--google-gray);
+        }
+
+        /* Add Button */
+        .add-btn {
+            background-color: var(--google-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .add-btn i {
+            margin-right: 8px;
+        }
+
+        .add-btn:hover {
+            background-color: #3367d6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* No Data */
+        .no-data {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--google-dark-gray);
+        }
+
+        .no-data i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--google-gray);
+        }
+
+        /* Settings Panel */
+        .settings-panel {
+            margin-bottom: 24px;
+        }
+
+        .setting-item {
+            margin-bottom: 16px;
+        }
+
+        .setting-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--google-dark-gray);
+        }
+
+        .setting-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--google-border);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--google-blue);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .save-btn {
+            background-color: var(--google-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .save-btn i {
+            margin-right: 8px;
+        }
+
+        .save-btn:hover {
+            background-color: #3367d6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            background-color: var(--google-light-gray);
+            color: var(--google-dark-gray);
+        }
+
+       /* Google-like Color Variables */
+:root {
+  --google-dark-gray: #3c4043;
+  --google-gray: #f1f3f4;
+  --google-light-gray: #e8eaed;
+  --google-red: #d93025;
+  --google-blue: #1a73e8;
+}
+
+/* Overlay */
+.confirmation-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  backdrop-filter: blur(2px);
+  font-family: "Outfit", sans-serif;
+}
+
+/* Active state */
+.confirmation-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dialog box */
+.confirmation-box {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 420px;
+  padding: 28px 24px;
+  transform: translateY(30px);
+  transition: transform 0.35s ease;
+  font-family: 'Google Sans', 'Roboto', sans-serif;
+}
+
+.confirmation-popup.active .confirmation-box {
+  transform: translateY(0);
+}
+
+/* Title */
+.confirmation-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--google-dark-gray);
+}
+
+/* Message */
+.confirmation-message {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5f6368;
+  margin-bottom: 28px;
+}
+
+/* Buttons container */
+.confirmation-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.confirmation-btn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+  min-width: 80px;
+}
+.confirmation-btn-confirm, .confirmation-btn-cancel{
+    border-radius: 25px;
+}
+/* Cancel Button */
+.confirmation-btn-cancel {
+  background-color: #e4e4e4;
+  color: #202224;
+  width: 48%;
+}
+
+.confirmation-btn-cancel:hover {
+  background-color: var(--google-light-gray);
+}
+
+/* Confirm Button */
+.confirmation-btn-confirm {
+  background-color: var(--google-red);
+  color: white;
+  width: 48%;
+}
+
+.confirmation-btn-confirm:hover {
+  background-color: #c5221f;
+}
+
+/* Toast Notification (Top-Right with Icons & Type Support) */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    padding: 14px 20px;
+    border-left: 6px solid #007bff; /* Default: info */
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    min-width: 280px;
+    max-width: 360px;
+}
+
+/* Toast visible */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Icon Styling */
+.toast i {
+    font-size: 20px;
+}
+
+/* Type-based styling */
+.toast.success {
+    border-left-color: #28a745;
+}
+.toast.error {
+    border-left-color: #dc3545;
+}
+.toast.warning {
+    border-left-color: #ffc107;
+    color: #1a1a1a;
+}
+.toast.info {
+    border-left-color: #007bff;
+}
+
+/* Optional dark mode support */
+@media (prefers-color-scheme: dark) {
+    .toast {
+        background-color: #2c2c2c;
+        color: #f1f1f1;
+    }
+    .toast i {
+        color: #f1f1f1;
+    }
+}
+
+
+        /* Responsive Design */
+        @media (min-width: 769px) { /* Desktop styles for sidebar and main content */
+            .main-content.sidebar-open {
+                margin-left: var(--sidebar-width);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 16px; /* Slightly reduced padding for header */
+            }
+
+            .menu-btn {
+                margin-right: 10px; /* Reduced margin */
+            }
+
+            .logo-text {
+                font-size: 20px; /* Slightly smaller logo text */
+            }
+
+            .main-content {
+                padding: 16px; /* Reduced padding for main content */
+            }
+            
+            .editor-container {
+                padding: 16px; /* Reduced padding inside editor container */
+            }
+            
+            .details-table th, 
+            .details-table td {
+                padding: 10px 12px; /* Slightly reduced padding for table cells */
+                font-size: 13px; /* Smaller font size for readability on small screens */
+            }
+            
+            .editor-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px; /* Space between title and status badge */
+            }
+            
+            .confirmation-box {
+                width: 95%; /* Wider on smaller screens */
+                padding: 20px;
+            }
+            
+            .confirmation-buttons {
+                flex-direction: column; /* Stack buttons vertically */
+                gap: 8px;
+            }
+            
+            .confirmation-btn {
+                width: 100%; /* Full width buttons */
+                padding: 10px;
+            }
+
+            .toast {
+                bottom: 10px; /* Closer to bottom on mobile */
+                right: 10px; /* Closer to right on mobile */
+                left: 10px; /* Make it full width on mobile */
+                transform: translateX(0); /* Adjust transform for full width */
+            }
+        }
+
+        @media (max-width: 480px) { /* Even smaller screens (e.g., older phones) */
+            .header {
+                padding: 10px 12px;
+            }
+
+            .menu-btn {
+                font-size: 18px;
+                margin-right: 8px;
+            }
+
+            .logo-icon {
+                font-size: 20px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .search-input,
+            .search-btn {
+                padding: 8px 12px; /* Smaller padding for search bar elements */
+                font-size: 13px;
+            }
+
+            .add-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .no-data i {
+                font-size: 36px; /* Smaller icon */
+            }
+
+            .no-data p {
+                font-size: 14px; /* Smaller text */
+            }
+   
+            .settings-panel .setting-input,
+            .save-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+
+    </style>
+    <Script>
+
+    </Script>
+</head>
+<body>
+    <div class="spinner" id="loading-spinner"></div>
+
+    <div class="toast" id="toast">CNIC already exists!</div>
+
+    <div class="confirmation-popup" id="confirmation-popup">
+        <div class="confirmation-box">
+            <h3 class="confirmation-title" style="font-family: 'Outfit', sans-serif;">Confirm Deletion</h3>
+            <p class="confirmation-message"  style="font-family: 'Outfit', sans-serif;">Are you sure you want to delete this entry? This action cannot be undone.</p>
+            <div class="confirmation-buttons">
+                <button class="confirmation-btn confirmation-btn-cancel" id="cancel-delete-btn"  style="font-family: 'Outfit', sans-serif;">Cancel</button>
+                <button class="confirmation-btn confirmation-btn-confirm" id="confirm-delete-btn"  style="font-family: 'Outfit', sans-serif;">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <button class="menu-btn" id="menu-btn">
+            <i class="fa-regular fa-bars"></i>
+        </button>
+        <div class="logo">
+            <i class="fa-regular fa-file-alt logo-icon"></i>
+            <span class="logo-text" id="app-title" style="font-weight: 400;">Details Editor</span>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">Navigation</h3>
+            <button class="close-sidebar" id="close-sidebar">
+                <i class="fa-regular fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link active">
+                            <i class="fa-regular fa-table-list sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-text">All Entries</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link">
+                            <i class="fa-regular fa-chart-bar sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link">
+                            <i class="fa-regular fa-calendar sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-text">Calendar</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 class="sidebar-section-title">Topics</h4>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link">
+                            <i class="fa-regular fa-folder sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-text">Work</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link">
+                            <i class="fa-regular fa-folder sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-text">Personal</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link">
+                            <i class="fa-regular fa-folder sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-text">Projects</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link">
+                            <i class="fa-regular fa-folder sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-text">Ideas</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+<br>
+            <div class="sidebar-section">
+                <div class="settings-panel">
+                    <div class="setting-item">
+                        <label class="setting-label">Application Title</label>
+                        <input type="text" class="setting-input" id="app-title-input" placeholder="e.g., Student Records">
+                    </div>
+                    <div class="setting-item">
+                        <label class="setting-label">Default Entry Type</label>
+                        <input type="text" class="setting-input" id="item-type-input" placeholder="e.g., Student, Worker">
+                    </div>
+                    <button class="save-btn" id="save-settings-btn">
+                        <i class="fa-regular fa-save"></i> Save Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content" id="main-content">
+        <div class="editor-container">
+            <div class="editor-header">
+                <h2 class="editor-title" id="editor-title">All Entries</h2>
+                <span class="status-badge" id="status-badge">
+                    <i class="fa-regular fa-database"></i> <span id="item-count">0</span> items
+                </span>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" class="search-input" id="search-input" placeholder="Search by CNIC number...">
+                <button class="search-btn" id="search-btn">
+                    <i class="fa-regular fa-search"></i>
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table class="details-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>CNIC</th>
+                            <th>Topic</th>
+                            <th>Date & Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="details-table-body">
+                        </tbody>
+                </table>
+                <div class="no-data" id="no-data">
+                    <i class="fa-regular fa-clipboard-list"></i>
+                    <p>No entries found. Add your first entry below.</p>
+                </div>
+            </div>
+
+            <button class="add-btn" id="add-detail-btn">
+                <i class="fa-regular fa-plus"></i> Add New Entry
+            </button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const menuBtn = document.getElementById('menu-btn');
+            const closeSidebarBtn = document.getElementById('close-sidebar');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const mainContent = document.getElementById('main-content');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const appTitle = document.getElementById('app-title');
+            const editorTitle = document.getElementById('editor-title');
+            const detailsTableBody = document.getElementById('details-table-body');
+            const noData = document.getElementById('no-data');
+            const addDetailBtn = document.getElementById('add-detail-btn');
+            const appTitleInput = document.getElementById('app-title-input');
+            const itemTypeInput = document.getElementById('item-type-input');
+            const saveSettingsBtn = document.getElementById('save-settings-btn');
+            const itemCount = document.getElementById('item-count');
+            const navLinks = document.querySelectorAll('.sidebar-nav-link');
+            const confirmationPopup = document.getElementById('confirmation-popup');
+            const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+            const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+            const toast = document.getElementById('toast');
+
+            // App data
+            let appSettings = {
+                appTitle: 'Details Editor',
+                itemType: 'Entry'
+            };
+
+            let details = [];
+            let currentDeleteId = null;
+            let isSearching = false;
+            let searchResults = [];
+
+            // Initialize the app
+            initApp();
+
+            // Event Listeners
+            menuBtn.addEventListener('click', toggleSidebar);
+            closeSidebarBtn.addEventListener('click', toggleSidebar);
+            sidebarOverlay.addEventListener('click', toggleSidebar);
+            addDetailBtn.addEventListener('click', addNewDetail);
+            saveSettingsBtn.addEventListener('click', saveSettings);
+            cancelDeleteBtn.addEventListener('click', closeConfirmation);
+            confirmDeleteBtn.addEventListener('click', confirmDelete);
+            searchBtn.addEventListener('click', searchByCNIC);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchByCNIC();
+                }
+            });
+            
+            // Add click event to all navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Update editor title based on clicked link
+                    const linkText = this.querySelector('.sidebar-nav-text').textContent;
+                    editorTitle.textContent = linkText;
+                    
+                    // Close sidebar on mobile after clicking a link
+                    if (window.innerWidth <= 768) {
+                        toggleSidebar();
+                    }
+                });
+            });
+
+            // Functions
+            function initApp() {
+                showLoading();
+                
+                // Simulate loading delay
+                setTimeout(() => {
+                    loadSettings();
+                    loadDetails();
+                    updateUI();
+                    hideLoading();
+                }, 800);
+            }
+
+            function showLoading() {
+                loadingSpinner.classList.add('active');
+            }
+
+            function hideLoading() {
+                loadingSpinner.classList.remove('active');
+            }
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('open');
+                sidebarOverlay.classList.toggle('active');
+                // Only apply margin-left to main content on larger screens
+                if (window.innerWidth > 768) {
+                    mainContent.classList.toggle('sidebar-open');
+                }
+            }
+
+            function loadSettings() {
+                const savedSettings = localStorage.getItem('editorSettings');
+                if (savedSettings) {
+                    appSettings = JSON.parse(savedSettings);
+                }
+            }
+
+            function loadDetails() {
+                const savedDetails = localStorage.getItem('editorDetails');
+                if (savedDetails) {
+                    details = JSON.parse(savedDetails);
+                }
+            }
+
+            function saveSettings() {
+                showLoading();
+                
+                appSettings.appTitle = appTitleInput.value || 'Details Editor';
+                appSettings.itemType = itemTypeInput.value || 'Entry';
+                
+                saveSettingsToStorage();
+                updateUI();
+                
+                // Close sidebar after saving
+                setTimeout(() => {
+                    toggleSidebar();
+                    hideLoading();
+                }, 500);
+            }
+
+            function saveSettingsToStorage() {
+                localStorage.setItem('editorSettings', JSON.stringify(appSettings));
+            }
+
+            function saveDetailsToStorage() {
+                localStorage.setItem('editorDetails', JSON.stringify(details));
+            }
+
+            function updateUI() {
+                appTitle.textContent = appSettings.appTitle;
+                editorTitle.textContent = appSettings.appTitle;
+                appTitleInput.value = appSettings.appTitle;
+                itemTypeInput.value = appSettings.itemType;
+                itemCount.textContent = details.length;
+                
+                renderDetails();
+            }
+
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            function addNewDetail() {
+                showLoading();
+                
+                const now = new Date();
+                const newDetail = {
+                    id: Date.now(),
+                    sNo: details.length + 1,
+                    name: `${appSettings.itemType} ${details.length + 1}`,
+                    cnic: 'Enter CNIC', // Initialize with empty CNIC
+                    topic: 'New Topic',
+                    dateTime: now.toLocaleString(),
+                    timestamp: now.getTime()
+                };
+                
+                // Add the new detail with empty CNIC
+                details.unshift(newDetail);
+                saveDetailsToStorage();
+                updateUI();
+                
+                // Scroll to the top to see the new entry
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                hideLoading();
+            }
+
+            function renderDetails() {
+                const dataToRender = isSearching ? searchResults : details;
+                
+                if (dataToRender.length === 0) {
+                    noData.style.display = 'block';
+                    detailsTableBody.innerHTML = '';
+                    return;
+                }
+                
+                noData.style.display = 'none';
+                
+                // Sort by timestamp (newest first)
+                const sortedData = [...dataToRender].sort((a, b) => b.timestamp - a.timestamp);
+                
+                // Update serial numbers
+                sortedData.forEach((detail, index) => {
+                    detail.sNo = index + 1;
+                });
+                
+                detailsTableBody.innerHTML = sortedData.map(detail => `
+                    <tr data-id="${detail.id}">
+                        <td>${detail.sNo}</td>
+                        <td>
+                            <div class="editable-field" contenteditable="true" data-field="name">${detail.name}</div>
+                        </td>
+                        <td>
+                            <div class="editable-field cnic-field" contenteditable="true" data-field="cnic">${detail.cnic || ''}</div>
+                        </td>
+                        <td>
+                            <div class="editable-field" contenteditable="true" data-field="topic">${detail.topic}</div>
+                        </td>
+                        <td>${detail.dateTime}</td>
+                        <td>
+                            <button class="action-btn delete-btn" title="Delete">
+                                <i class="fa-regular fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+                
+                // Add event listeners for editable fields
+                document.querySelectorAll('.editable-field').forEach(field => {
+                    field.addEventListener('blur', function() {
+                        const row = this.closest('tr');
+                        const id = parseInt(row.dataset.id);
+                        const fieldName = this.dataset.field;
+                        const newValue = this.textContent.trim();
+                        
+                        const detailIndex = details.findIndex(d => d.id === id);
+                        if (detailIndex > -1) {
+                            if (fieldName === 'cnic') {
+                                // Validate CNIC for uniqueness (case-insensitive)
+                                const isCnicExist = details.some((d, idx) => 
+                                    idx !== detailIndex && d.cnic.toLowerCase() === newValue.toLowerCase()
+                                );
+                         if (isCnicExist && newValue !== '') {
+showToast('CNIC already exists!', 'error');
+
+
+    this.textContent = details[detailIndex].cnic; // Revert to old value
+    return;
+}
+function showToast(message, type = 'error') {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+
+    // Choose the correct Font Awesome icon based on type
+    let iconClass = 'fa-regular fa-circle-xmark'; // default error
+    if (type === 'success') iconClass = 'fa-solid fa-circle-check';
+    else if (type === 'info') iconClass = 'fa-regular fa-circle-info';
+    else if (type === 'warning') iconClass = 'fa-solid fa-triangle-exclamation';
+
+    // Icon + message
+    toast.innerHTML = `<i class="${iconClass}"></i> ${message}`;
+
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add('show'), 100);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+
+                            }
+                            details[detailIndex][fieldName] = newValue;
+                            saveDetailsToStorage();
+                            updateUI(); // Re-render to update S.No if needed, or just update the specific field
+                        }
+                    });
+                });
+
+                // Add event listeners for delete buttons
+                document.querySelectorAll('.delete-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const row = this.closest('tr');
+                        currentDeleteId = parseInt(row.dataset.id);
+                        showConfirmation();
+                    });
+                });
+            }
+
+            function showConfirmation() {
+                confirmationPopup.classList.add('active');
+            }
+
+            function closeConfirmation() {
+                confirmationPopup.classList.remove('active');
+                currentDeleteId = null;
+            }
+
+            function confirmDelete() {
+                if (currentDeleteId !== null) {
+                    showLoading();
+                    details = details.filter(detail => detail.id !== currentDeleteId);
+                    saveDetailsToStorage();
+                    updateUI();
+                    setTimeout(() => {
+                        hideLoading();
+                        closeConfirmation();
+                    }, 300);
+                }
+            }
+
+            function searchByCNIC() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query === '') {
+                    isSearching = false;
+                    searchResults = [];
+                } else {
+                    isSearching = true;
+                    searchResults = details.filter(detail => 
+                        detail.cnic && detail.cnic.toLowerCase().includes(query)
+                    );
+                }
+                updateUI();
+            }
+
+            // Adjust main content margin on window resize for desktop view
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (sidebar.classList.contains('open')) {
+                        mainContent.classList.add('sidebar-open');
+                    } else {
+                        mainContent.classList.remove('sidebar-open');
+                    }
+                } else {
+                    mainContent.classList.remove('sidebar-open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
