@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Recorder</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(195deg, #b900e7, #2575fc);
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: #202124;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 6%;
+        }
+        h1 {
+            text-align: center;
+            color: #202124;
+            font-size: 24px;
+            font-weight: 300;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+        
+        }
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        table th{
+            font-weight: 600; 
+            letter-spacing: 1px; 
+        }
+        button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 90%;
+            border-radius: 50px;
+            margin: 0;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+        .close-btn{
+            background-color: #1750ca;
+            justify-content: center;
+            color: white;
+        }
+        .edit-btn {
+            background-color: #1750ca;
+            justify-content: center;
+            color: white;
+        }
+        .edit-btn:hover {
+            background-color: #2b50f3;
+        }
+        .delete-btn {
+            background-color: #f84848;
+            justify-content: center;
+            color: white;
+        }
+        .delete-btn:hover {
+            background-color: #e63030;
+        }
+        .save-btn {
+            background-color: #ebb209;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #f1f3f4;
+            border-radius: 50px;
+            justify-content: center;
+        }
+        .save-btn:hover {
+            background-color: #f39c12;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 30%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .popup input[type="text"]:focus,
+        .popup input[type="email"]:focus {
+            border-color: #1a73e8;
+            outline: none;
+        }
+
+        .popup form {
+            display: flex;
+            flex-direction: column;
+        }
+        .popup input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #1750ca;
+            font-weight: 100;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Recorder</h1>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h3>Student Details</h3>
+        <p id="studentDetails"></p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+    <div class="popup" id="editPopup"></div>
+    <div class="toast" id="toast"></div>
+
+    <script>
+        class Student {
+            constructor(id, name, address) {
+                this.id = id;
+                this.name = name;
+                this.address = address;
+            }
+        }
+
+        const students = [
+            new Student(1, "Alice", "123 Maple St"),
+            new Student(2, "Bob", "456 Oak Ave"),
+            new Student(3, "Charlie", "789 Pine Rd"),
+            new Student(4, "Diana", "101 Birch Blvd"),
+            new Student(5, "Eve", "202 Cedar Ln"),
+        ];
+
+        const studentTable = document.querySelector("#studentTable tbody");
+        const overlay = document.getElementById("overlay");
+        const popup = document.getElementById("popup");
+        const studentDetails = document.getElementById("studentDetails");
+        const editPopup = document.getElementById("editPopup");
+        const toast = document.getElementById("toast");
+
+        const closePopup = () => {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+            editPopup.style.display = "none";
+        };
+
+        overlay.addEventListener("click", closePopup);
+
+        const renderTable = () => {
+            studentTable.innerHTML = "";
+            students.forEach(student => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.address}</td>
+                    <td>
+                        <button class="edit-btn" onclick="editStudent(${student.id})">
+                            <i class="fa-regular fa-pen"></i> Edit
+                        </button>
+                        <button class="delete-btn" onclick="deleteStudent(${student.id})">
+                            <i class="fa-regular fa-trash"></i> Delete
+                        </button>
+                    </td>
+                `;
+                studentTable.appendChild(row);
+            });
+        };
+
+        const deleteStudent = (id) => {
+            const index = students.findIndex(student => student.id === id);
+            if (index !== -1) {
+                students.splice(index, 1);
+                renderTable();
+                showToast("Student deleted successfully");
+            }
+        };
+
+        const editStudent = (id) => {
+            const student = students.find(s => s.id === id);
+            if (student) {
+                editPopup.innerHTML = `
+                    <h3>Edit Student</h3>
+                    <form onsubmit="saveEdit(event, ${id})">
+                        <label>ID (Read Only):</label><br>
+                        <input type="text" value="${student.id}" readonly><br>
+                        <label>Name:</label><br>
+                        <input type="text" id="editName" value="${student.name}" required><br>
+                        <label>Address:</label><br>
+                        <input type="text" id="editAddress" value="${student.address}" required><br>
+                        <button type="button" class="close-btn" onclick="closePopup()">Cancel</button>
+                        <button type="submit" class="save-btn">Save</button>
+                    </form>
+                `;
+                editPopup.style.display = "block";
+                overlay.style.display = "block";
+            }
+        };
+
+        const saveEdit = (event, id) => {
+            event.preventDefault();
+            const name = document.getElementById("editName").value;
+            const address = document.getElementById("editAddress").value;
+
+            const student = students.find(s => s.id === id);
+            if (student) {
+                student.name = name;
+                student.address = address;
+            }
+
+            closePopup();
+            renderTable();
+            showToast("Student updated successfully");
+        };
+
+        const showToast = (message) => {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        };
+
+        renderTable();
+    </script>
+</body>
+</html>
