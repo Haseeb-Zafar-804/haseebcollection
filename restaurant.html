@@ -127,14 +127,124 @@
         .nav-item.active { color: var(--primary-purple); transform: translateY(-5px); }
         .nav-item .cart-count { top: -5px; right: 50%; transform: translateX(25px); }
 
+        /* --- SLIDING BANNER --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            height: 250px;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            color: var(--white);
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slide-content h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+        
+        .slide-content h2 span {
+            color: var(--primary-purple);
+        }
+        
+        .slide-content p {
+            font-size: 1rem;
+            max-width: 80%;
+            color: var(--off-white);
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(20, 20, 20, 0.9), rgba(94, 53, 177, 0.6));
+            z-index: 1;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 3;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--white);
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slider-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .slider-arrow.prev {
+            left: 1rem;
+        }
+        
+        .slider-arrow.next {
+            right: 1rem;
+        }
+
         /* --- HERO & SECTIONS --- */
-        .hero-banner { background-size: cover; background-position: center; height: 250px; border-radius: var(--border-radius); display: flex; flex-direction: column; justify-content: center; padding: 2rem; color: var(--white); margin-bottom: 2rem; position: relative; overflow: hidden; }
-        .hero-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(20, 20, 20, 0.9), rgba(94, 53, 177, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center; transition: transform 0.6s ease-in-out; z-index: 1; }
-        .hero-banner:hover::before { transform: scale(1.05); }
-        .hero-banner h2, .hero-banner p { position: relative; z-index: 2; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        .hero-banner h2 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--white); }
-        .hero-banner h2 span { color: var(--primary-purple); }
-        .hero-banner p { font-size: 1rem; max-width: 80%; color: var(--off-white); font-family: 'Outfit', sans-serif; }
         .section-title { font-size: 2.2rem; margin: 2rem 0 1.5rem; color: var(--dark-grey); position: relative; padding-bottom: 0.5rem; }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: var(--primary-purple); transition: width 0.4s ease; }
 
@@ -264,9 +374,9 @@
             .page-container { padding: 2rem; }
             .products-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
             .product-image-wrapper { height: 180px; }
-            .hero-banner { height: 350px; padding: 3rem; }
-            .hero-banner h2 { font-size: 2.8rem; }
-            .hero-banner p { font-size: 1.2rem; max-width: 60%; }
+            .slider-container { height: 350px; }
+            .slide-content h2 { font-size: 2.8rem; }
+            .slide-content p { font-size: 1.2rem; max-width: 60%; }
             .product-detail-container { flex-direction: row; align-items: flex-start; gap: 2rem; padding: 2rem; }
             .product-detail-image-container { flex-basis: 45%; position: sticky; top: 120px; }
             .product-detail-info { flex-basis: 55%; }
@@ -281,8 +391,8 @@
         }
         @media (min-width: 1200px) {
             .products-grid { grid-template-columns: repeat(4, 1fr); }
-            .hero-banner { height: 400px; }
-            .hero-banner h2 { font-size: 3.5rem; }
+            .slider-container { height: 400px; }
+            .slide-content h2 { font-size: 3.5rem; }
             .product-detail-container { gap: 2rem; padding: 2rem; }
         }
     </style>
@@ -339,10 +449,40 @@
     <main class="page-container">
         <!-- All pages here... -->
         <div id="home-page" class="page active">
-            <div class="hero-banner">
-                <h2>A <span>Signature</span><br>Dining Experience</h2>
-                <p>Enjoy our signature dishes, crafted with passion and the finest ingredients, delivered to your door.</p>
+            <!-- Sliding Banner -->
+            <div class="slider-container">
+                <div class="slider" id="slider">
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1470&q=80" alt="Restaurant Interior">
+                        <div class="slide-content">
+                            <h2>A <span>Signature</span><br>Dining Experience</h2>
+                            <p>Enjoy our signature dishes, crafted with passion and the finest ingredients, delivered to your door.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1374&q=80" alt="Chef Preparing Food">
+                        <div class="slide-content">
+                            <h2>Handcrafted by <span>Master</span><br>Chefs</h2>
+                            <p>Each dish is carefully prepared by our award-winning culinary team using premium ingredients.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1469&q=80" alt="Delicious Food">
+                        <div class="slide-content">
+                            <h2>Seasonal <span>Specialties</span><br>Available Now</h2>
+                            <p>Discover our limited-time seasonal menu featuring fresh, locally-sourced ingredients.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-arrow prev" onclick="prevSlide()"><i class="fa-regular fa-chevron-left"></i></button>
+                <button class="slider-arrow next" onclick="nextSlide()"><i class="fa-regular fa-chevron-right"></i></button>
+                <div class="slider-nav" id="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
             </div>
+
             <h2 class="section-title">Chef's Specials</h2>
             <div id="home-products-grid" class="products-grid"></div>
             <h2 class="section-title">Trending Now</h2>
@@ -471,6 +611,35 @@
     <script>
         const products = [ { id: 1, name: 'Gourmet Cheese Burger', desc: 'A masterpiece of flavor. Premium Angus beef, aged cheddar, crisp lettuce, ripe tomatoes, and our signature truffle aioli on a toasted artisan brioche bun.', price: 15.99, image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80', category: 'Burgers', rating: 4.8, reviews: 125, ingredients: "Angus Beef, Aged Cheddar, Brioche Bun, Truffle Aioli"}, { id: 2, name: 'Artisan Pepperoni Pizza', desc: 'Experience pizza perfection. Hand-stretched dough, rich San Marzano tomato sauce, fresh mozzarella, and generous slices of premium cured pepperoni.', price: 18.99, image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80', category: 'Pizza', rating: 4.9, reviews: 210, ingredients: "San Marzano Tomatoes, Fresh Mozzarella, Cured Pepperoni"}, { id: 3, name: 'Spicy Glazed Chicken Wings', desc: 'Irresistibly crispy and juicy. Free-range chicken wings fried to a perfect golden brown, tossed in our signature sweet and spicy sriracha glaze.', price: 13.99, image: 'https://images.unsplash.com/photo-1629547123297-c454a5a73a67?auto=format&fit=crop&w=800&q=80', category: 'Chicken', rating: 4.7, reviews: 98, ingredients: "Free-Range Chicken, Sriracha Glaze, Sesame Seeds"}, { id: 4, name: 'Molten Chocolate Lava Cake', desc: 'A dessert lover\'s dream. Decadent Valrhona chocolate cake with a gooey molten center, served with vanilla bean ice cream and a raspberry coulis.', price: 9.99, image: 'https://images.unsplash.com/photo-1586985289936-a8aabe051512?auto=format&fit=crop&w=800&q=80', category: 'Desserts', rating: 5.0, reviews: 150, ingredients: "Valrhona Chocolate, Vanilla Bean Ice Cream, Raspberry"}, { id: 5, name: 'Black Label Bacon Burger', desc: 'The pinnacle of indulgence. A Wagyu beef patty, thick-cut applewood smoked bacon, aged gouda, and caramelized onions on a toasted brioche.', price: 19.99, image: 'https://images.unsplash.com/photo-1606131731446-5568d87113aa?auto=format&fit=crop&w=800&q=80', category: 'Burgers', rating: 4.9, reviews: 110, ingredients: "Wagyu Beef, Applewood Bacon, Aged Gouda"}, { id: 6, name: 'Truffle Margherita Pizza', desc: 'The classic, elevated. Creamy buffalo mozzarella, fresh basil, San Marzano tomatoes, and a generous drizzle of aromatic white truffle oil.', price: 22.99, image: 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=800&q=80', category: 'Pizza', rating: 4.8, reviews: 180, ingredients: "Buffalo Mozzarella, White Truffle Oil, Fresh Basil"}, { id: 7, name: 'Grilled Lemon Herb Salmon', desc: 'Sustainably-sourced Atlantic salmon grilled to perfection, served with roasted asparagus and a light lemon-dill butter sauce.', price: 24.99, image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80', category: 'Seafood', rating: 4.7, reviews: 85, ingredients: "Atlantic Salmon, Asparagus, Lemon-Dill Butter"}, { id: 8, name: 'Avocado Power Salad', desc: 'A vibrant mix of organic quinoa, creamy avocado, cherry tomatoes, cucumber, and feta cheese with a zesty citrus vinaigrette.', price: 14.99, image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80', category: 'Salads', rating: 4.6, reviews: 75, ingredients: "Quinoa, Avocado, Feta Cheese, Citrus Vinaigrette"}, { id: 9, name: 'Crispy Calamari', desc: 'Tender calamari rings lightly breaded and fried until golden. Served with a zesty marinara and a creamy garlic aioli for dipping.', price: 12.99, image: 'https://images.unsplash.com/photo-1549605221-35a7a582df94?auto=format&fit=crop&w=800&q=80', category: 'Seafood', rating: 4.5, reviews: 60, ingredients: "Calamari, Marinara, Garlic Aioli"}, { id: 10, name: 'Golden Truffle Fries', desc: 'Our signature crispy fries, double-fried for extra crunch and tossed with white truffle oil, parmesan cheese, and fresh parsley.', price: 8.99, image: 'https://images.unsplash.com/photo-1598679253331-c097b6999b65?auto=format&fit=crop&w=800&q=80', category: 'Sides', rating: 4.9, reviews: 250, ingredients: "Potatoes, Truffle Oil, Parmesan"}, { id: 11, name: 'Tiramisu Classico', desc: 'An authentic Italian delight. Layers of coffee-soaked ladyfingers and creamy mascarpone cheese, dusted with rich cocoa powder.', price: 9.99, image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80', category: 'Desserts', rating: 4.8, reviews: 130, ingredients: "Mascarpone, Ladyfingers, Espresso, Cocoa"}, { id: 12, name: 'Passionfruit Mojito', desc: 'A refreshing tropical twist on the classic. White rum, fresh mint, lime, and exotic passionfruit puree, topped with soda water.', price: 11.99, image: 'https://images.unsplash.com/photo-1595991254552-21a11f7142fb?auto=format&fit=crop&w=800&q=80', category: 'Drinks', rating: 4.7, reviews: 55, ingredients: "White Rum, Passionfruit, Mint, Lime"}, { id: 13, name: 'Southern Fried Chicken', desc: 'Two pieces of our signature buttermilk-brined chicken, fried to a crispy, golden-brown perfection. A comforting classic.', price: 16.99, image: 'https://images.unsplash.com/photo-1569058242253-92a9c5552b5a?auto=format&fit=crop&w=800&q=80', category: 'Chicken', rating: 4.8, reviews: 142, ingredients: "Buttermilk-brined Chicken, Secret Spice Blend"}, { id: 14, name: 'Classic Caesar Salad', desc: 'Crisp romaine lettuce, house-made sourdough croutons, and shaved Parmesan, all tossed in our creamy, classic Caesar dressing.', price: 12.99, image: 'https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80', category: 'Salads', rating: 4.5, reviews: 93, ingredients: "Romaine Lettuce, Sourdough Croutons, Parmesan"}, { id: 15, name: 'Garlic Bread Twists', desc: 'Warm, soft bread twists baked with garlic butter and herbs, served with a side of our classic marinara sauce for dipping.', price: 7.99, image: 'https://images.unsplash.com/photo-1593342371429-43c3f890e0e0?auto=format&fit=crop&w=800&q=80', category: 'Sides', rating: 4.6, reviews: 115, ingredients: "Bread Dough, Garlic Butter, Herbs"}, { id: 16, name: 'Espresso Martini', desc: 'The perfect pick-me-up. A smooth blend of premium vodka, coffee liqueur, and a shot of freshly brewed espresso.', price: 13.99, image: 'https://images.unsplash.com/photo-1621217092305-6a56b276226c?auto=format&fit=crop&w=800&q=80', category: 'Drinks', rating: 4.9, reviews: 88, ingredients: "Vodka, Coffee Liqueur, Espresso"} ];
         let currentPage = 'home-page'; let previousPage = ''; let cartItems = []; let wishlistItems = [];
+        let currentSlide = 0; // For slider functionality
+
+        // Slider Functions
+        function updateSlider() {
+            const slider = document.getElementById('slider');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function autoSlide() {
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
 
         function navigateTo(pageId) {
             if (pageId === currentPage) return;
@@ -683,6 +852,18 @@
             const handleSearch = () => { if (currentPage !== 'menu-page') navigateTo('menu-page'); filterAndRenderProducts(); };
             if(searchInput) searchInput.addEventListener('keyup', handleSearch);
             if(searchButton) searchButton.addEventListener('click', handleSearch);
+            
+            // Initialize slider
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+            
+            autoSlide(); // Start auto-sliding
+            
             document.body.addEventListener('submit', function (event) {
                 if (event.target.id === 'checkout-form') {
                     event.preventDefault();
