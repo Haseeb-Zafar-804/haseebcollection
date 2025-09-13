@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -1210,68 +1212,10 @@ del{
 }
 
 /* When in view */
-.review-card.fade-in {
+.testonomial-card.fade-in {
   animation: fadeInUp 0.8s ease forwards;
 }
 
-.reviews-section {
-  background: linear-gradient(to bottom, #fdfdfd, #f2f2f2);
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.review-h2 {
-  text-align: center;
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #202020;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-
-.reviews-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 7px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.review-card {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-  padding: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 12px;
-}
-
-.review-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.review-card h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 8px;
-}
-
-.review-card p {
-  font-size: 1rem;
-  color: #4a4a4a;
-  margin: 10px 0 15px;
-  line-height: 1.5;
-}
-
-.stars {
-  font-size: 1rem;
-  color: #ffc400;
-  font-weight: 500;
-}
 
 /* Responsive styles */
 @media (max-width: 600px) {
@@ -1279,11 +1223,11 @@ del{
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .review-card {
+  .testimonial-card {
     padding: 10px;
   }
 
-  .review-h2 {
+  .testonomial-h2 {
     font-size: 2rem;
   }
 
@@ -2223,81 +2167,480 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 
+<style>
+.testimonial-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
 
-        <!-- HTML: Customer Reviews Section -->
-        <section class="reviews-section" id="reviews">
-            <h2 class="review-h2" style="font-weight: 500;">WHAT OUR CUSTOMER SAYS</h2>
-            <div class="h2-line"></div><br><br>
+.testimonial-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #080b0e;
+    position: relative;
+    padding-bottom: 15px;
+}
 
-            <div class="reviews-container">
-              <div class="review-card">
-                <h3>Ayesha Khan</h3>
-                <p>"Absolutely loved the quality of the bedsheets! the colors are vibrant and material is soft."</p>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-              </div>
-              <div class="review-card">
-                <h3>Ali Raza</h3>
-                <p>"Fast delivery and amazing fabric! Definitely ordering again, The packaging was neat"</p>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <div class="review-card">
-                <h3>Fatima Noor</h3>
-                <p>"Got exactly what I saw on the website. Looks perfect on my bed!"</p>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-              </div>
-              <div class="review-card">
-                <h3>Hamza Ali</h3>
-                <p>"Very comfortable and beautiful design. Recommended to everyone!"</p>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
+.testimonial-heading:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #242424, #181818);
+    border-radius: 2px;
+}
+
+.testimonial-subheading {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+@media (min-width: 500px) {
+    .testimonials-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .testimonials-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card:before {
+    top: 15px;
+    left: 15px;
+    font-size: 80px;
+    color: rgba(52, 152, 219, 0.1);
+    font-family: Arial;
+    line-height: 1;
+    position: absolute;
+    content: '''
+
+
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.testimonial-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e8f4fc;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-info {
+    margin-left: 15px;
+}
+
+.testimonial-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.testimonial-role {
+    font-size: 0.9rem;
+    color: #3498db;
+    font-weight: 500;
+}
+
+.testimonial-text {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonial-rating {
+    color: #ffc107;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.testimonial-date {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    text-align: right;
+}
+
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.testimonial-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.testimonial-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.testimonial-btn.view-all {
+    background: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.testimonial-btn.view-all:hover {
+    background: rgba(52, 152, 219, 0.1);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonial-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.testimonial-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.testimonial-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.testimonial-card:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.testimonial-card:nth-child(6) {
+    animation-delay: 1s;
+}
+</style>
+</head>
+<body>
+<section class="testimonial-section">
+<h2 class="testimonial-heading">What Our Customers Say</h2>
+<p class="testimonial-subheading">Discover why thousands of customers trust Haseeb Collection for their premium bedding needs</p>
+
+<div class="testimonials-container">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card">
+        <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ali Raza" class="testimonial-img">
+            <div class="testimonial-info">
+                <h3 class="testimonial-name">Ali Raza</h3>
+                <span class="testimonial-role">Business Owner</span>
             </div>
-          </section>
-
-        <!-- Contact Section -->
-        <section class="contact-section" id="contact-section">
-            <h2 class="section-title">CONTACT US</h2><br><br><br>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p><i class="fa-regular fa-phone"></i> +92 3412825465</p>
-                    <p><i class="fa-regular fa-envelope"></i> haseebcollection903@gmail.com</p>
-                    <p><i class="fa-regular fa-clock"></i> Daily 9AM - 12PM</p>
-                </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject">
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button style="background-color: #252525; width: 100%; border-radius: 60px;" type="submit">Send Message</button>
-                </form>
-            </div>
-        </section>
+        </div>
+        <p class="testimonial-text">The quality of these bedsheets is exceptional! They're soft, durable, and the colors stay vibrant even after multiple washes. I've purchased multiple sets for my home.</p>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="testimonial-date">January 15, 2023</div>
     </div>
-<br>
+    
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card">
+        <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sara Khan" class="testimonial-img">
+            <div class="testimonial-info">
+                <h3 class="testimonial-name">Sara Khan</h3>
+                <span class="testimonial-role">Interior Designer</span>
+            </div>
+        </div>
+        <p class="testimonial-text">As an interior designer, I'm very particular about fabrics. Haseeb Collection's bedsheets are premium quality with excellent thread count. My clients always love them!</p>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="testimonial-date">March 22, 2023</div>
+    </div>
+    
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card">
+        <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Ahmed Ali" class="testimonial-img">
+            <div class="testimonial-info">
+                <h3 class="testimonial-name">Ahmed Ali</h3>
+                <span class="testimonial-role">Hotel Manager</span>
+            </div>
+        </div>
+        <p class="testimonial-text">We've been using Haseeb Collection bedsheets in our hotel for over a year now. They withstand commercial laundry extremely well and our guests frequently compliment their comfort.</p>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="testimonial-date">April 5, 2023</div>
+    </div>
+    
+    <!-- Testimonial 4 -->
+    <div class="testimonial-card">
+        <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fatima Noor" class="testimonial-img">
+            <div class="testimonial-info">
+                <h3 class="testimonial-name">Fatima Noor</h3>
+                <span class="testimonial-role">Homemaker</span>
+            </div>
+        </div>
+        <p class="testimonial-text">I've tried many brands over the years, but nothing compares to the softness and durability of Haseeb Collection. The prices are reasonable for such premium quality.</p>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="testimonial-date">May 18, 2023</div>
+    </div>
+    
+    <!-- Testimonial 5 -->
+    <div class="testimonial-card">
+        <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Hamza Ali" class="testimonial-img">
+            <div class="testimonial-info">
+                <h3 class="testimonial-name">Hamza Ali</h3>
+                <span class="testimonial-role">Architect</span>
+            </div>
+        </div>
+        <p class="testimonial-text">The designs are modern and elegant. They perfectly complement my contemporary bedroom design. Delivery was prompt and the packaging was excellent.</p>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+        <div class="testimonial-date">June 30, 2023</div>
+    </div>
+    
+    <!-- Testimonial 6 -->
+    <div class="testimonial-card">
+        <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ayesha Malik" class="testimonial-img">
+            <div class="testimonial-info">
+                <h3 class="testimonial-name">Ayesha Malik</h3>
+                <span class="testimonial-role">Teacher</span>
+            </div>
+        </div>
+        <p class="testimonial-text">I purchased the king size luxury set and I'm extremely satisfied. The fabric is breathable which is perfect for our climate. Will definitely buy again!</p>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="testimonial-date">July 12, 2023</div>
+    </div>
+</div>
+
+<div class="testimonial-controls">
+    <button class="testimonial-btn">
+        <i class="fas fa-chevron-left"></i> Previous
+    </button>
+    <button class="testimonial-btn">
+        Next <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    const prevBtn = document.querySelector('.testimonial-btn:first-child');
+    const nextBtn = document.querySelector('.testimonial-btn:nth-child(2)');
+    let currentIndex = 0;
+    
+    // Function to show testimonials based on screen size
+    function updateTestimonials() {
+        const width = window.innerWidth;
+        let itemsToShow;
+        
+        if (width >= 1000) {
+            itemsToShow = 3;
+        } else if (width >= 500) {
+            itemsToShow = 2;
+        } else {
+            itemsToShow = 1;
+        }
+        
+        testimonials.forEach((testimonial, index) => {
+            if (index >= currentIndex && index < currentIndex + itemsToShow) {
+                testimonial.style.display = 'block';
+            } else {
+                testimonial.style.display = 'none';
+            }
+        });
+    }
+    
+    // Initial setup
+    updateTestimonials();
+    
+    // Next button event
+    nextBtn.addEventListener('click', function() {
+        const width = window.innerWidth;
+        let itemsToShow;
+        
+        if (width >= 1000) {
+            itemsToShow = 3;
+        } else if (width >= 500) {
+            itemsToShow = 2;
+        } else {
+            itemsToShow = 1;
+        }
+        
+        if (currentIndex + itemsToShow < testimonials.length) {
+            currentIndex += itemsToShow;
+            updateTestimonials();
+        }
+    });
+    
+    // Previous button event
+    prevBtn.addEventListener('click', function() {
+        const width = window.innerWidth;
+        let itemsToShow;
+        
+        if (width >= 1000) {
+            itemsToShow = 3;
+        } else if (width >= 500) {
+            itemsToShow = 2;
+        } else {
+            itemsToShow = 1;
+        }
+        
+        if (currentIndex - itemsToShow >= 0) {
+            currentIndex -= itemsToShow;
+            updateTestimonials();
+        }
+    });
+    
+    // Update on window resize
+    window.addEventListener('resize', function() {
+        currentIndex = 0;
+        updateTestimonials();
+    });
+});
+</script>
+       <!-- Contact Section -->
+<section class="contact-section" id="contact-section">
+    <h2 class="section-title">CONTACT US</h2><br><br><br>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p><i class="fa-regular fa-phone"></i> +92 3412825465</p>
+            <p><i class="fa-regular fa-envelope"></i> haseebcollection903@gmail.com</p>
+            <p><i class="fa-regular fa-clock"></i> Daily 9AM - 12PM</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" id="whatsappForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="subject" placeholder="Subject">
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            <button style="background-color: #252525; width: 100%; border-radius: 60px;" type="submit">
+                Send Message
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- JS for WhatsApp Send -->
+<script>
+document.getElementById("whatsappForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    let whatsappNumber = "923412825465"; // apna number (92 ke sath)
+
+    let finalMessage = `*New Contact Form Message*%0A
+👤 Name: ${name}%0A
+📧 Email: ${email}%0A
+📝 Subject: ${subject}%0A
+💬 Message: ${message}`;
+
+    let url = `https://wa.me/${whatsappNumber}?text=${finalMessage}`;
+    window.open(url, "_blank");
+});
+</script>
+
     <!-- Product Detail Section (Initially Hidden) -->
     <section class="product-detail-section" id="product-detail-section">
         <div class="back-to-shop" id="back-to-shop">
@@ -2754,33 +3097,61 @@ function closeWishlist() {
   <i class="fa-regular fa-times"></i>
 </button>
 
-    <ul id="cart-items"></ul>
-    <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="9c0dc60b-4afe-4c0d-b953-cf8767abbed9">
-        <input type="text" name="name" placeholder="Your Name" required
-        style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px; outline: none; box-sizing: border-box; transition: border-color 0.3s ease;" />
-
-    <input type="text" name="address" placeholder="Your Address" required
-        style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px; outline: none; box-sizing: border-box; transition: border-color 0.3s ease;" />
-
-    <input type="tel" name="phone" placeholder="Your Phone Number" required
-        style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px; outline: none; box-sizing: border-box; transition: border-color 0.3s ease;" />
-
-        <input type="hidden" name="order_details" id="order-details">
-        <input type="hidden" name="total_amount" id="total-price">
-
-        <div class="cart-total">
-            <strong>Total:</strong> Rs. <span id="total-amount">0</span>
-        </div>
-        <div class="order-section">
-            <button id="confirm-order" type="submit">Confirm Order
-            </button><br>
-            <button id="clear-cart" type="button">Clear Cart
-            </button><br>
-            <br>
-        </div>
-    </form>
-</div>
+   <ul id="cart-items"></ul>
+   <ul id="cart-items"></ul>
+   <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
+       <input type="hidden" name="access_key" value="9c0dc60b-4afe-4c0d-b953-cf8767abbed9">
+   
+       <input type="text" name="name" placeholder="Your Name" required
+       style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px;" />
+   
+       <input type="text" id="address" name="address" placeholder="Your Address" required
+       style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px;" />
+   
+       <input type="tel" name="phone" placeholder="Your Phone Number" required
+       style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px;" />
+   
+       <input type="hidden" name="order_details" id="order-details">
+       <input type="hidden" name="total_amount" id="total-price">
+   
+       <div class="cart-total">
+           <strong>Total:</strong> Rs. <span id="total-amount">0</span>
+       </div>
+       <div class="order-section">
+           <button id="get-location" type="button">Use My Location</button><br><br>
+           <button id="confirm-order" type="submit">Confirm Order</button><br>
+           <button id="clear-cart" type="button">Clear Cart</button><br><br>
+       </div>
+   </form>
+   
+   <script>
+   document.getElementById("get-location").addEventListener("click", function () {
+       if (navigator.geolocation) {
+           navigator.geolocation.getCurrentPosition(
+               function (position) {
+                   let lat = position.coords.latitude;
+                   let lon = position.coords.longitude;
+   
+                   // Call OpenStreetMap Nominatim API
+                   fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+                       .then(response => response.json())
+                       .then(data => {
+                           document.getElementById("address").value = data.display_name;
+                       })
+                       .catch(error => {
+                           alert("Error fetching address: " + error);
+                       });
+               },
+               function (error) {
+                   alert("Unable to get location: " + error.message);
+               }
+           );
+       } else {
+           alert("Geolocation is not supported by this browser.");
+       }
+   });
+   </script>
+   
 
 <script>
     localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -2789,17 +3160,7 @@ function closeWishlist() {
 <!-- Cart Open Button -->
     <style>
              /* Network Status Indicator (small corner element) */
-        .network-status {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 12px;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: none;
-        }
+    
 
         /* Main Offline Overlay */
         .hc-offline-overlay {
@@ -3094,7 +3455,7 @@ function closeWishlist() {
 
 
 
-        const reviewCards = document.querySelectorAll('.review-card');
+        const reviewCards = document.querySelectorAll('.testimonial-card');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
