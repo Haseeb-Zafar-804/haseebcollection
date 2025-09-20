@@ -21,8 +21,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --black: #000;
+:root {
+            --black: #050505;
             --white: #fff;
             --gray: #f5f5f5;
             --dark-gray: #e5e5e5;
@@ -247,7 +247,7 @@
       overflow: hidden;
       z-index: 1;
     }
-
+    
     .btn::before {
       content: '';
       position: absolute;
@@ -259,11 +259,11 @@
       transition: all 0.4s ease;
       z-index: -1;
     }
-
+    
     .btn:hover {
       color: #222;
     }
-
+    
     .btn:hover::before {
       left: 0;
     }
@@ -324,20 +324,20 @@
             transition: transform 0.3s ease;
 
         }
-        @media (max-width: 500px) {
+        @media (max-width: 400px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 6px;
     }
-
+    
     .products-grid img {
         height: 300px;
     }
-
+    
     .product-title {
         font-size: 14px;
     }
-
+    
     .product-price {
         font-size: 14px;
     }
@@ -532,7 +532,7 @@
             object-fit: cover;
             border-radius: 1%;
         }
-.header-actions
+
         .about-text h2 {
             font-size: clamp(28px, 4vw, 32px);
             margin-bottom: 20px;
@@ -821,56 +821,27 @@
 }
 
 
+/* Toast Notification */
 .toast {
     visibility: hidden;
     min-width: 220px;
-    max-width: calc(100% - 40px); /* Adjusted for mobile */
     background-color: #181818;
     color: #fff;
     text-align: center;
-    padding: 12px 16px;
+    padding: 10px 14px;
     position: fixed;
     z-index: 1002;
     opacity: 0;
     font-size: 14px;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    left: 50%;
-    transform: translateX(-50%) translateY(-20px) scale(0.9);
-    top: 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    right: 20px;
+    top: 70px;
 }
 
-/* Show toast with bounce-in animation */
+/* Show toast */
 .toast.show {
     visibility: visible;
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-}
-/* Different animation variations */
-.toast.slide-in {
-    transform: translateX(-50%) translateY(-100%);
-}
-.toast.slide-in.show {
-    transform: translateX(-50%) translateY(0);
-}
-
-.toast.flip {
-    transform: translateX(-50%) rotateX(90deg);
-    transform-origin: top;
-}
-.toast.flip.show {
-    transform: translateX(-50%) rotateX(0);
-}
-
-.toast.bounce {
-    animation: bounceIn 0.6s;
-}
-@keyframes bounceIn {
-    0% { transform: translateX(-50%) scale(0.3); opacity: 0; }
-    50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
-    70% { transform: translateX(-50%) scale(0.9); }
-    100% { transform: translateX(-50%) scale(1); }
 }
 
 
@@ -879,7 +850,7 @@
     .toast {
         right: 15px;
         top: 60px; /* Adjust for mobile header height */
-        min-width: 80%;
+        min-width: 180px;
         font-size: 13px;
         padding: 8px 12px;
         height: fit-content;
@@ -889,12 +860,12 @@
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
     .toast {
-        left: 53%;
+        left: 46%;
         bottom: 68%;
         font-size: 14px;       /* Smaller text on mobile */
         margin-right: 20px;
         padding: 7px;
-        min-width: 80%;
+        min-width: 190px;
     }
 }
 
@@ -903,11 +874,10 @@
   display: flex;
   align-items: center;
   background-color: #fff;
-  padding: 10px 10px;
+  padding: 10px 20px;
   max-width: 500px;
-  margin: 20px auto;
+  margin: 30px auto;
   transition: all 0.3s ease;
-  margin-right: -20px;
 
 }
 
@@ -927,7 +897,7 @@
   color: #333;
   background-color: transparent;
   font-family: "Jost", sans-serif;
-  margin-left: -9px;
+  margin-left: -10px;
 }
 
 /* Button styling */
@@ -946,8 +916,7 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .cute-search-container {
-    padding: 8px 10px;
-    margin-right: -8px;
+    padding: 8px 16px;
     max-width: 90%;
   }
 
@@ -993,13 +962,13 @@
       margin-right: 2px  !important;
     }
   }
-
+  
   .product-card {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-
+  
   /* Staggered delays for cards */
   .product-card:nth-child(1) { transition-delay: 0.1s; }
   .product-card:nth-child(2) { transition-delay: 0.2s; }
@@ -1009,7 +978,7 @@
   .product-card:nth-child(6) { transition-delay: 0.6s; }
   .product-card:nth-child(7) { transition-delay: 0.7s; }
   .product-card:nth-child(8) { transition-delay: 0.8s; }
-
+  
   /* Active animation state */
   .animate-in {
     opacity: 1 !important;
@@ -1021,19 +990,19 @@
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
-
+  
   /* If your footer has columns/items that should animate separately */
   .footer-column {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-
+  
   /* Stagger delays for footer items if needed */
   .footer-column:nth-child(1) { transition-delay: 0.2s; }
   .footer-column:nth-child(2) { transition-delay: 0.4s; }
   .footer-column:nth-child(3) { transition-delay: 0.6s; }
-
+  
   /* Keep your existing animate-in class */
   .animate-in {
     opacity: 1 !important;
@@ -1211,10 +1180,68 @@ del{
 }
 
 /* When in view */
-.testonomial-card.fade-in {
+.review-card.fade-in {
   animation: fadeInUp 0.8s ease forwards;
 }
 
+.reviews-section {
+  background: linear-gradient(to bottom, #fdfdfd, #f2f2f2);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.review-h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #202020;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 7px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.review-card p {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin: 10px 0 15px;
+  line-height: 1.5;
+}
+
+.stars {
+  font-size: 1rem;
+  color: #ffc400;
+  font-weight: 500;
+}
 
 /* Responsive styles */
 @media (max-width: 600px) {
@@ -1222,11 +1249,11 @@ del{
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .testimonial-card {
+  .review-card {
     padding: 10px;
   }
 
-  .testonomial-h2 {
+  .review-h2 {
     font-size: 2rem;
   }
 
@@ -1427,10 +1454,10 @@ h5{
     color: #888888;
     font-weight: normal;
     letter-spacing: 1px;
-
+    
 }
 
-
+       
         .ticker-container {
             width: 100%;
             overflow: hidden;
@@ -1439,14 +1466,14 @@ h5{
             padding: 10px 0;
             border-bottom: 0.7px solid #b1b1b1;
         }
-
+        
         .ticker-content {
             display: inline-block;
             color: white;
             padding-left: 100%;
             animation: ticker-scroll 100s linear infinite;
         }
-
+        
         @keyframes ticker-scroll {
             0% {
                 transform: translateX(0);
@@ -1455,13 +1482,13 @@ h5{
                 transform: translateX(-100%);
             }
         }
-
+        
         .ticker-item {
             display: inline-block;
             margin-right: 40px;
             font-size: 18px;
         }
-
+        
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .hero {
@@ -1469,11 +1496,11 @@ h5{
                 min-height: 500px;
                 padding: 0 8%;
             }
-
+            
             .hero-content {
                 max-width: 100%;
             }
-
+            
             .hero h1 {
                 font-size: 55px;
             }
@@ -1481,13 +1508,13 @@ h5{
                 margin: 0%;
 
             }
-
+            
             .btn {
                 padding: 10px 25px;
                 margin-top: 1rem;
             }
         }
-
+        
         @media (max-width: 480px) {
             .hero {
                 height: 70vh;
@@ -1511,7 +1538,7 @@ h5{
             align-items: center;
             z-index: 1000;
         }
-
+        
         #backToTop::before {
             content: '↑';
             font-size: 24px;
@@ -1519,7 +1546,7 @@ h5{
             position: relative;
             z-index: 2;
         }
-
+        
         .progress-ring {
             position: absolute;
             width: 100%;
@@ -1528,7 +1555,7 @@ h5{
             left: 0;
             transform: rotate(-90deg);
         }
-
+        
         .progress-ring-circle {
             fill: none;
             stroke: #383838;
@@ -1538,12 +1565,12 @@ h5{
             transition: stroke-dashoffset 0.2s linear;
         }
 
-
+        
     </style>
-
+    
 </head>
 <body>
-
+    
     <!-- Header -->
     <header id="header">
 
@@ -1586,6 +1613,7 @@ h5{
                 </div>
             </div>
 
+
         <!-- Mobile Navigation -->
         <div class="mobile-nav">
             <div class="mobile-nav-links">
@@ -1595,7 +1623,7 @@ h5{
 
                                  <a href="#video-section">Our Identity</a>
                 <a href="#contact-section">Contact</a>
-
+ 
             </div>
         </div>
     </header>
@@ -1604,13 +1632,13 @@ h5{
         <!-- Hero Section -->
         <section class="hero" id="home-section">
             <div class="hero-content">
-                <h1>Bedsheets Collection 2025</h1>
+                <h1>Summer Collection 2025</h1>
                  <p class="static-text">Discover our
 <span id="typing-text"></span>
 </p>
 
 <button class="btn" onclick="scrollToSection('#products-section')">Shop Now</button>
-
+ 
 
             </div>
         </section><br><br>
@@ -1632,7 +1660,7 @@ let pauseBetween = 1000; // Reduced from 2000 (pause at end)
 
 function typeWriter() {
     const currentMessage = messages[messageIndex];
-
+    
     if (isDeleting) {
         typingElement.textContent = currentMessage.substring(0, charIndex - 1);
         charIndex--;
@@ -1642,7 +1670,7 @@ function typeWriter() {
         charIndex++;
         typingSpeed = 50; // Faster typing (was 100)
     }
-
+    
     if (!isDeleting && charIndex === currentMessage.length) {
         typingSpeed = pauseBetween;
         isDeleting = true;
@@ -1651,7 +1679,7 @@ function typeWriter() {
         messageIndex = (messageIndex + 1) % messages.length;
         typingSpeed = 250; // Faster between messages (was 500)
     }
-
+    
     setTimeout(typeWriter, typingSpeed);
 }
 
@@ -1675,7 +1703,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 <div class="slide-content">
                     <h2>The Premium designs</h2>
                     <p>Experience the perfect blend of softness, style, and comfort with our premium bed sheets</p>
-
+                    
                 </div>
             </div>
             <div class="slide">
@@ -1713,7 +1741,7 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 
-
+ 
         <!-- Products Grid -->
         <section class="products-section" id="products-section">
                        <h5 style="margin-top: -3px;">EXCLUSIVE</h5>
@@ -1721,30 +1749,31 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="products-grid">
                 <!-- Product 1 -->
                 <div class="product-card" data-product="1" data-category="bed sheet">
-                    <span class="product-badge">Sale</span>
+                    <span class="product-badge">Latest</span>
                     <img src="product1.jpg" alt="Classic Tee" class="product-image">
                     <div class="product-info">
                         <div>
                             <h3 class="product-title">Luxury 3-Piece Black Bedsheet Set – King Size</h3>
-                            <p class="product-price"><del>Rs. 1600</del> Rs. 1,499</p>
+                            <p class="product-price">Rs. 1,600</p>
                         </div>
                     </div>
                 </div>
-                 <div class="product-card" data-product="2"data-category="bed sheet">
-                <span class="product-badge">Sale</span>
-                <img src="product2.jpg" class="product-image">
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product="2"data-category="bed sheet">
+                    <span class="product-badge">Latest</span>
+                    <img src="product2.jpg" alt="Overshirt" class="product-image">
                     <div class="product-info">
                         <div>
-                            <h3 class="product-title">Royal Bloom King Size Bedsheet – Purple Fan Pattern</h3>
-
-                            <p class="product-price"><del>Rs. 1600</del> Rs. 1,499</p>
+                            <h3 class="product-title">Bold & Beautiful 3-Piece King Bedsheet Set - Floral Fan Print </h3>
+                            <p class="product-price">Rs. 1,600</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
                 <div class="product-card" data-product="3"data-category="bed sheet">
-                    <span class="product-badge">Sold Out</span>
+                    <span class="product-badge">Latest</span>
                     <img src="product3.jpg" alt="Cargo Pants" class="product-image">
                     <div class="product-info">
                         <div>
@@ -1756,7 +1785,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Product 4 -->
                 <div class="product-card" data-product="4" data-category="bed sheet">
-                    <span class="product-badge">Sold Out</span>
+                    <span class="product-badge">Latest</span>
                     <img src="product4.jpg" alt="Hoodie" class="product-image">
                     <div class="product-info">
                         <div>
@@ -1767,23 +1796,22 @@ window.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                  <div class="product-card" data-product="5">
-                    <span class="product-badge">Sold Out</span>
+                    <span class="product-badge">Latest</span>
                     <img src="product5.jpg" alt="Cargo Pants" class="product-image">
                     <div class="product-info">
                         <div>
                             <h3 class="product-title">Regal Hues Bedsheet – Dark Green, Ash Grey & Rustic Mustard</h3>
-                            <p class="product-price"><del>Rs. 1250</del> Rs. 1199</p>
+                            <p class="product-price">Rs. 1,250</p>
                         </div>
                     </div>
                 </div>
                  <div class="product-card" data-product="6">
-                    <span class="product-badge">Sale</span>
+                    <span class="product-badge">Latest</span>
                     <img src="product6.jpg" alt="Cargo Pants" class="product-image">
                     <div class="product-info">
                         <div>
                             <h3 class="product-title">Luxury 3-Piece Bedsheet Set – King Size</h3>
-
-                            <p class="product-price"><del>Rs. 1250</del> Rs. 1199</p>
+                            <p class="product-price">Rs. 1,250</p>
                         </div>
                     </div>
                 </div>
@@ -1824,14 +1852,14 @@ window.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function() {
     const discoverBtn = document.querySelector('.discover-more-btn');
     const productCards = document.querySelectorAll('.product-card');
-
+    
     // Only show the button if there are more than 8 products
     if (productCards.length > 8) {
         discoverBtn.style.display = 'block';
     } else {
         discoverBtn.style.display = 'none';
     }
-
+    
     discoverBtn.addEventListener('click', function() {
         // Show all hidden products
         document.querySelectorAll('.products-grid .product-card:nth-child(n+3)').forEach(card => {
@@ -1839,7 +1867,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Trigger animation for newly shown cards
             card.classList.add('animate-in');
         });
-
+        
         // Hide the button after clicking
         discoverBtn.style.display = 'none';
     });
@@ -1859,8 +1887,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div>
                             <h3 class="product-title">Luxury 3-Piece Black Bedsheet Set – King Size</h3>
                             <p class="product-price">Rs. 1,600</p>
-                                                        <p class="product-price"><del>Rs. 1600</del> Rs. 1499</p>
-
                         </div>
                     </div>
                 </div>
@@ -1873,7 +1899,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div>
                             <h3 class="product-title">Textured Elegance King Bedsheet – Urban Striped Pattern</h3>
                             <p class="product-price">Rs. 1,600</p>
-                              <p class="product-price"><del>Rs. 1600</del> Rs. 1499</p>
                         </div>
                     </div>
                 </div>
@@ -1887,7 +1912,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div>
                             <h3 class="product-title">Royal Bloom King Size Bedsheet – Purple Fan Pattern</h3>
                             <p class="product-price">Rs. 1,600</p>
-                             <p class="product-price"><del>Rs. 1600</del> Rs. 1,499</p>
                         </div>
                     </div>
                 </div>
@@ -1899,7 +1923,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div>
                             <h3 class="product-title">Regal Hues Bedsheet – Dark Green, Ash Grey & Rustic Mustard</h3>
                             <p class="product-price">Rs. 1,600</p>
-                            <p class="product-price"><del>Rs. 1250</del> Rs. 1199</p>
                         </div>
                     </div>
                 </div>
@@ -1942,6 +1965,7 @@ document.addEventListener('DOMContentLoaded', function() {
   position: relative;
   z-index: 2; /* Ensure content appears above the background */
 }
+
 .showcase-content {
   display: flex;
   flex-direction: column; /* Stack content vertically */
@@ -2034,20 +2058,20 @@ document.addEventListener('DOMContentLoaded', function() {
   .premium-single-showcase {
     padding: 4rem 0;
   }
-
+  
   .text-content {
     padding: 2rem;
     max-width: 100%;
   }
-
+  
   .section-title {
     font-size: 2rem;
   }
-
+  
   .lead-text {
     font-size: 1rem;
   }
-
+  
   .details-text p {
     font-size: 0.9rem;
   }
@@ -2057,11 +2081,11 @@ document.addEventListener('DOMContentLoaded', function() {
   .showcase-wrapper {
     padding: 0 1rem;
   }
-
+  
   .text-content {
     padding: 1.5rem;
   }
-
+  
   .shop-now-btn {
     padding: 12px 24px;
     font-size: 0.9rem;
@@ -2072,6 +2096,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 #cart-items li img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     margin-top: -3.4rem;
 }
 
@@ -2164,482 +2191,467 @@ document.addEventListener('DOMContentLoaded', function() {
         </video>
     </div>
 </section>
-
-
 <style>
-.testimonial-section {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.testimonial-heading {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    color: #080b0e;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.testimonial-heading:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #242424, #181818);
-    border-radius: 2px;
-}
-
-.testimonial-subheading {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-bottom: 50px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.testimonials-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-}
-
-@media (min-width: 500px) {
+    .testimonial-section {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 40px 20px;
+        background: #f5f7fa;
+        border-radius: 16px;
+    }
+    
+    .testimonial-heading {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        color: #080b0e;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .testimonial-heading:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #242424, #181818);
+        border-radius: 2px;
+    }
+    
+    .testimonial-subheading {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #7f8c8d;
+        margin-bottom: 50px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     .testimonials-container {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
-}
-
-@media (min-width: 1000px) {
-    .testimonials-container {
-        grid-template-columns: repeat(3, 1fr);
+    
+    @media (min-width: 500px) {
+        .testimonials-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
-}
-
-.testimonial-card {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.testimonial-card:before {
-    top: 15px;
-    left: 15px;
-    font-size: 80px;
-    color: rgba(52, 152, 219, 0.1);
-    font-family: Arial;
-    line-height: 1;
-    position: absolute;
-    content: '''
-
-
-}
-
-.testimonial-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.testimonial-img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #e8f4fc;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-info {
-    margin-left: 15px;
-}
-
-.testimonial-name {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 5px;
-}
-
-.testimonial-role {
-    font-size: 0.9rem;
-    color: #3498db;
-    font-weight: 500;
-}
-
-.testimonial-text {
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.testimonial-rating {
-    color: #ffc107;
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-.testimonial-date {
-    font-size: 0.85rem;
-    color: #95a5a6;
-    text-align: right;
-}
-
-.testimonial-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 15px;
-}
-
-.testimonial-btn {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.testimonial-btn:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-}
-
-.testimonial-btn.view-all {
-    background: transparent;
-    color: #3498db;
-    border: 2px solid #3498db;
-}
-
-.testimonial-btn.view-all:hover {
-    background: rgba(52, 152, 219, 0.1);
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    
+    @media (min-width: 1000px) {
+        .testimonials-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .testimonial-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
     }
-}
-
-.testimonial-card {
-    animation: fadeIn 0.6s ease-out;
-}
-
-.testimonial-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.testimonial-card:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-.testimonial-card:nth-child(4) {
-    animation-delay: 0.6s;
-}
-
-.testimonial-card:nth-child(5) {
-    animation-delay: 0.8s;
-}
-
-.testimonial-card:nth-child(6) {
-    animation-delay: 1s;
-}
-</style>
-</head>
-<body>
-<section class="testimonial-section">
-<h2 class="testimonial-heading">What Our Customers Say</h2>
-<p class="testimonial-subheading">Discover why thousands of customers trust Haseeb Collection for their premium bedding needs</p>
-
-<div class="testimonials-container">
-    <!-- Testimonial 1 -->
-    <div class="testimonial-card">
-        <div class="testimonial-header">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ali Raza" class="testimonial-img">
-            <div class="testimonial-info">
-                <h3 class="testimonial-name">Ali Raza</h3>
-                <span class="testimonial-role">Business Owner</span>
-            </div>
-        </div>
-        <p class="testimonial-text">The quality of these bedsheets is exceptional! They're soft, durable, and the colors stay vibrant even after multiple washes. I've purchased multiple sets for my home.</p>
-        <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <div class="testimonial-date">January 15, 2023</div>
-    </div>
     
-    <!-- Testimonial 2 -->
-    <div class="testimonial-card">
-        <div class="testimonial-header">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sara Khan" class="testimonial-img">
-            <div class="testimonial-info">
-                <h3 class="testimonial-name">Sara Khan</h3>
-                <span class="testimonial-role">Interior Designer</span>
-            </div>
-        </div>
-        <p class="testimonial-text">As an interior designer, I'm very particular about fabrics. Haseeb Collection's bedsheets are premium quality with excellent thread count. My clients always love them!</p>
-        <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="testimonial-date">March 22, 2023</div>
-    </div>
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
     
-    <!-- Testimonial 3 -->
-    <div class="testimonial-card">
-        <div class="testimonial-header">
-            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Ahmed Ali" class="testimonial-img">
-            <div class="testimonial-info">
-                <h3 class="testimonial-name">Ahmed Ali</h3>
-                <span class="testimonial-role">Hotel Manager</span>
-            </div>
-        </div>
-        <p class="testimonial-text">We've been using Haseeb Collection bedsheets in our hotel for over a year now. They withstand commercial laundry extremely well and our guests frequently compliment their comfort.</p>
-        <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <div class="testimonial-date">April 5, 2023</div>
-    </div>
+    .testimonial-card:before {
+        top: 15px;
+        left: 15px;
+        font-size: 80px;
+        color: rgba(52, 152, 219, 0.1);
+        font-family: Arial;
+        line-height: 1;
+        position: absolute;
+        content: '''
     
-    <!-- Testimonial 4 -->
-    <div class="testimonial-card">
-        <div class="testimonial-header">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fatima Noor" class="testimonial-img">
-            <div class="testimonial-info">
-                <h3 class="testimonial-name">Fatima Noor</h3>
-                <span class="testimonial-role">Homemaker</span>
-            </div>
-        </div>
-        <p class="testimonial-text">I've tried many brands over the years, but nothing compares to the softness and durability of Haseeb Collection. The prices are reasonable for such premium quality.</p>
-        <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <div class="testimonial-date">May 18, 2023</div>
-    </div>
     
-    <!-- Testimonial 5 -->
-    <div class="testimonial-card">
-        <div class="testimonial-header">
-            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Hamza Ali" class="testimonial-img">
-            <div class="testimonial-info">
-                <h3 class="testimonial-name">Hamza Ali</h3>
-                <span class="testimonial-role">Architect</span>
-            </div>
-        </div>
-        <p class="testimonial-text">The designs are modern and elegant. They perfectly complement my contemporary bedroom design. Delivery was prompt and the packaging was excellent.</p>
-        <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <div class="testimonial-date">June 30, 2023</div>
-    </div>
+    }
     
-    <!-- Testimonial 6 -->
-    <div class="testimonial-card">
-        <div class="testimonial-header">
-            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ayesha Malik" class="testimonial-img">
-            <div class="testimonial-info">
-                <h3 class="testimonial-name">Ayesha Malik</h3>
-                <span class="testimonial-role">Teacher</span>
-            </div>
-        </div>
-        <p class="testimonial-text">I purchased the king size luxury set and I'm extremely satisfied. The fabric is breathable which is perfect for our climate. Will definitely buy again!</p>
-        <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="testimonial-date">July 12, 2023</div>
-    </div>
-</div>
-
-<div class="testimonial-controls">
-    <button class="testimonial-btn">
-        <i class="fas fa-chevron-left"></i> Previous
-    </button>
-    <button class="testimonial-btn">
-        Next <i class="fas fa-chevron-right"></i>
-    </button>
-</div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    const prevBtn = document.querySelector('.testimonial-btn:first-child');
-    const nextBtn = document.querySelector('.testimonial-btn:nth-child(2)');
-    let currentIndex = 0;
+    .testimonial-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
     
-    // Function to show testimonials based on screen size
-    function updateTestimonials() {
-        const width = window.innerWidth;
-        let itemsToShow;
+    .testimonial-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #e8f4fc;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-info {
+        margin-left: 15px;
+    }
+    
+    .testimonial-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 5px;
+    }
+    
+    .testimonial-role {
+        font-size: 0.9rem;
+        color: #3498db;
+        font-weight: 500;
+    }
+    
+    .testimonial-text {
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    
+    .testimonial-rating {
+        color: #ffc107;
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .testimonial-date {
+        font-size: 0.85rem;
+        color: #95a5a6;
+        text-align: right;
+    }
+    
+    .testimonial-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        gap: 15px;
+    }
+    
+    .testimonial-btn {
+        background: #01060e;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .testimonial-btn:hover {
+        background: #01060e;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+    
+    
+    .testimonial-btn.view-all:hover {
+        background: rgba(52, 152, 219, 0.1);
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .testimonial-card {
+        animation: fadeIn 0.6s ease-out;
+    }
+    
+    .testimonial-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .testimonial-card:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    
+    .testimonial-card:nth-child(4) {
+        animation-delay: 0.6s;
+    }
+    
+    .testimonial-card:nth-child(5) {
+        animation-delay: 0.8s;
+    }
+    
+    .testimonial-card:nth-child(6) {
+        animation-delay: 1s;
+    }
+    </style>
+    </head>
+    <body>
+    <section class="testimonial-section">
+    <h2 class="testimonial-heading">What Our Customers Say</h2>
+    <p class="testimonial-subheading">Discover why thousands of customers trust Haseeb Collection for their premium bedding needs</p>
+    
+    <div class="testimonials-container">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ali Raza" class="testimonial-img">
+                <div class="testimonial-info">
+                    <h3 class="testimonial-name">Ali Raza</h3>
+                    <span class="testimonial-role">Business Owner</span>
+                </div>
+            </div>
+            <p class="testimonial-text">The quality of these bedsheets is exceptional! They're soft, durable, and the colors stay vibrant even after multiple washes. I've purchased multiple sets for my home.</p>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-date">January 15, 2023</div>
+        </div>
         
-        if (width >= 1000) {
-            itemsToShow = 3;
-        } else if (width >= 500) {
-            itemsToShow = 2;
-        } else {
-            itemsToShow = 1;
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sara Khan" class="testimonial-img">
+                <div class="testimonial-info">
+                    <h3 class="testimonial-name">Sara Khan</h3>
+                    <span class="testimonial-role">Interior Designer</span>
+                </div>
+            </div>
+            <p class="testimonial-text">As an interior designer, I'm very particular about fabrics. Haseeb Collection's bedsheets are premium quality with excellent thread count. My clients always love them!</p>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="testimonial-date">March 22, 2023</div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Ahmed Ali" class="testimonial-img">
+                <div class="testimonial-info">
+                    <h3 class="testimonial-name">Ahmed Ali</h3>
+                    <span class="testimonial-role">Hotel Manager</span>
+                </div>
+            </div>
+            <p class="testimonial-text">We've been using Haseeb Collection bedsheets in our hotel for over a year now. They withstand commercial laundry extremely well and our guests frequently compliment their comfort.</p>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-date">April 5, 2023</div>
+        </div>
+        
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fatima Noor" class="testimonial-img">
+                <div class="testimonial-info">
+                    <h3 class="testimonial-name">Fatima Noor</h3>
+                    <span class="testimonial-role">Homemaker</span>
+                </div>
+            </div>
+            <p class="testimonial-text">I've tried many brands over the years, but nothing compares to the softness and durability of Haseeb Collection. The prices are reasonable for such premium quality.</p>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-date">May 18, 2023</div>
+        </div>
+        
+        <!-- Testimonial 5 -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Hamza Ali" class="testimonial-img">
+                <div class="testimonial-info">
+                    <h3 class="testimonial-name">Hamza Ali</h3>
+                    <span class="testimonial-role">Architect</span>
+                </div>
+            </div>
+            <p class="testimonial-text">The designs are modern and elegant. They perfectly complement my contemporary bedroom design. Delivery was prompt and the packaging was excellent.</p>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="testimonial-date">June 30, 2023</div>
+        </div>
+        
+        <!-- Testimonial 6 -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ayesha Malik" class="testimonial-img">
+                <div class="testimonial-info">
+                    <h3 class="testimonial-name">Ayesha Malik</h3>
+                    <span class="testimonial-role">Teacher</span>
+                </div>
+            </div>
+            <p class="testimonial-text">I purchased the king size luxury set and I'm extremely satisfied. The fabric is breathable which is perfect for our climate. Will definitely buy again!</p>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="testimonial-date">July 12, 2023</div>
+        </div>
+    </div>
+    
+    <div class="testimonial-controls">
+        <button class="testimonial-btn">
+            <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <button class="testimonial-btn">
+            Next <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    </section>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const prevBtn = document.querySelector('.testimonial-btn:first-child');
+        const nextBtn = document.querySelector('.testimonial-btn:nth-child(2)');
+        let currentIndex = 0;
+        
+        // Function to show testimonials based on screen size
+        function updateTestimonials() {
+            const width = window.innerWidth;
+            let itemsToShow;
+            
+            if (width >= 1000) {
+                itemsToShow = 3;
+            } else if (width >= 500) {
+                itemsToShow = 2;
+            } else {
+                itemsToShow = 1;
+            }
+            
+            testimonials.forEach((testimonial, index) => {
+                if (index >= currentIndex && index < currentIndex + itemsToShow) {
+                    testimonial.style.display = 'block';
+                } else {
+                    testimonial.style.display = 'none';
+                }
+            });
         }
         
-        testimonials.forEach((testimonial, index) => {
-            if (index >= currentIndex && index < currentIndex + itemsToShow) {
-                testimonial.style.display = 'block';
+        // Initial setup
+        updateTestimonials();
+        
+        // Next button event
+        nextBtn.addEventListener('click', function() {
+            const width = window.innerWidth;
+            let itemsToShow;
+            
+            if (width >= 1000) {
+                itemsToShow = 3;
+            } else if (width >= 500) {
+                itemsToShow = 2;
             } else {
-                testimonial.style.display = 'none';
+                itemsToShow = 1;
+            }
+            
+            if (currentIndex + itemsToShow < testimonials.length) {
+                currentIndex += itemsToShow;
+                updateTestimonials();
             }
         });
-    }
-    
-    // Initial setup
-    updateTestimonials();
-    
-    // Next button event
-    nextBtn.addEventListener('click', function() {
-        const width = window.innerWidth;
-        let itemsToShow;
         
-        if (width >= 1000) {
-            itemsToShow = 3;
-        } else if (width >= 500) {
-            itemsToShow = 2;
-        } else {
-            itemsToShow = 1;
-        }
+        // Previous button event
+        prevBtn.addEventListener('click', function() {
+            const width = window.innerWidth;
+            let itemsToShow;
+            
+            if (width >= 1000) {
+                itemsToShow = 3;
+            } else if (width >= 500) {
+                itemsToShow = 2;
+            } else {
+                itemsToShow = 1;
+            }
+            
+            if (currentIndex - itemsToShow >= 0) {
+                currentIndex -= itemsToShow;
+                updateTestimonials();
+            }
+        });
         
-        if (currentIndex + itemsToShow < testimonials.length) {
-            currentIndex += itemsToShow;
+        // Update on window resize
+        window.addEventListener('resize', function() {
+            currentIndex = 0;
             updateTestimonials();
-        }
+        });
     });
-    
-    // Previous button event
-    prevBtn.addEventListener('click', function() {
-        const width = window.innerWidth;
-        let itemsToShow;
-        
-        if (width >= 1000) {
-            itemsToShow = 3;
-        } else if (width >= 500) {
-            itemsToShow = 2;
-        } else {
-            itemsToShow = 1;
-        }
-        
-        if (currentIndex - itemsToShow >= 0) {
-            currentIndex -= itemsToShow;
-            updateTestimonials();
-        }
-    });
-    
-    // Update on window resize
-    window.addEventListener('resize', function() {
-        currentIndex = 0;
-        updateTestimonials();
-    });
-});
-</script>
-       <!-- Contact Section -->
-<section class="contact-section" id="contact-section">
-    <h2 class="section-title">CONTACT US</h2><br><br><br>
-    <div class="contact-container">
-        <div class="contact-info">
-            <h3>Get in Touch</h3>
-            <p><i class="fa-regular fa-phone"></i> +92 3412825465</p>
-            <p><i class="fa-regular fa-envelope"></i> haseebcollection903@gmail.com</p>
-            <p><i class="fa-regular fa-clock"></i> Daily 9AM - 12PM</p>
+    </script>
+
+    <!-- Wishlist Modal -->
+    <div class="wishlist-modal" id="wishlist-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f5f5f5; z-index: 1000; overflow-y: auto;">
+        <div style="padding: 40px 3%; max-width: 1400px; margin: 0 auto;">
+            <button onclick="closeWishlist()" style="float: left; font-size: 16px; margin-bottom: 20px; background: none; border: none; cursor: pointer;">&larr; Back</button>
+            <br><h5 id="wishlist-h5" style="font-size: 1rem;">Your Favorites</h5>
+            <h2 class="section-title" style="font-weight: 500;">Your Wishlist</h2>
+
+            <div id="wishlist-grid" class="wishlist-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 7px;"></div>
+
+            <div class="empty-wishlist" id="empty-wishlist" style="text-align: center; padding: 40px; display: none;">
+                <i class="fa-regular fa-heart" style="font-size: 50px; color: #ccc; margin-bottom: 20px;"></i>
+                <p style="color: #888;">Your wishlist is empty</p>
+                <button class="btn" onclick="closeWishlist(); scrollToSection('#products-section')" style="margin-top: 20px; color: #0e0e0e;">Browse Products</button>
+            </div>
         </div>
-
-        <!-- Contact Form -->
-        <form class="contact-form" id="whatsappForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <input type="text" id="subject" placeholder="Subject">
-            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-            <button style="background-color: #252525; width: 100%; border-radius: 60px;" type="submit">
-                Send Message
-            </button>
-        </form>
     </div>
-</section>
 
-<!-- JS for WhatsApp Send -->
-<script>
-document.getElementById("whatsappForm").addEventListener("submit", function(e){
-    e.preventDefault();
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let subject = document.getElementById("subject").value;
-    let message = document.getElementById("message").value;
-
-    let whatsappNumber = "923412825465"; // apna number (92 ke sath)
-
-    let finalMessage = `*New Contact Form Message*%0A
-👤 Name: ${name}%0A
-📧 Email: ${email}%0A
-📝 Subject: ${subject}%0A
-💬 Message: ${message}`;
-
-    let url = `https://wa.me/${whatsappNumber}?text=${finalMessage}`;
-    window.open(url, "_blank");
-});
-</script>
-
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact-section">
+            <h2 class="section-title">CONTACT US</h2><br><br><br>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fa-regular fa-phone"></i> +92 3412825465</p>
+                    <p><i class="fa-regular fa-envelope"></i> haseebcollection903@gmail.com</p>
+                    <p><i class="fa-regular fa-clock"></i> Daily 9AM - 12PM</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button style="background-color: #252525; width: 100%; border-radius: 60px;" type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+<br>
     <!-- Product Detail Section (Initially Hidden) -->
     <section class="product-detail-section" id="product-detail-section">
         <div class="back-to-shop" id="back-to-shop">
@@ -2673,258 +2685,7 @@ document.getElementById("whatsappForm").addEventListener("submit", function(e){
             </div>
         </div>
     </section>
-<style>
-  /* Mobile responsive styling */
-  @media (max-width: 768px) {
-    #wishlist-h5 {
-      display: flex;
-      text-align: center !important;
-      text-decoration: none;
-      color: #f3f3f3;
-    }
 
-    .section-title {
-      text-align: left !important;
-    }
-  }
-</style>
-
-    <!-- Wishlist Modal -->
-    <div class="wishlist-modal" id="wishlist-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f5f5f5; z-index: 1000; overflow-y: auto;">
-        <div style="padding: 40px 3%; max-width: 1400px; margin: 0 auto;">
-            <button onclick="closeWishlist()" style="float: left; font-size: 16px; margin-bottom: 20px; background: none; border: none; cursor: pointer;">&larr; Back</button>
-            <br><h5 id="wishlist-h5" style="font-size: 1rem;">Your Favorites</h5>
-            <h2 class="section-title" style="font-weight: 500;">Your Wishlist</h2>
-
-            <div id="wishlist-grid" class="wishlist-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 7px;"></div>
-
-            <div class="empty-wishlist" id="empty-wishlist" style="text-align: center; padding: 40px; display: none;">
-                <i class="fa-regular fa-heart" style="font-size: 50px; color: #ccc; margin-bottom: 20px;"></i>
-                <p style="color: #888;">Your wishlist is empty</p>
-                <button class="btn" onclick="closeWishlist(); scrollToSection('#products-section')" style="margin-top: 20px; color: #0e0e0e;">Browse Products</button>
-            </div>
-        </div>
-    </div>
-
-<script>
-let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-const wishlistGrid = document.getElementById('wishlist-grid');
-const emptyWishlist = document.getElementById('empty-wishlist');
-
-// Ensure products and cart exist globally
-// Example:
-// const products = { "prod1": {title: "Product 1", price: "Rs.1,000", images: ["url1"]}, ... };
-// let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function updateWishlist() {
-    // Remove invalid product IDs
-    wishlist = wishlist.filter(productId => !!products[productId]);
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-
-    wishlistGrid.innerHTML = '';
-
-    if (wishlist.length === 0) {
-        emptyWishlist.style.display = 'block';
-        wishlistGrid.style.display = 'none';
-    } else {
-        emptyWishlist.style.display = 'none';
-        wishlistGrid.style.display = 'grid';
-
-        wishlist.forEach((productId, index) => {
-            const product = products[productId];
-            if (product) {
-                const wishlistItem = document.createElement('div');
-                wishlistItem.className = 'product-card';
-                wishlistItem.innerHTML = `
-                    <button class="remove-wishlist" data-index="${index}" 
-                        style="position: absolute; top: 10px; right: 10px; background: white; border: none; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;">
-                        <i class="fa-solid fa-heart" style="color: red;"></i>
-                    </button>
-                    <img src="${product.images[0]}" alt="${product.title}" class="product-image">
-                    <div class="product-info">
-                        <div>
-                            <h3 class="product-title">${product.title}</h3>
-                            <p class="product-price">${product.price}</p>
-                        </div>
-                    </div>
-                    <button class="add-to-cart-from-wishlist" data-product="${productId}" 
-                        style="width: 100%; padding: 10px; margin-top: 10px; background: #000; color: #fff; border: none; border-radius: 30px; cursor: pointer;">
-                        Add to Cart
-                    </button>
-                `;
-                wishlistGrid.appendChild(wishlistItem);
-            }
-        });
-    }
-
-    updateAllWishlistButtons();
-    updateWishlistCount();
-}
-
-function updateAllWishlistButtons() {
-    document.querySelectorAll('.wishlist-btn').forEach(btn => {
-        const productId = btn.getAttribute('data-product');
-        const isInWishlist = wishlist.includes(productId);
-        btn.innerHTML = `<i class="fa-${isInWishlist ? 'solid' : 'regular'} fa-heart"></i>`;
-        btn.querySelector('i').style.color = isInWishlist ? 'red' : '';
-    });
-}
-
-function updateWishlistCount() {
-    const wishlistCountElements = document.querySelectorAll('.wishlist-count');
-    wishlistCountElements.forEach(el => {
-        el.textContent = wishlist.length;
-        el.style.display = wishlist.length > 0 ? 'flex' : 'none';
-    });
-}
-
-function addToWishlist(productId) {
-    if (!wishlist.includes(productId)) {
-        wishlist.push(productId);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        updateWishlist();
-        showToast('Added to wishlist');
-        return true;
-    } else {
-        showToast('Already in wishlist');
-        return false;
-    }
-}
-
-function removeFromWishlistByProductId(productId) {
-    const index = wishlist.indexOf(productId);
-    if (index !== -1) {
-        wishlist.splice(index, 1);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        updateWishlist();
-        showToast('Removed from wishlist');
-    }
-}
-
-// This version removes by index only when explicitly removing via the button on wishlist modal
-function removeFromWishlist(index) {
-    if (index >= 0 && index < wishlist.length) {
-        wishlist.splice(index, 1);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        updateWishlist();
-        showToast('Removed from wishlist');
-    }
-}
-
-function addWishlistButtons() {
-    document.querySelectorAll('.product-card').forEach(card => {
-        const productId = card.getAttribute('data-product');
-        if (!productId) return;
-
-        const existingBtn = card.querySelector('.wishlist-btn');
-        if (existingBtn) existingBtn.remove();
-
-        const wishlistBtn = document.createElement('button');
-        wishlistBtn.className = 'wishlist-btn';
-        wishlistBtn.setAttribute('data-product', productId);
-        wishlistBtn.innerHTML = `<i class="fa-${wishlist.includes(productId) ? 'solid' : 'regular'} fa-heart"></i>`;
-
-        if (wishlist.includes(productId)) {
-            wishlistBtn.querySelector('i').style.color = 'red';
-        }
-
- Object.assign(wishlistBtn.style, {
-    position: 'absolute',
-    top: '10px',
-    right: '10px',
-    background: 'white',
-    border: 'none',
-    width: '38px',
-    height: '38px',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer',
-    zIndex: '2',
-    fontSize: '17px' // ← Add this line
-});
-
-        card.appendChild(wishlistBtn);
-    });
-}
-
-document.addEventListener('click', function (e) {
-    // Add to cart from wishlist
-    if (e.target.closest('.add-to-cart-from-wishlist')) {
-        const btn = e.target.closest('.add-to-cart-from-wishlist');
-        const productId = btn.getAttribute('data-product');
-        const product = products[productId];
-        if (!product) return;
-
-        let existingItem = cart.find(item => item.id === productId);
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            cart.push({
-                id: productId,
-                name: product.title,
-                price: parseFloat(product.price.replace(/Rs\.|,/g, '')),
-                quantity: 1,
-                image: product.images[0]
-            });
-        }
-
-        updateCart();
-        showToast(`${product.title} added to cart`);
-        e.preventDefault();
-    }
-
-    // Remove from wishlist by index (from wishlist modal)
-    if (e.target.closest('.remove-wishlist')) {
-        const index = parseInt(e.target.closest('.remove-wishlist').getAttribute('data-index'));
-        removeFromWishlist(index);
-        e.preventDefault();
-    }
-
-    // Toggle wishlist button on product cards
-    if (e.target.closest('.wishlist-btn') || e.target.closest('.wishlist-btn i')) {
-        const btn = e.target.closest('.wishlist-btn');
-        const productId = btn.getAttribute('data-product');
-        if (!productId) return;
-
-        if (wishlist.includes(productId)) {
-            removeFromWishlistByProductId(productId);
-        } else {
-            addToWishlist(productId);
-        }
-        e.preventDefault();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Remove duplicates and save again
-    wishlist = Array.from(new Set(wishlist));
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-
-    updateWishlist();
-    addWishlistButtons();
-});
-
-function openWishlist() {
-    const wishlistModal = document.getElementById('wishlist-modal');
-    if (wishlistModal) {
-        wishlistModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        window.scrollTo(0, 0);
-        updateWishlist();
-    }
-}
-
-function closeWishlist() {
-    const wishlistModal = document.getElementById('wishlist-modal');
-    if (wishlistModal) {
-        wishlistModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
-</script>
     <style>
    .payment-section {
   display: flex;
@@ -3002,7 +2763,7 @@ function closeWishlist() {
         <span class="ticker-item"> Fast Shipping on All Orders Over Orangi Town</span>
         <span class="ticker-item"> Experience Unmatched Comfort with Our Breathable Bamboo Fiber Collection</span>
         <span class="ticker-item"> Over 5,000 5-Star Reviews from Satisfied Customers</span>
-
+        
         <!-- Duplicate Content for Seamless Looping -->
         <span class="ticker-item"> New Arrival: Luxurious 1000 Thread Count Egyptian Cotton Bedsheets</span>
         <span class="ticker-item"> Haseeb Collection - Voted Best Bedding Brand 2025</span>
@@ -3016,7 +2777,7 @@ function closeWishlist() {
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-
+            
             <div class="footer-col">
     <div class="footer-logo" style="display: flex; align-items: center; gap: 10px; font-family: 'Cinzel Decorative';">
         <img src="blacklogo.jpg" alt="Haseeb Collection Logo" style="height: 150px;">
@@ -3073,13 +2834,10 @@ function closeWishlist() {
     </footer>
     <!-- Cart Sidebar -->
 <div id="cart-sidebar" class="cart-sidebar">
-    <h2 style="font-weight: normal; font-size: 1.1em; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px; margin-bottom: 15px;">
-  Shopping Cart
-</h2>
-
-<button id="close-cart" type="button" style="
+    <h2>Cart</h2>
+    <button id="close-cart" type="button" style="
   position: absolute;
-  top: 19px;
+  top: 13px;
   right: 13px;
   color: rgb(49, 49, 49);
   font-size: 20px;
@@ -3089,19 +2847,12 @@ function closeWishlist() {
   cursor: pointer;
   border: none;
   background: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-">
-  <i class="fa-regular fa-times"></i>
-</button>
+">×</button>
 
-   <ul id="cart-items"></ul>
-   <ul id="cart-items"></ul>
-   <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
-       <input type="hidden" name="access_key" value="9c0dc60b-4afe-4c0d-b953-cf8767abbed9">
-   
-       <input type="text" name="name" placeholder="Your Name" required
+    <ul id="cart-items"></ul>
+    <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="9c0dc60b-4afe-4c0d-b953-cf8767abbed9">
+        <input type="text" name="name" placeholder="Your Name" required
        style="width: 100%; padding: 12px 16px; margin: 8px 0; border: 1px solid #ccc; border-radius: 2px; font-size: 16px;" />
    
        <input type="text" id="address" name="address" placeholder="Your Address" required
@@ -3158,9 +2909,7 @@ function closeWishlist() {
 </script>
 <!-- Cart Open Button -->
     <style>
-             /* Network Status Indicator (small corner element) */
-    
-
+        
         /* Main Offline Overlay */
         .hc-offline-overlay {
             position: fixed;
@@ -3176,7 +2925,7 @@ function closeWishlist() {
             flex-direction: column;
             backdrop-filter: blur(3px);
         }
-
+        
         .hc-offline-container {
             text-align: center;
             padding: 40px;
@@ -3188,7 +2937,7 @@ function closeWishlist() {
             font-family: "Jost", sans-serif;
             width: 90%;
         }
-
+        
         /* HC Logo Animation */
         .hc-logo-animation {
             width: 120px;
@@ -3196,7 +2945,7 @@ function closeWishlist() {
             margin: 0 auto 30px;
             position: relative;
         }
-
+        
         .hc-logo-base {
             width: 100%;
             height: 100%;
@@ -3206,7 +2955,7 @@ function closeWishlist() {
             background-size: contain;
             animation: hcPulse 2s infinite;
         }
-
+        
         .hc-logo-letter {
             position: absolute;
             top: 50%;
@@ -3216,9 +2965,9 @@ function closeWishlist() {
             font-weight: 700;
             color: rgb(34, 34, 34);
              font-family: "Jost", sans-serif;
-
+             
         }
-
+        
         /* Connection Elements */
         .hc-offline-title {
             font-size: 24px;
@@ -3227,14 +2976,14 @@ function closeWishlist() {
             font-weight: 600;
             font-family: "Jost", sans-serif;
         }
-
+        
         .hc-offline-desc {
             color: #666;
             margin-bottom: 25px;
             font-size: 16px;
             font-family: "Jost", sans-serif;
         }
-
+        
         .hc-retry-btn {
             background:rgb(39, 39, 39);
             color:#ffffff;
@@ -3247,49 +2996,268 @@ function closeWishlist() {
               font-family: "Jost", sans-serif;
             font-weight: 600;
         }
-
+        
         .hc-retry-btn:hover {
             background:rgb(44, 44, 44);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
-
+        
         /* Animations */
         @keyframes hcPulse {
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.05); opacity: 0.9; }
         }
-
+        
         @keyframes hcFadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        
         /* Content styling when offline */
         body.hc-offline .content {
             filter: blur(2px);
             opacity: 0.8;
             pointer-events: none;
         }
-
+        
         /* Responsive adjustments */
         @media (max-width: 600px) {
             .hc-offline-container {
                 padding: 30px 20px;
             }
-
+            
             .hc-logo-animation {
                 width: 80px;
                 height: 80px;
             }
         }
     </style>
+    <script>
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const wishlistGrid = document.getElementById('wishlist-grid');
+        const emptyWishlist = document.getElementById('empty-wishlist');
+        
+        // Ensure products and cart exist globally
+        // Example:
+        // const products = { "prod1": {title: "Product 1", price: "Rs.1,000", images: ["url1"]}, ... };
+        // let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function updateWishlist() {
+            // Remove invalid product IDs
+            wishlist = wishlist.filter(productId => !!products[productId]);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        
+            wishlistGrid.innerHTML = '';
+        
+            if (wishlist.length === 0) {
+                emptyWishlist.style.display = 'block';
+                wishlistGrid.style.display = 'none';
+            } else {
+                emptyWishlist.style.display = 'none';
+                wishlistGrid.style.display = 'grid';
+        
+                wishlist.forEach((productId, index) => {
+                    const product = products[productId];
+                    if (product) {
+                        const wishlistItem = document.createElement('div');
+                        wishlistItem.className = 'product-card';
+                        wishlistItem.innerHTML = `
+                            <button class="remove-wishlist" data-index="${index}" 
+                                style="position: absolute; top: 10px; right: 10px; background: white; border: none; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;">
+                                <i class="fa-solid fa-heart" style="color: red;"></i>
+                            </button>
+                            <img src="${product.images[0]}" alt="${product.title}" class="product-image">
+                            <div class="product-info">
+                                <div>
+                                    <h3 class="product-title">${product.title}</h3>
+                                    <p class="product-price">${product.price}</p>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-from-wishlist" data-product="${productId}" 
+                                style="width: 100%; padding: 10px; margin-top: 10px; background: #000; color: #fff; border: none; border-radius: 30px; cursor: pointer;">
+                                Add to Cart
+                            </button>
+                        `;
+                        wishlistGrid.appendChild(wishlistItem);
+                    }
+                });
+            }
+        
+            updateAllWishlistButtons();
+            updateWishlistCount();
+        }
+        
+        function updateAllWishlistButtons() {
+            document.querySelectorAll('.wishlist-btn').forEach(btn => {
+                const productId = btn.getAttribute('data-product');
+                const isInWishlist = wishlist.includes(productId);
+                btn.innerHTML = `<i class="fa-${isInWishlist ? 'solid' : 'regular'} fa-heart"></i>`;
+                btn.querySelector('i').style.color = isInWishlist ? 'red' : '';
+            });
+        }
+        
+        function updateWishlistCount() {
+            const wishlistCountElements = document.querySelectorAll('.wishlist-count');
+            wishlistCountElements.forEach(el => {
+                el.textContent = wishlist.length;
+                el.style.display = wishlist.length > 0 ? 'flex' : 'none';
+            });
+        }
+        
+        function addToWishlist(productId) {
+            if (!wishlist.includes(productId)) {
+                wishlist.push(productId);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlist();
+                showToast('Added to wishlist');
+                return true;
+            } else {
+                showToast('Already in wishlist');
+                return false;
+            }
+        }
+        
+        function removeFromWishlistByProductId(productId) {
+            const index = wishlist.indexOf(productId);
+            if (index !== -1) {
+                wishlist.splice(index, 1);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlist();
+                showToast('Removed from wishlist');
+            }
+        }
+        
+        // This version removes by index only when explicitly removing via the button on wishlist modal
+        function removeFromWishlist(index) {
+            if (index >= 0 && index < wishlist.length) {
+                wishlist.splice(index, 1);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlist();
+                showToast('Removed from wishlist');
+            }
+        }
+        
+        function addWishlistButtons() {
+            document.querySelectorAll('.product-card').forEach(card => {
+                const productId = card.getAttribute('data-product');
+                if (!productId) return;
+        
+                const existingBtn = card.querySelector('.wishlist-btn');
+                if (existingBtn) existingBtn.remove();
+        
+                const wishlistBtn = document.createElement('button');
+                wishlistBtn.className = 'wishlist-btn';
+                wishlistBtn.setAttribute('data-product', productId);
+                wishlistBtn.innerHTML = `<i class="fa-${wishlist.includes(productId) ? 'solid' : 'regular'} fa-heart"></i>`;
+        
+                if (wishlist.includes(productId)) {
+                    wishlistBtn.querySelector('i').style.color = 'red';
+                }
+        
+         Object.assign(wishlistBtn.style, {
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            background: 'white',
+            border: 'none',
+            width: '38px',
+            height: '38px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            zIndex: '2',
+            fontSize: '17px' // ← Add this line
+        });
+        
+                card.appendChild(wishlistBtn);
+            });
+        }
+        
+        document.addEventListener('click', function (e) {
+            // Add to cart from wishlist
+            if (e.target.closest('.add-to-cart-from-wishlist')) {
+                const btn = e.target.closest('.add-to-cart-from-wishlist');
+                const productId = btn.getAttribute('data-product');
+                const product = products[productId];
+                if (!product) return;
+        
+                let existingItem = cart.find(item => item.id === productId);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        id: productId,
+                        name: product.title,
+                        price: parseFloat(product.price.replace(/Rs\.|,/g, '')),
+                        quantity: 1,
+                        image: product.images[0]
+                    });
+                }
+        
+                updateCart();
+                showToast(`${product.title} added to cart`);
+                e.preventDefault();
+            }
+        
+            // Remove from wishlist by index (from wishlist modal)
+            if (e.target.closest('.remove-wishlist')) {
+                const index = parseInt(e.target.closest('.remove-wishlist').getAttribute('data-index'));
+                removeFromWishlist(index);
+                e.preventDefault();
+            }
+        
+            // Toggle wishlist button on product cards
+            if (e.target.closest('.wishlist-btn') || e.target.closest('.wishlist-btn i')) {
+                const btn = e.target.closest('.wishlist-btn');
+                const productId = btn.getAttribute('data-product');
+                if (!productId) return;
+        
+                if (wishlist.includes(productId)) {
+                    removeFromWishlistByProductId(productId);
+                } else {
+                    addToWishlist(productId);
+                }
+                e.preventDefault();
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            // Remove duplicates and save again
+            wishlist = Array.from(new Set(wishlist));
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        
+            updateWishlist();
+            addWishlistButtons();
+        });
+        
+        function openWishlist() {
+            const wishlistModal = document.getElementById('wishlist-modal');
+            if (wishlistModal) {
+                wishlistModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                window.scrollTo(0, 0);
+                updateWishlist();
+            }
+        }
+        
+        function closeWishlist() {
+            const wishlistModal = document.getElementById('wishlist-modal');
+            if (wishlistModal) {
+                wishlistModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        </script>
     <!-- Small network status indicator -->
     <div class="network-status" id="networkStatus">
         <span id="statusText"></span>
     </div>
-
-
+    
+    
     <!-- Offline Overlay -->
     <div class="hc-offline-overlay" id="offlineOverlay">
         <div class="hc-offline-container">
@@ -3310,23 +3278,23 @@ function closeWishlist() {
             const offlineMessage = document.getElementById('offlineMessage');
             const networkStatus = document.getElementById('networkStatus');
             const statusText = document.getElementById('statusText');
-
+            
             let lastOnlineTime = null;
             let checkingConnection = false;
-
+            
             // Initial check
             checkNetworkStatus();
-
+            
             // Event listeners
             window.addEventListener('online', handleNetworkChange);
             window.addEventListener('offline', handleNetworkChange);
             retryBtn.addEventListener('click', retryConnection);
-
+            
             // Check network status with actual requests
             async function checkNetworkStatus() {
                 if (checkingConnection) return;
                 checkingConnection = true;
-
+                
                 try {
                     // Try to fetch a small resource from your server
                     const response = await fetch('https://httpbin.org/status/200', {
@@ -3334,7 +3302,7 @@ function closeWishlist() {
                         cache: 'no-store',
                         mode: 'no-cors'
                     });
-
+                    
                     // If we get here, we're online
                     handleOnline();
                 } catch (error) {
@@ -3344,12 +3312,12 @@ function closeWishlist() {
                     checkingConnection = false;
                 }
             }
-
+            
             function handleNetworkChange() {
                 // Use setTimeout to allow browser to update its online status
                 setTimeout(checkNetworkStatus, 100);
             }
-
+            
             function handleOnline() {
                 // Update UI
                 offlineOverlay.style.display = 'none';
@@ -3357,7 +3325,7 @@ function closeWishlist() {
                 statusText.textContent = 'Online';
                 networkStatus.style.background = '#4CAF50';
                 document.body.classList.remove('hc-offline');
-
+                
                 // Show reconnect message if we were previously offline
                 if (lastOnlineTime) {
                     const offlineDuration = Math.round((Date.now() - lastOnlineTime) / 1000);
@@ -3366,10 +3334,10 @@ function closeWishlist() {
                         offlineMessage.textContent = 'Connected to Haseeb Collection';
                     }, 3000);
                 }
-
+                
                 lastOnlineTime = null;
             }
-
+            
             function handleOffline() {
                 // First time going offline
                 if (!lastOnlineTime) {
@@ -3379,7 +3347,7 @@ function closeWishlist() {
                     const offlineDuration = Math.round((Date.now() - lastOnlineTime) / 1000);
                     offlineMessage.textContent = `Still offline (${formatDuration(offlineDuration)}). Please check your network.`;
                 }
-
+                
                 // Update UI
                 offlineOverlay.style.display = 'flex';
                 offlineOverlay.style.animation = 'hcFadeIn 0.3s forwards';
@@ -3388,11 +3356,11 @@ function closeWishlist() {
                 networkStatus.style.background = '#F44336';
                 document.body.classList.add('hc-offline');
             }
-
+            
             function retryConnection() {
                 retryBtn.disabled = true;
                 retryBtn.textContent = 'Checking...';
-
+                
                 setTimeout(() => {
                     checkNetworkStatus().then(() => {
                         retryBtn.disabled = false;
@@ -3400,13 +3368,13 @@ function closeWishlist() {
                     });
                 }, 800);
             }
-
+            
             function formatDuration(seconds) {
                 if (seconds < 60) return `${seconds} sec`;
                 const minutes = Math.floor(seconds / 60);
                 return `${minutes} min`;
             }
-
+            
             // Check every 20 seconds
             setInterval(checkNetworkStatus, 20000);
         });
@@ -3420,21 +3388,21 @@ function closeWishlist() {
   const backToTopBtn = document.getElementById('backToTop');
         const progressCircle = document.querySelector('.progress-ring-circle');
         const circumference = 2 * Math.PI * 24; // 2πr (r=24 because diameter=50-2=48)
-
+        
         // Set initial stroke-dasharray and stroke-dashoffset
         progressCircle.style.strokeDasharray = circumference;
         progressCircle.style.strokeDashoffset = circumference;
-
+        
         window.addEventListener('scroll', function() {
             // Calculate scroll progress (0 to 1)
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollPosition = window.scrollY;
             const scrollProgress = Math.min(scrollPosition / scrollHeight, 1);
-
+            
             // Update progress circle
             const offset = circumference - (scrollProgress * circumference);
             progressCircle.style.strokeDashoffset = offset;
-
+            
             // Show/hide button (only appears after scrolling down 300px)
             if (scrollPosition > 300) {
                 backToTopBtn.style.display = 'flex';
@@ -3442,7 +3410,7 @@ function closeWishlist() {
                 backToTopBtn.style.display = 'none';
             }
         });
-
+        
         backToTopBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
@@ -3453,8 +3421,8 @@ function closeWishlist() {
 
 
 
-
-        const reviewCards = document.querySelectorAll('.testimonial-card');
+        
+        const reviewCards = document.querySelectorAll('.review-card');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -3475,22 +3443,22 @@ reviewCards.forEach(card => observer.observe(card));
       const elements = document.querySelectorAll(
         '.product-card, footer, .footer-column , .about-section , .contact-section , .reviews-section'
       );
-
+      
       elements.forEach(el => {
         const elementPosition = el.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-
+        
         if (elementPosition < windowHeight - 100) {
           el.classList.add('animate-in');
         }
       });
     };
-
+    
     animateOnScroll();
     window.addEventListener('scroll', animateOnScroll);
   });
 
-
+  
 
        const searchInput = document.getElementById('cute-search');
 
@@ -3570,15 +3538,10 @@ function updateCart() {
 const removeBtn = document.createElement('button');
 removeBtn.innerHTML = '<i class="fa-regular fa-trash"></i>';
 removeBtn.style.position = 'absolute';
-removeBtn.style.overflow = 'hidden';
 removeBtn.style.background = 'none';
 removeBtn.style.border = 'none';
 removeBtn.style.cursor = 'pointer';
 removeBtn.style.color = '#999';
-removeBtn.style.whiteSpace = "normal";
-removeBtn.style.wordBreak = "break-word";
-removeBtn.style.overflowWrap = "break-word";
-
 
 window.addEventListener('resize', setRemoveBtnPosition);
 setRemoveBtnPosition(); // Call once initially
@@ -3630,7 +3593,7 @@ removeBtn.addEventListener('click', (e) => {
 
  if (cart.length === 0) {
     cartItems.innerHTML = `
-       <li style="text-align: center; margin-bottom: 0; color: #000;">
+       <li style="text-align: center; margin-bottom: 0; color: #999;">
   <i class="far fa-shopping-cart" style="font-size: 40px; opacity: 0.4;"></i><br>
   <span style="font-size: 14px;">Your Cart is Empty</span>
 </li>
@@ -3807,7 +3770,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 productTitle.textContent = product.title;
                 productPrice.textContent = product.price;
                 productDescription.textContent = product.description;
-
+                
                 // Set data attribute for product ID
                 productDetailSection.setAttribute('data-product-id', productId);
 
@@ -3867,7 +3830,7 @@ addToCartBtn.addEventListener('click', () => {
     const productId = productDetailSection.getAttribute('data-product-id');
     const product = products[productId];
     const selectedSize = addToCartBtn.getAttribute('data-selected-size');
-
+    
     const existingItem = cart.find(item => 
         item.id === productId && item.size === selectedSize
     );
@@ -3906,7 +3869,7 @@ addToCartBtn.addEventListener('click', () => {
                 e.preventDefault();
                 scrollToSection(this.getAttribute('href'));
             });
-
+           
         });
           document.addEventListener('DOMContentLoaded', function() {
             const slider = document.querySelector('.slider');
@@ -3914,45 +3877,45 @@ addToCartBtn.addEventListener('click', () => {
             const prevBtn = document.querySelector('.prev-btn');
             const nextBtn = document.querySelector('.next-btn');
             const dots = document.querySelectorAll('.dot');
-
+            
             let currentIndex = 0;
             const slideCount = slides.length;
             let touchStartX = 0;
             let touchEndX = 0;
-
+            
             // Set initial position
             updateSlider();
-
+            
             // Next slide function
             function nextSlide() {
                 currentIndex = (currentIndex + 1) % slideCount;
                 updateSlider();
             }
-
+            
             // Previous slide function
             function prevSlide() {
                 currentIndex = (currentIndex - 1 + slideCount) % slideCount;
                 updateSlider();
             }
-
+            
             // Update slider position and dots
             function updateSlider() {
                 slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
+                
                 // Update dots
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentIndex);
                 });
-
+                
                 // Add active class for animation
                 slides.forEach(slide => slide.classList.remove('active'));
                 slides[currentIndex].classList.add('active');
             }
-
+            
             // Button event listeners
             nextBtn.addEventListener('click', nextSlide);
             prevBtn.addEventListener('click', prevSlide);
-
+            
             // Dot navigation
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
@@ -3960,17 +3923,17 @@ addToCartBtn.addEventListener('click', () => {
                     updateSlider();
                 });
             });
-
+            
             // Touch events for mobile swipe
             slider.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
             }, {passive: true});
-
+            
             slider.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 handleSwipe();
             }, {passive: true});
-
+            
             function handleSwipe() {
                 const difference = touchStartX - touchEndX;
                 if (difference > 50) {
@@ -3979,7 +3942,7 @@ addToCartBtn.addEventListener('click', () => {
                     prevSlide(); // Swipe right
                 }
             }
-
+            
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight') {
@@ -3988,30 +3951,31 @@ addToCartBtn.addEventListener('click', () => {
                     prevSlide();
                 }
             });
-
+            
             // Auto-slide (optional)
             let autoSlideInterval = setInterval(nextSlide, 5000);
-
+            
             // Pause auto-slide on hover/focus
             const sliderContainer = document.querySelector('.slider-container');
             sliderContainer.addEventListener('mouseenter', () => {
                 clearInterval(autoSlideInterval);
             });
-
+            
             sliderContainer.addEventListener('mouseleave', () => {
                 autoSlideInterval = setInterval(nextSlide, 5000);
             });
-
+            
             // Focus management for accessibility
             sliderContainer.addEventListener('focusin', () => {
                 clearInterval(autoSlideInterval);
             });
-
+            
             sliderContainer.addEventListener('focusout', () => {
                 autoSlideInterval = setInterval(nextSlide, 5000);
             });
-
+            
         });
     </script>
 </body>
 </html>
+
