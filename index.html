@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -350,6 +351,14 @@
     
     .product-price {
         font-size: 14px;
+    }
+
+
+}
+@media (max-width: 400px) {
+    .cart-sidebar {
+        width: 100%;   /* 👈 full width on small devices */
+        right: -100%;  /* 👈 slide fully out of screen */
     }
 }
         .product-card:hover {
@@ -789,8 +798,8 @@
 .cart-sidebar {
     position: fixed;
     top: 0;
-    right: -300px;              /* Hide completely off-screen */
-    width: 300px;               /* Full width */
+    right: -367px;              /* Hide completely off-screen */
+    width: 367px;               /* Full width */
     height: 100%;              /* Full height */
     background: var(--white);  /* Or use rgba(255,255,255,0.95) for transparency */
     box-shadow: -2px 0 10px rgba(0,0,0,0.2);
@@ -828,7 +837,7 @@
 
 .order-section button {
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     margin: 5px 0;
     background: var(--black);
     color: var(--white);
@@ -837,6 +846,7 @@
     border-radius: 4px;
     transition: background 0.3s ease;
 }
+
 
 
 .toast {
@@ -858,7 +868,6 @@
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
 /* Show toast with bounce-in animation */
 .toast.show {
     visibility: visible;
@@ -2161,10 +2170,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #cart-items li img {
     width: 80px;
-    height: 80px;
+    height: 90px;
     object-fit: cover;
-    margin-top: -3.4rem;
+    margin-top: -20px; /* instead of rem */
 }
+
 
 
 #cart-items .item-price {
@@ -2683,7 +2693,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <button onclick="closeWishlist()" style="float: left; font-size: 16px; margin-bottom: 20px; background: none; border: none; cursor: pointer;">&larr; Back</button>
             <br>
             <h5 id="wishlist-h5" 
-                style="font-size: 1rem; margin: 16px auto; text-align: center; display: block; width: 80%;">
+                style="font-size: 1rem; margin: 10px auto; text-align: center; display: block; width: 50%;">
               Your Favorites
             </h5>
                         <h2 class="section-title" style="font-weight: 500;">Your Wishlist</h2>
@@ -2918,18 +2928,19 @@ document.addEventListener('DOMContentLoaded', function() {
     </footer>
     <!-- Cart Sidebar -->
 <div id="cart-sidebar" class="cart-sidebar">
-    <h2>Cart</h2>
+    <h2 style="font-weight: 500;">Your Cart</h2>
     <button id="close-cart" type="button" style="
   position: absolute;
   top: 13px;
   right: 13px;
   color: rgb(49, 49, 49);
-  font-size: 20px;
+  font-size: 30px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   cursor: pointer;
   border: none;
+  font-weight: normal;
   background: none;
 ">×</button>
 
@@ -3603,7 +3614,7 @@ function updateCart() {
         // Product image
         const img = document.createElement('img');
         img.src = item.image;
-        img.style.width = '80px';
+        img.style.width = '74px';
         img.style.height = '80px';
         img.style.objectFit = 'cover';
         li.appendChild(img);
@@ -3635,12 +3646,12 @@ setRemoveBtnPosition(); // Call once initially
 function setRemoveBtnPosition() {
     if (window.innerWidth <= 768) {
     // Mobile position
-    removeBtn.style.top = "200px";
-    removeBtn.style.right = "50px";
+    removeBtn.style.top = "180px";
+    removeBtn.style.right = "40px";
   } else {
     // Desktop position
-    removeBtn.style.top = "189px";
-    removeBtn.style.right = "105px";
+    removeBtn.style.top = "180px";
+    removeBtn.style.right = "70px";
   }
 }
 
