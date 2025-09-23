@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -41,6 +43,7 @@
             color: var(--black);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100% !important;
         }
          body {
     background-color: #f5f5f5;
@@ -50,33 +53,33 @@
     overflow-y: auto; /* Ensure scroll is only when necessary */
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    width: 100% !important;
 
+    flex-direction: column;
 }
 
         /* Header */
-      header {
-    position: fixed;
-    top: 0;
-    width: 100%; /* Change this from 98.999% to 100% */
-    background: var(--white);
-    z-index: 1000;
-    border-bottom: 1px solid var(--dark-gray);
-    padding: 15px 0;
-    transition: all 0.3s ease;
-    height: 75px;
-    border-bottom: 1px solid #d8d8d8;
-}
+        header {
+            position: fixed;
+            top: 0;
+            width: 99.999%;
+            background: var(--white);
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-gray);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            height: 75px;
+            border-bottom: 1px solid #d8d8d8;
+        }
 
-      .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; /* Ensure consistent padding */
-    width: 100%; /* Add this to ensure full width within header */
-}
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
 
         .logo {
         margin-top: -10px;
@@ -187,10 +190,14 @@
             border-bottom: 1px solid var(--dark-gray);
         }
 
-        /* Main Content Container */
-        .main-content {
-            margin-top: 70px;
-        }
+       /* Main Content Container */
+.main-content {
+  margin-top: 70px;
+  width: 100% !important;   /* force full width */
+  max-width: 100% !important ;         /* prevent shrinking */
+  box-sizing: border-box;   /* keep padding inside width */
+}
+
 
         /* Hero Section */
         .hero {
@@ -1639,20 +1646,53 @@ h5{
                   }
                   
                   
+.filter-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  overflow-x: auto;      /* horizontal scroll allow */
+  scrollbar-width: none; /* Firefox me scrollbar hide */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 10px 0;
+  margin: 20px 0;
+}
+
+/* Chrome/Safari me scrollbar hide */
+.filter-buttons::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-btn {
+  flex: 0 0 auto; /* buttons shrink na ho */
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
 
     </style>
+    
 </head>
 <body>
     
     <!-- Header -->
-    <header id="header" style="width:100%; border-bottom:1px solid #eee;">
-        <div class="header-container" 
-             style="max-width:1200px; width:94%; margin:0 auto; padding:10px 20px; display:flex; align-items:center; justify-content:space-between;">
-            <div class="mobile-menu-btn">
-                <i style="font-weight: 300;" class="fa-regular fa-bars"></i>
-            </div>
+    <header id="header">
+
+        <div class="header-container">
+
             <div class="logo" style="cursor: pointer;">
-                <h1 style="font-size: 20px; font-family: Cinzel Decorative, serif; text-align: center; margin-top: 9px; font-weight: normal; margin-left: 12px;">HASEEB</h1>
+                <h1 style="font-size: 20px; font-family: Cinzel Decorative, serif; text-align: center; margin-top: 9px; font-weight: normal;">HASEEB</h1>
 <p style="font-size:  7px; letter-spacing: 1.7px; margin-top: -8px; font-family: Jost, sans-serif; text-align: center;">COLLECTION</p>
 
               </div>
@@ -1665,172 +1705,30 @@ h5{
                 <a href="#contact-section">Contact</a>
 
             </nav>
-            <div class="header-actions" style="display:flex; align-items:center; gap:15px;">
+            <div class="header-actions">
+                <div class="search-bar" id="search-bar" style="border: 1.3px solid #e2e2e2;  border-radius: 20px; width: 200px; height: 40px; display: flex; align-items: center; margin-top: -2px;">
+                    <button class="cute-search-button" onclick="performSearch()" style="background: none; border: none; cursor: pointer; font-weight: 400; margin-right: -2px;">
+                      <i style="font-weight: 300" class="fa-regular fa-search"></i>
+                    </button>
+                    <input type="text" class="cute-search-input" id="cute-search" placeholder="Search products.." style="border: none; outline: none; flex: 1;"/>
+                  </div>
 
-                <!-- Search Icon -->
-                <button id="toggle-search" style="background:none; border:none; cursor:pointer; font-size:16px;color: #333333; font-weight: 200;">
-                  <i class="fa-regular fa-search"></i>
-                </button>
-              
-                <!-- Wishlist Icon -->
-                <div class="wishlist-icon" title="Wishlist" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
-                  <i class="fa-regular fa-heart" style="font-weight: 300;" onclick="openWishlist()"></i>
-                  <span class="wishlist-count" style="background: #d80024; color: #fff; border-radius: 50%; width: 18px; height: 18px; display: none; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
-                </div>
-              
-                <!-- Cart Icon -->
+<div class="wishlist-icon" title="Wishlist" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
+    <i class="fa-regular fa-heart" style="font-weight: 300;" onclick="openWishlist()"></i>
+    <span class="wishlist-count" style="background: #d80024; color: var(--white); border-radius: 50%; width: 18px; height: 18px; display: none; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
+</div>
+
+
                 <div class="cart-icon" id="open-cart" title="Open Cart" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
-                  <i class="fa-regular fa-shopping-bag" style="font-weight: 300;"></i>
-                  <span class="cart-count" style="background:#000; color:#fff; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:10px; position:absolute; top:-8px; right:-8px;">0</span>
+                    <i class="fa-regular fa-shopping-bag"  style="font-weight: 300;"></i>
+                    <span class="cart-count" style="background: #000;">0</span>
                 </div>
-              </div>
-              
-              <!-- Search Overlay -->
-              <div id="search-overlay" 
-                   style="position:fixed; top:0; left:100%; width:100%; height:100%; background:white;
-                          display:flex; align-items:center; justify-content:center; transition:left 0.4s ease;
-                          z-index:9999;">     <button id="close-search" style="background:none; border:none; cursor:pointer; font-size:20px; margin-left:4px; padding: 12px;"><i class="fa-regular fa-xmark"></i></button>
-                
-                <div style="width:80%; max-width:500px; display:flex; align-items:center; border:1.3px solid #e2e2e2; border-radius:25px; padding:10px;">
-                  <input type="text" id="cute-search" placeholder="Search products.." 
-                         style="flex:1; border:none; outline:none; font-size:16px;"/>
-                  <button onclick="performSearch()" style="background:none; border:none; cursor:pointer; font-size:18px;">
-                    <i class="fa-regular fa-search"></i>
-                  </button>
-             
+                <div class="mobile-menu-btn">
+                    <i style="font-weight: 300;" class="fa-regular fa-bars"></i>
                 </div>
-              </div>
-              
-            <script>
-  const toggleSearch = document.getElementById("toggle-search");
-  const searchOverlay = document.getElementById("search-overlay");
-  const closeSearch = document.getElementById("close-search");
-  const searchInput = document.getElementById("cute-search");
+            </div>
 
-  // ✅ Open search overlay
-  toggleSearch.addEventListener("click", () => {
-    searchOverlay.style.left = "0"; 
-    searchInput.focus(); 
-  });
 
-  // ✅ Close search overlay
-  closeSearch.addEventListener("click", () => {
-    searchOverlay.style.left = "100%"; 
-    searchInput.value = ""; 
-    resetSearch(); // show all products again
-  });
-
-  // ✅ Trigger search on Enter
-  searchInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      performSearch();
-    }
-  });
-
-  // ✅ Perform search by category
-  function performSearch() {
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const productCards = document.querySelectorAll(".product-card");
-    const categorySections = document.querySelectorAll(".category-section");
-    let foundCategory = null;
-    let foundCategorySection = null;
-
-    // First, detect category
-    productCards.forEach(card => {
-      const category = card.getAttribute("data-category")?.toLowerCase() || "";
-      const title = card.querySelector(".product-title").textContent.toLowerCase();
-
-      if ((title.includes(searchTerm) || category.includes(searchTerm)) && !foundCategory) {
-        foundCategory = category;
-      }
-    });
-
-    // Also check if search term matches any category section
-    categorySections.forEach(section => {
-      const sectionCategory = section.getAttribute("data-category")?.toLowerCase() || "";
-      const sectionTitle = section.querySelector("h2")?.textContent.toLowerCase() || "";
-      
-      if ((sectionTitle.includes(searchTerm) || sectionCategory.includes(searchTerm)) && !foundCategorySection) {
-        foundCategorySection = section;
-      }
-    });
-
-    const noResults = document.getElementById("no-results");
-
-    if (foundCategory || foundCategorySection) {
-      if (noResults) noResults.style.display = "none";
-
-      // ✅ Close search overlay
-      searchOverlay.style.left = "100%";
-
-      // ✅ Show only products of that category
-      productCards.forEach(card => {
-        if (foundCategory && card.getAttribute("data-category")?.toLowerCase() === foundCategory) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-
-      // ✅ Scroll to the category section with smooth animation
-      if (foundCategorySection) {
-        // Wait for the search overlay to close
-        setTimeout(() => {
-          foundCategorySection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          });
-          
-          // Add highlight effect
-          foundCategorySection.style.transition = 'all 0.5s ease';
-          foundCategorySection.style.boxShadow = '0 0 0 3px rgba(74, 144, 226, 0.5)';
-          
-          setTimeout(() => {
-            foundCategorySection.style.boxShadow = 'none';
-          }, 1500);
-        }, 300);
-      } else if (foundCategory) {
-        // Find the section for this category and scroll to it
-        categorySections.forEach(section => {
-          if (section.getAttribute("data-category")?.toLowerCase() === foundCategory) {
-            setTimeout(() => {
-              section.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-              });
-              
-              // Add highlight effect
-              section.style.transition = 'all 0.5s ease';
-              section.style.boxShadow = '0 0 0 3px rgba(74, 144, 226, 0.5)';
-              
-              setTimeout(() => {
-                section.style.boxShadow = 'none';
-              }, 1500);
-            }, 300);
-          }
-        });
-      }
-    } else {
-      if (noResults) noResults.style.display = "block";
-    }
-  }
-
-  // ✅ Reset search (show all)
-  function resetSearch() {
-    const productCards = document.querySelectorAll(".product-card");
-    productCards.forEach(card => (card.style.display = "block"));
-
-    const noResults = document.getElementById("no-results");
-    if (noResults) noResults.style.display = "none";
-    
-    // Reset any highlighted sections
-    const categorySections = document.querySelectorAll(".category-section");
-    categorySections.forEach(section => {
-      section.style.boxShadow = 'none';
-    });
-  }
-</script>
-              
         <!-- Mobile Navigation -->
         <div class="mobile-nav">
             <div class="mobile-nav-links">
@@ -1960,6 +1858,16 @@ window.addEventListener('DOMContentLoaded', () => {
     </div>
 
  
+    <div class="filter-buttons">
+  <button class="filter-btn" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="bed sheet">Shirts</button>
+  <button class="filter-btn" data-filter="shoes">Shoes</button>
+  <button class="filter-btn" data-filter="jackets">Jackets</button>
+  <button class="filter-btn" data-filter="pants">Pants</button>
+  <button class="filter-btn" data-filter="hoodies">Hoodies</button>
+  <button class="filter-btn" data-filter="accessories">Accessories</button>
+</div>
+
         <!-- Products Grid -->
         <section class="products-section" id="products-section">
                        <h5 style="margin-top: -3px;">EXCLUSIVE</h5>
@@ -2033,12 +1941,40 @@ window.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </div>
+ <!-- PRODUCT NOT FOUND Message -->
+<div id="no-results" style="display:none;">
+  <i class="fas fa-search-minus"></i>
+  <p>PRODUCT NOT FOUND</p>
+</div>
 
             </div>
              <button class="discover-more-btn">Discover More</button>
 
         </section>
 <style>
+    #no-results {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555; /* grey text */
+}
+
+#no-results i {
+  font-size: 50px;
+  color: #999; /* grey icon */
+  display: block;
+  margin-bottom: 15px;
+}
+
+#no-results p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #444; /* slightly darker grey for text */
+}
+
     .discover-more-btn {
     display: block;
     margin: 30px auto;
@@ -2148,7 +2084,30 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </section>
         <!-- About Section -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const el = document.querySelector('.main-content');
+  if (!el) { console.warn('.main-content not found'); return; }
 
+  console.log('--- .main-content computed chain ---');
+  let node = el;
+  while (node) {
+    const cs = getComputedStyle(node);
+    console.log(
+      node.tagName.toLowerCase(),
+      node.id ? '#' + node.id : '',
+      node.className ? '.' + node.className.split(/\s+/).join('.') : '',
+      '| display:', cs.display,
+      '| width:', cs.width,
+      '| max-width:', cs.maxWidth,
+      '| padding:', cs.paddingLeft, '/', cs.paddingRight,
+      '| box-sizing:', cs.boxSizing
+    );
+    node = node.parentElement;
+  }
+});
+
+</script>
 
 <style>
 .premium-single-showcase {
@@ -2755,6 +2714,33 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
     
     <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Highlight active button
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter products
+      productCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+
+        if (filter === "all" || category === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
+
+
     document.addEventListener('DOMContentLoaded', function() {
         const testimonials = document.querySelectorAll('.testimonial-card');
         const prevBtn = document.querySelector('.testimonial-btn:first-child');
@@ -3697,8 +3683,37 @@ reviewCards.forEach(card => observer.observe(card));
     animateOnScroll();
     window.addEventListener('scroll', animateOnScroll);
   });
+const searchInput = document.getElementById('cute-search');
+const searchOverlay = document.getElementById('search-overlay');
+const noResults = document.getElementById('no-results');
 
-  
+searchInput.addEventListener('input', performSearch);
+
+function performSearch() {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  const productCards = document.querySelectorAll('.product-card');
+  let found = false;
+
+  productCards.forEach(card => {
+    const title = card.querySelector('.product-title').textContent.toLowerCase();
+    const category = card.getAttribute('data-category')?.toLowerCase() || "";
+
+    if (searchTerm === "" || title.includes(searchTerm) || category.includes(searchTerm)) {
+      card.style.display = 'block';
+      found = true;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Toggle PRODUCT NOT FOUND text
+  noResults.style.display = (!found && searchTerm.length > 0) ? 'block' : 'none';
+
+  // Close overlay while typing
+  if (searchOverlay && searchTerm.length > 0) {
+    searchOverlay.style.display = 'none';
+  }
+}
 
 // Cart functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
