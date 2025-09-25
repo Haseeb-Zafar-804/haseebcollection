@@ -2369,7 +2369,6 @@ document.addEventListener('DOMContentLoaded', function() {
         position: absolute;
         bottom: 0;
         left: 50%;
-        transform: translateX(-50%);
         width: 80px;
         height: 4px;
         background: linear-gradient(90deg, #242424, #181818);
@@ -2443,8 +2442,6 @@ document.addEventListener('DOMContentLoaded', function() {
         height: 70px;
         border-radius: 50%;
         object-fit: cover;
-        border: 3px solid #e8f4fc;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
     
     .testimonial-info {
@@ -2522,30 +2519,6 @@ document.addEventListener('DOMContentLoaded', function() {
             transform: translateY(0);
         }
     }
-    
-    .testimonial-card {
-        animation: fadeIn 0.1s ease-out;
-    }
-    
-    .testimonial-card:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-    
-    .testimonial-card:nth-child(3) {
-        animation-delay: 0.2s;
-    }
-    
-    .testimonial-card:nth-child(4) {
-        animation-delay: 0.2s;
-    }
-    
-    .testimonial-card:nth-child(5) {
-        animation-delay: 0.2s;
-    }
-    
-    .testimonial-card:nth-child(6) {
-        animation-delay: 0.2s;
-    }
     </style>
     </head>
     <body>
@@ -2557,7 +2530,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Testimonial 1 -->
         <div class="testimonial-card">
             <div class="testimonial-header">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ali Raza" class="testimonial-img">
+                <img src="https://img.freepik.com/premium-vector/one-person-pictogram_764382-14126.jpg" alt="Ali Raza" class="testimonial-img">
                 <div class="testimonial-info">
                     <h3 class="testimonial-name">Ali Raza</h3>
                     <span class="testimonial-role">Customer</span>
@@ -2577,7 +2550,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Testimonial 2 -->
         <div class="testimonial-card">
             <div class="testimonial-header">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sara Khan" class="testimonial-img">
+                <img src="https://img.freepik.com/premium-vector/one-person-pictogram_764382-14126.jpg" alt="Sara Khan" class="testimonial-img">
                 <div class="testimonial-info">
                     <h3 class="testimonial-name">Sara Khan</h3>
                     <span class="testimonial-role">Customer</span>
@@ -2597,7 +2570,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Testimonial 3 -->
         <div class="testimonial-card">
             <div class="testimonial-header">
-                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Ahmed Ali" class="testimonial-img">
+                <img src="https://img.freepik.com/premium-vector/one-person-pictogram_764382-14126.jpg" alt="Ahmed Ali" class="testimonial-img">
                 <div class="testimonial-info">
                     <h3 class="testimonial-name">Ahmed Ali</h3>
                     <span class="testimonial-role">Customer</span>
@@ -2617,7 +2590,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Testimonial 4 -->
         <div class="testimonial-card">
             <div class="testimonial-header">
-                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fatima Noor" class="testimonial-img">
+                <img src="https://img.freepik.com/premium-vector/one-person-pictogram_764382-14126.jpg" alt="Fatima Noor" class="testimonial-img">
                 <div class="testimonial-info">
                     <h3 class="testimonial-name">Fatima Noor</h3>
                     <span class="testimonial-role">Customer</span>
@@ -2637,7 +2610,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Testimonial 5 -->
         <div class="testimonial-card">
             <div class="testimonial-header">
-                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Hamza Ali" class="testimonial-img">
+                <img src="https://img.freepik.com/premium-vector/one-person-pictogram_764382-14126.jpg" alt="Hamza Ali" class="testimonial-img">
                 <div class="testimonial-info">
                     <h3 class="testimonial-name">Hamza Ali</h3>
                     <span class="testimonial-role">Customer</span>
@@ -2657,7 +2630,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Testimonial 6 -->
         <div class="testimonial-card">
             <div class="testimonial-header">
-                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ayesha Malik" class="testimonial-img">
+                <img src="https://img.freepik.com/premium-vector/one-person-pictogram_764382-14126.jpg" alt="Ayesha Malik" class="testimonial-img">
                 <div class="testimonial-info">
                     <h3 class="testimonial-name">Ayesha Malik</h3>
                     <span class="testimonial-role">Customer</span>
@@ -2977,7 +2950,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div class="footer-col">
     <div class="footer-logo" style="display: flex; align-items: center; gap: 10px; font-family: 'Cinzel Decorative';">
-        <img src="blacklogo.png" alt="Haseeb Collection Logo" style="height: 150px;">
+        <img src="blacklogo." alt="Haseeb Collection Logo" style="height: 150px;">
     </div>
     <p>Premium streetwear for the modern urban explorer. Quality craftsmanship meets contemporary design.</p>
     <div class="social-links">
@@ -3161,7 +3134,8 @@ document.addEventListener("DOMContentLoaded", () => {
             transform: translate(-50%, -50%);
             font-size: 48px;
             font-weight: 700;
-            color: rgb(34, 34, 34);
+            color: var(--black);
+
              font-family: "Jost", sans-serif;
              
         }
@@ -3183,7 +3157,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         .hc-retry-btn {
-            background:rgb(39, 39, 39);
+            background: var(--black);
             color:#ffffff;
             border: none;
             padding: 12px 30px;
@@ -3196,7 +3170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         .hc-retry-btn:hover {
-            background:rgb(44, 44, 44);
+            background: var(--black);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
