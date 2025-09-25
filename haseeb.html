@@ -1657,7 +1657,7 @@ h5{
   overflow-x: auto;      /* horizontal scroll allow */
   scrollbar-width: none; /* Firefox me scrollbar hide */
   -ms-overflow-style: none; /* IE/Edge */
-  padding: 10px 0;
+  padding: 20px 0;
   margin: 15px 0;
 }
 
@@ -1685,7 +1685,14 @@ h5{
   color: #fff;
   border-color: #222;
 }
-
+/* ✅ Mobile fix */
+@media (max-width: 768px) {
+  .filter-buttons {
+    justify-content: flex-start; /* start from left */
+    padding-left: 4px;          /* small left padding */
+    margin: 10px 0;              /* tighter spacing */
+  }
+}
     </style>
     
 </head>
