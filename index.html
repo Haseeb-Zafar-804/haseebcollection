@@ -1,13 +1,9 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
    <head>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Haseeb-Collection | Premium Bedsheets & Luxury Bedding</title>
+  <title>Haseeb-Collection | Premium Bedsheets, Watches & More</title>
   <link rel="icon" type="image/png" href="logo.png" style="height: 50px;">
 </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -529,9 +525,24 @@
             transition: background 0.3s ease;
             text-transform: uppercase;
             font-size: 14px;
-            border-radius: 24px;
-        }
+            border-radius: 24px;   animation: shakeLoop 3s infinite ease-in-out;
+}
 
+/* Shake for 1.8 sec (60%), pause for 1.2 sec (40%) */
+@keyframes shakeLoop {
+
+  /* 🔥 Shake part (0% - 60%) = 1.8 sec */
+  0%   { transform: translateX(0); }
+  10%  { transform: translateX(-6px); }
+  20%  { transform: translateX(6px); }
+  30%  { transform: translateX(-6px); }
+  40%  { transform: translateX(6px); }
+  50%  { transform: translateX(-6px); }
+  60%  { transform: translateX(0); }
+
+  /* 🛑 Pause part (60% - 100%) = 1.2 sec */
+  100% { transform: translateX(0); }
+}
         /* About Section */
         .about-section {
             padding: 80px 5%;
@@ -1281,7 +1292,6 @@ del{
   transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
-
 .review-card h3 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -1639,9 +1649,81 @@ h5{
                   }
                   
                   
+                  
+                  
+                  .filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  overflow-x: auto;      /* horizontal scroll allow */
+  scrollbar-width: none; /* Firefox me scrollbar hide */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 20px 0;
+  margin: 15px 0;
+}
+
+/* Chrome/Safari me scrollbar hide */
+.filter-buttons::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-btn {
+  flex: 0 0 auto; /* buttons shrink na ho */
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 34px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+/* ✅ Mobile fix */
+@media (max-width: 768px) {
+  .filter-buttons {
+    justify-content: flex-start; /* start from left */
+    padding-left: 2px;          /* small left padding */
+    margin: 10px 0;              /* tighter spacing */
+  }
+}
 
     </style>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const filterButtons = document.querySelectorAll('.filter-btn');
+          const productCards = document.querySelectorAll('.product-card');
+        
+          filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+              const filter = btn.getAttribute('data-filter');
+        
+              // Highlight active button
+              filterButtons.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+        
+              // Filter products
+              productCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+        
+                if (filter === "all" || category === filter) {
+                  card.style.display = "block";
+                } else {
+                  card.style.display = "none";
+                }
+              });
+            });
+          });
+        });
+        
+        </script>
 </head>
 <body>
     
@@ -1674,7 +1756,7 @@ h5{
 
 <div class="wishlist-icon" title="Wishlist" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
     <i class="fa-regular fa-heart" style="font-weight: 300;" onclick="openWishlist()"></i>
-    <span class="wishlist-count" style="background: #d80024; color: var(--white); border-radius: 50%; width: 18px; height: 18px; display: none; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
+    <span class="wishlist-count" style="background: #181818; color: var(--white); border-radius: 50%; width: 18px; height: 18px; display: none; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
 </div>
 
 
@@ -1721,7 +1803,9 @@ h5{
 const messages = [
     "High thread count bedsheets",
     "Elegant Bed Linen",
-    "limited designer drops."
+    "limited designer drops.",
+    "Stylish Modern Watches",
+    "Timeless Style, Modern Design"
 ];
 
 
@@ -1774,7 +1858,7 @@ window.addEventListener('DOMContentLoaded', () => {
  <div class="slider-container">
         <div class="slider">
             <div class="slide">
-                <img src="2239.jpg" alt="Nature">
+                <img src="8082.jpg" alt="Nature">
                 <div class="slide-content">  
                     <h2>Mega Sale – Upto 50% Off. Enjoy Your Shopping</h2>
                     <p>Your Bedroom with Original Ideas Bedsheets – Premium Quality, Unbeatable Price.</p>               
@@ -1788,7 +1872,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             <div class="slide">
-                <img src="https://pkbrandsales.com/wp-content/uploads/2024/02/Export-Bedsheets-4.png" alt="Technology">
+                <img src="30193.jpg" alt="Technology">
                 <div class="slide-content">
                     <h2>Dream in Comfort</h2>
                     <p>Wrap yourself in comfort every night with our premium-quality sheets..</p>
@@ -1816,14 +1900,22 @@ window.addEventListener('DOMContentLoaded', () => {
     </div>
 
  
-        <!-- Products Grid -->
-        <section class="products-section" id="products-section">
-                       <h5 style="margin-top: -3px;">EXCLUSIVE</h5>
-            <h2 class="section-title"  style="font-weight: 500;">FEATURED PRODUCTS</h2>
-            <div class="products-grid">
+<!-- Products Grid -->
+<section class="products-section" id="products-section">
+    <h5 style="margin-top: -3px;">EXCLUSIVE</h5>
+    <h2 class="section-title" style="font-weight: 500;">FEATURED PRODUCTS</h2>
+
+    <div class="filter-buttons">
+        <button class="filter-btn" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="bed sheet">Bedsheets</button>
+        <button class="filter-btn" data-filter="watches">Watches</button>
+    </div>
+
+    <div class="products-grid">
+
                 <!-- Product 1 -->
                 <div class="product-card" data-product="7">
-                    <span class="product-badge">-50% Off</span>
+                    <span class="product-badge">Trending</span>
                     <img src="product7.jpg" alt="Cargo Pants" class="product-image">
                     <div class="product-info">
                         <div>
@@ -1836,7 +1928,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="product-card" data-product="8">
-                    <span class="product-badge">-50% Off</span>
+                    <span class="product-badge">Trending</span>
                     <img src="product8.jpg" alt="Cargo Pants" class="product-image">
                     <div class="product-info">
                         <div>
@@ -2006,25 +2098,98 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             </div>
-            <div class="product-card" data-product="21">
-                <span class="product-badge">-50% Off</span>
-                <img src="product21.jpg" alt="Cargo Pants" class="product-image">
-                <div class="product-info">
-                    <div>
-                        <h3 class="product-title">Original Ideas 3PCS Double Bed Bedsheet Set – Premium Comfort & Style HC-T21</h3>
-                        <div class="price-box">
-                            <p class="product-price">Rs.2,150</p>
-                            <del class="old-price">Rs.3,999</del>
-                          </div>
-                    </div>
+
+        <!-- Product 22 (WATCHES) -->
+    
+        <div class="product-card" data-product="22" data-category="watches">
+            <span class="product-badge">-50% Off</span>
+         <img src="https://www.pakstyle.pk/cdn/shop/files/arabic-aura-watch-18593_1.webp?v=1762859411&width=1100" class="product-image">
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                    <div class="price-box">
+                        <p class="product-price">Rs. 950</p>
+            <del class="old-price">Rs. 1,899</del>
+                      </div>
                 </div>
             </div>
-
         </div>
-         <button class="discover-more-btn">Discover More</button>
 
-    </section>
+        <div class="product-card" data-product="22" data-category="watches">
+            <span class="product-badge">-50% Off</span>
+         <img src="aura2.webp" class="product-image">
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                    <div class="price-box">
+                        <p class="product-price">Rs. 950</p>
+            <del class="old-price">Rs. 1,899</del>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-product="22" data-category="watches">
+            <span class="product-badge">-50% Off</span>
+         <img src="aura3.webp" class="product-image">
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                    <div class="price-box">
+                        <p class="product-price">Rs. 950</p>
+            <del class="old-price">Rs. 1,899</del>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-product="22" data-category="watches">
+            <span class="product-badge">-50% Off</span>
+         <img src="aura4.jpg" class="product-image">
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                    <div class="price-box">
+                        <p class="product-price">Rs. 950</p>
+            <del class="old-price">Rs. 1,899</del>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-product="22" data-category="watches">
+            <span class="product-badge">-50% Off</span>
+         <img src="aura5.jpeg" class="product-image">
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                    <div class="price-box">
+                        <p class="product-price">Rs. 950</p>
+            <del class="old-price">Rs. 1,899</del>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-product="22" data-category="watches">
+            <span class="product-badge">-50% Off</span>
+         <img src="aura6.jpg" class="product-image">
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                    <div class="price-box">
+                        <p class="product-price">Rs. 950</p>
+            <del class="old-price">Rs. 1,899</del>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- products-grid end -->
+
+    <button class="discover-more-btn">Discover More</button>
+</section>
+
 <style>
+    
     .discover-more-btn {
     display: block;
     margin: 30px auto;
@@ -2039,13 +2204,12 @@ window.addEventListener('DOMContentLoaded', () => {
     text-transform: uppercase;
     font-size: 14px;
     border-radius: 32px;
-}
-
-
+    }
+    
 /* Hide products beyond the first 8 initially */
 .products-grid .product-card:nth-child(n+13) {
     display: none;
-}           
+}          
 </style>
 
 <script>
@@ -2087,7 +2251,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="product-info">
                         <div>
                             <h3 class="product-title">Luxury 3-Piece Black Bedsheet Set – King Size HC-T7</h3>
-                            <p class="product-price">Rs. 1999</p>
+                            <div class="price-box">
+                                <p class="product-price">Rs. 2,150</p>
+                    <del class="old-price">Rs. 3,999</del>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -2099,7 +2266,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="product-info">
                         <div>
                             <h3 class="product-title">Textured Elegance King Bedsheet – Urban Striped Pattern HC-T14</h3>
-                            <p class="product-price">Rs. 1999</p>
+                            <div class="price-box">
+                                <p class="product-price">Rs. 2,150</p>
+                    <del class="old-price">Rs. 3,999</del>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -2112,7 +2282,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="product-info">
                         <div>
                             <h3 class="product-title">Royal Bloom King Size Bedsheet – Purple Fan Pattern HC-T13</h3>
-                            <p class="product-price">Rs. 1999</p>
+                            <div class="price-box">
+                                <p class="product-price">Rs. 2,150</p>
+                    <del class="old-price">Rs. 3,999</del>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -2123,7 +2296,53 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="product-info">
                         <div>
                             <h3 class="product-title">Regal Hues Bedsheet – Dark Green, Ash Grey & Rustic Mustard HC-T10</h3>
-                            <p class="product-price">Rs. 1999</p>
+                            <div class="price-box">
+                                <p class="product-price">Rs. 2,150</p>
+                    <del class="old-price">Rs. 3,999</del>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product="22" data-category="watches">
+                    <span class="product-badge">Trending</span>
+                 <img src="https://www.pakstyle.pk/cdn/shop/files/arabic-aura-watch-18593_1.webp?v=1762859411&width=1100" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                            <div class="price-box">
+                                <div class="price-box">
+                                    <p class="product-price">Rs. 2,150</p>
+                        <del class="old-price">Rs. 3,999</del>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="product-card" data-product="22" data-category="watches">
+                    <span class="product-badge">-50% Off</span>
+                 <img src="aura2.webp" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                            <div class="price-box">
+                                <p class="product-price">Rs. 950</p>
+                    <del class="old-price">Rs. 1,899</del>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="product-card" data-product="22" data-category="watches">
+                    <span class="product-badge">Trending</span>
+                 <img src="aura3.webp" class="product-image">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain</h3>
+                            <div class="price-box">
+                                <p class="product-price">Rs. 950</p>
+                    <del class="old-price">Rs. 1,899</del>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -4066,15 +4285,15 @@ document.addEventListener('DOMContentLoaded', () => {
                  sizes: ["1", "2", "3", "4"]
             },
             22: {
-                title: "Original Ideas 3PCS Double Bed Bedsheet Set – Premium Comfort & Style HC-T22",
-                price: "Rs.2,150",
-                description: "Durable cargo pants with multiple utility pockets. Made from a lightweight yet sturdy cotton blend for all-day comfort and mobility. Features reinforced stitching and adjustable waist for a perfect fit.",
+                title: "Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain",
+                price: "Rs.999",
+                description: "Stylish Arabic Aura Watch for Boys Featuring Durable Fiber Chain.",
                 images: [
-                    "product22.jpg",
-                    "product22.jpg",
-                    "product22.jpg"
+                    "https://www.pakstyle.pk/cdn/shop/files/arabic-aura-watch-18593_1.webp?v=1762859411&width=1100",
+                    "https://www.pakstyle.pk/cdn/shop/files/arabic-aura-watch-18593_1.webp?v=1762859411&width=1100",
+                    "https://www.pakstyle.pk/cdn/shop/files/arabic-aura-watch-18593_1.webp?v=1762859411&width=1100"
                 ],
-                 sizes: ["1", "2", "3", "4"]
+                sizes: ["1", "2", "3", "4"]
             },
             23: {
                 title: "Original Ideas 3PCS Double Bed Bedsheet Set – Premium Comfort & Style",
