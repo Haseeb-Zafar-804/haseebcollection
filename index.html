@@ -25,6 +25,8 @@
             --gray: #f5f5f5;
             --dark-gray: #e5e5e5;
             --accent:rgb(26, 80, 255);
+            --gold: #d4af37;
+            --light-gold: rgba(212, 175, 55, 0.1);
         }
 
         * {
@@ -2189,7 +2191,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </section>
 
 <style>
-    
+        .premium-single-showcase
     .discover-more-btn {
     display: block;
     margin: 30px auto;
@@ -2381,7 +2383,7 @@ document.addEventListener('DOMContentLoaded', function() {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://sanwara.com/cdn/shop/files/SY1_SK_975_OLV_1.jpg?v=1741691542');
+  background-image: url('bhaibanner.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.4; /* 30% transparency */
@@ -2541,8 +2543,520 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 
+        /* Main Container with Black Background */
+        .h-collection-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            background: var(--black);
+    }
 
-</style>
+        /* Hero Section */
+        .hc-hero {
+            padding: 100px 0 80px;
+            position: relative;
+        }
+
+        .hc-brand-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hc-brand-name {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hc-brand-name::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hc-brand-tagline {
+            font-size: 1.2rem;
+            color: #ebebeb;
+            max-width: 600px;
+            margin: 30px auto 0;
+            line-height: 1.8;
+        }
+
+        /* Why Choose Section */
+        .hc-why-choose {
+            padding: 80px 0;
+        }
+
+        .hc-section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center; /* center text inside the element */
+    margin: 0 auto 60px; /* center block and spacing below */
+    position: relative; /* for pseudo-elements if needed */
+    display: block; /* change inline-block to block for proper centering */
+    color: var(--white);
+}
+
+.hc-section-title span {
+    color: var(--gold);
+    font-weight: 400;
+}
+
+
+        /* Features Grid - Modern Layout */
+        .hc-features-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .hc-feature-item {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hc-feature-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hc-feature-number {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .hc-feature-item:hover .hc-feature-number {
+            color: rgba(212, 175, 55, 0.05);
+            transform: scale(1.1);
+        }
+
+        .hc-feature-icon {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .hc-feature-item:hover .hc-feature-icon {
+            transform: scale(1.1);
+        }
+
+        .hc-feature-title {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .hc-feature-description {
+            color: #f5f5f5;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Quote Section */
+        .hc-quote-section {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .hc-quote {
+            font-size: 1.8rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            color: #e6e6e6;
+            font-style: italic;
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .hc-quote::before,
+        .hc-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .hc-quote::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .hc-quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        .hc-author {
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* CTA Section */
+        .hc-cta-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hc-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 45px;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--gold);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hc-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .hc-cta-button:hover {
+            color: var(--black);
+            letter-spacing: 3px;
+        }
+
+        .hc-cta-button:hover::before {
+            left: 0;
+        }
+
+        .hc-cta-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .hc-cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .hc-footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Background Elements */
+        .hc-bg-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--gold) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, var(--gold) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+
+        /* Animation Classes */
+        .hc-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .hc-fade-in.hc-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hc-features-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .hc-feature-item {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .h-collection-container {
+                padding: 0 25px;
+            }
+            
+            .hc-brand-name {
+                font-size: 2.5rem;
+                letter-spacing: 5px;
+            }
+            
+            .hc-section-title {
+                font-size: 2rem;
+            }
+            
+            .hc-quote {
+                font-size: 1.5rem;
+                padding: 0 20px;
+            }
+            
+            .hc-feature-item {
+                padding: 35px 25px;
+            }
+            
+            .hc-hero {
+                padding: 70px 0 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hc-brand-name {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+            
+            .hc-section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hc-cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .hc-feature-title {
+                font-size: 1.4rem;
+            }
+        }
+
+   
+    </style>
+</head>
+<body>
+    <!-- HASEEB COLLECTION SECTION -->
+    <div class="hc-bg-pattern"></div>
+    
+    <div class="h-collection-container">
+        <section class="hc-hero">
+            <div class="hc-brand-header">
+                <h1 class="hc-brand-name">Haseeb Collection</h1>
+                <p class="hc-brand-tagline">Where timeless elegance meets contemporary design. A symphony of craftsmanship, luxury, and modern sophistication.</p>
+            </div>
+
+            
+            <div class="hc-quote-section">
+                <p class="hc-quote hc-fade-in">"Elegance is not about being noticed, it's about being remembered. At Haseeb Collection, we create pieces that become part of your story."</p>
+                <p class="hc-author hc-fade-in">— Founder, Haseeb Collection</p>
+            </div>
+            
+            <div class="hc-cta-section">
+                <button class="hc-cta-button hc-fade-in" id="HC-BTN-X9Y8Z7">
+                    <span>Discover The Collection</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // HASEEB COLLECTION SPECIFIC FUNCTIONS
+        function hcHandleScrollAnimation() {
+            const elements = document.querySelectorAll('.hc-fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('hc-visible');
+                }
+            });
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate header immediately
+            const brandName = document.querySelector('.hc-brand-name');
+            if (brandName) {
+                brandName.style.animation = 'none';
+                setTimeout(() => {
+                    brandName.style.animation = 'hcFadeIn 1s ease forwards';
+                }, 100);
+            }
+            
+            // Check initial animation state
+            hcHandleScrollAnimation();
+            
+            // Animate first two features with delay
+            setTimeout(() => {
+                const feature1 = document.getElementById('HC-F1A9B3');
+                const feature2 = document.getElementById('HC-C4D2E8');
+                if (feature1) feature1.classList.add('hc-visible');
+                if (feature2) setTimeout(() => {
+                    feature2.classList.add('hc-visible');
+                }, 200);
+            }, 300);
+        });
+
+        // Listen to scroll events
+        window.addEventListener('scroll', hcHandleScrollAnimation);
+
+        // CTA Button Interaction
+        const discoverBtn = document.getElementById('HC-BTN-X9Y8Z7');
+        if (discoverBtn) {
+            discoverBtn.addEventListener('click', function(event) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.clientX - rect.left - size / 2;
+                const y = event.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(0);
+                    animation: hcRippleAnimation 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    top: ${y}px;
+                    left: ${x}px;
+                `;
+                
+                this.appendChild(ripple);
+                
+                // Remove ripple after animation
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+                
+                // Button click effect
+                this.style.transform = 'scale(0.98)';
+                this.style.boxShadow = '0 5px 15px rgba(212, 175, 55, 0.3)';
+                
+                // Simulate loading
+                const originalHTML = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>  Loading Collection...</span>';
+                this.disabled = true;
+                
+                // Reset after 1.5 seconds
+                setTimeout(() => {
+                    this.innerHTML = originalHTML;
+                    this.disabled = false;
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                    
+                    document.body.appendChild(message);
+                    
+                    setTimeout(() => {
+                        message.remove();
+                    }, 2000);
+                }, 1500);
+            });
+        }
+
+        // Add animation styles
+        const hcStyle = document.createElement('style');
+        hcStyle.textContent = `
+            @keyframes hcRippleAnimation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes hcFadeInOut {
+                0% { opacity: 0; transform: translate(-50%, -50%) translateY(20px); }
+                20% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+                80% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+                100% { opacity: 0; transform: translate(-50%, -50%) translateY(-20px); }
+            }
+            
+            @keyframes hcFadeIn {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(hcStyle);
+
+        // Smooth hover effects for feature items
+        document.querySelectorAll('.hc-feature-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.01)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Auto-animate remaining elements
+        setTimeout(() => {
+            document.querySelectorAll('.hc-fade-in:not(.hc-visible)').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('hc-visible');
+                }, index * 200);
+            });
+        }, 1000);
+
+        // Clean up function
+        window.addEventListener('beforeunload', function() {
+            // Remove our added styles
+            const styles = document.querySelectorAll('style');
+            styles.forEach(style => {
+                if (style.textContent.includes('hcRippleAnimation') || 
+                    style.textContent.includes('hcFadeInOut') ||
+                    style.textContent.includes('hcFadeIn')) {
+                    style.remove();
+                }
+            });
+        });
+    </script>
 
 <section class="premium-single-showcase" id="about-section">
   <div class="showcase-wrapper">
