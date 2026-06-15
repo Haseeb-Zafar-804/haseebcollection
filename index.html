@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -31,39 +32,68 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
+    /* Icon Containers (Heroicons SVG) - Professional refinement */
+.hero-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: opacity 0.2s ease;
+}
+
+.hero-icon-btn:hover {
+    opacity: 0.8;
+}
+
+.hero-icon-svg {
+    width: 20px;
+    height: 20px;
+    stroke: #1e1e1e;
+    stroke-width: 1.5;
+    fill: none;
+    transition: stroke 0.2s ease, transform 0.1s ease;
+}
+
+.hero-icon-svg:hover {
+    stroke: var(--accent, #1a50ff);
+}
+
+/* CSS Variables - clean, semantic, modern */
 :root {
-            --black: #050505;
-            --white: #fff;
-            --gray: #f5f5f5;
-            --dark-gray: #e5e5e5;
-            --accent:rgb(26, 80, 255);
-            --gold: #d4af37;
-            --light-gold: rgba(212, 175, 55, 0.1);
-        }
+    --black: #050505;
+    --white: #ffffff;
+    --gray: #f5f5f5;
+    --dark-gray: #e5e5e5;
+    --accent: #1a50ff;
+    --gold: #d4af37;
+    --light-gold: rgba(212, 175, 55, 0.1);
+    --text-muted: #525252;
+    --border-light: #d8d8d8;
+    --transition-default: all 0.3s ease;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Jost", sans-serif;
-        }
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-         body {
+body {
+    font-family: "Jost", sans-serif;
     background-color: #f5f5f5;
     color: #1b1b1b;
     line-height: 1.6;
-    overflow-x: hidden; /* Already correct */
-    overflow-y: auto; /* Ensure scroll is only when necessary */
+    overflow-x: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
+
 
         /* Header */
         header {
@@ -88,46 +118,101 @@
             padding: 0 10px;
         }
 
-        .logo {
-        margin-top: -10px;
-        font-family: "Cinzel Decorative", serif;
-        }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
+/* Logo */
+.logo {
+    margin-top: -10px;
+    font-family: "Cinzel Decorative", serif;
+    cursor: pointer;
+}
 
-        .nav-links a {
+/* Navigation Links - Clean underline effect */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
     position: relative;
     text-decoration: none;
     font-family: "Josefin Sans", sans-serif;
-    color: #525252;
+    color: var(--text-muted);
     font-weight: 600;
     font-size: 17px;
     transition: color 0.3s ease;
-    margin-top: 4px;
+    padding-bottom: 4px;
 }
 
 .nav-links a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -2px; /* Adjust distance from text */
+    bottom: -2px;
     width: 0;
     height: 1.7px;
     transition: width 0.4s ease, background-color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #111111;
+    color: var(--black);
 }
 
 .nav-links a:hover::after {
     width: 100%;
-    background-color: #383838; /* You can change this to another variable or value */
+    background-color: #383838;
 }
 
+/* Header Actions - Icons area */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Cart & Wishlist containers */
+.cart-icon,
+.wishlist-icon {
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cart count badge */
+.cart-count {
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+/* Wishlist count badge */
+.wishlist-count {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
         .header-actions {
             display: flex;
             align-items: left;
@@ -144,29 +229,14 @@
             color: var(--accent);
         }
 
-        .cart-count {
-            background: var(--accent);
-            color: var(--white);
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            position: absolute;
-            top: -8px;
-            right: -8px;
-        }
-
-        /* Mobile Menu */
+ /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
-            font-size: 20px;
+            font-size: 28px;
             cursor: pointer;
         }
 
-        .mobile-nav {
+.mobile-nav {
             position: fixed;
             top: 70px;
             left: 0;
@@ -179,24 +249,76 @@
             z-index: 999;
         }
 
-        .mobile-nav.active {
-            transform: translateY(0);
-        }
+.mobile-nav.active {
+    transform: translateY(0);
+}
 
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        .mobile-nav-links a {
-            text-decoration: none;
-            color: var(--black);
-            font-weight: 500;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--dark-gray);
-        }
+.mobile-nav-links a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--dark-gray);
+    transition: color 0.2s ease;
+}
 
+.mobile-nav-links a:hover {
+    color: var(--accent);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 880px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+    }
+    
+    .header-container {
+        padding: 0 16px;
+    }
+    
+    .search-bar {
+        width: 160px;
+    }
+}
+
+@media (max-width: 580px) {
+    .header-actions {
+        gap: 12px;
+    }
+    
+    .search-bar {
+        width: 130px;
+        padding: 0 8px;
+    }
+    
+    .hero-icon-svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
         /* Main Content Container */
         .main-content {
             margin-top: 70px;
@@ -1735,63 +1857,76 @@ h5{
 </head>
 <body>
     
-    <!-- Header -->
-    <header id="header">
+    
+<!-- Header with Heroicons (replacing Font Awesome) -->
+<header id="header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo" style="cursor: pointer;">
+      <h1 style="font-size: 20px; font-family: 'Cinzel Decorative', serif; text-align: center; margin-top: 9px; font-weight: normal;">HASEEB</h1>
+      <p style="font-size: 7px; letter-spacing: 1.7px; margin-top: -8px; font-family: 'Jost', sans-serif; text-align: center;">COLLECTION</p>
+    </div>
 
-        <div class="header-container">
+    <!-- Desktop Navigation -->
+    <nav style="justify-content: left; font-weight: 200;" class="nav-links">
+      <a href="#home-section">Home</a>
+      <a href="#products-section">Shop</a>
+      <a href="#about-section">About</a>
+      <a href="#video-section">Our Identity</a>
+      <a href="#contact-section">Contact</a>
+    </nav>
 
-            <div class="logo" style="cursor: pointer;">
-                <h1 style="font-size: 20px; font-family: Cinzel Decorative, serif; text-align: center; margin-top: 9px; font-weight: normal;">HASEEB</h1>
-<p style="font-size:  7px; letter-spacing: 1.7px; margin-top: -8px; font-family: Jost, sans-serif; text-align: center;">COLLECTION</p>
-
-              </div>
-
-            <nav style="justify-content: left; font-weight: 200;"  class="nav-links">
-                <a href="#home-section">Home</a>
-                <a href="#products-section">Shop</a>
-                <a href="#about-section">About</a>
-                                 <a href="#video-section">Our Identity</a>
-                <a href="#contact-section">Contact</a>
-
-            </nav>
-            <div class="header-actions">
-                <div class="search-bar" id="search-bar" style="border: 1.3px solid #e2e2e2;  border-radius: 20px; width: 200px; height: 40px; display: flex; align-items: center; margin-top: -2px;">
+    <!-- Header Actions: all Heroicons SVG -->
+    <div class="header-actions">
+      <!-- Search Bar -->
+       <div class="search-bar" id="search-bar" style="border: 1.3px solid #e2e2e2;  border-radius: 20px; width: 200px; height: 40px; display: flex; align-items: center; margin-top: -2px;">
                     <button class="cute-search-button" onclick="performSearch()" style="background: none; border: none; cursor: pointer; font-weight: 400; margin-right: -2px;">
-                      <i style="font-weight: 300" class="fa-regular fa-search"></i>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hero-icon-svg" width="18" height="18" style="stroke: #444;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
                     </button>
                     <input type="text" class="cute-search-input" id="cute-search" placeholder="Search products.." style="border: none; outline: none; flex: 1;"/>
                   </div>
+      <!-- Wishlist Icon with Heroicons Heart -->
+      <div class="wishlist-icon" title="Wishlist" style="position: relative; cursor: pointer; margin-top: 2px;">
+        <button class="hero-icon-btn" onclick="openWishlist()" aria-label="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hero-icon-svg" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg>
+        </button>
+        <span class="wishlist-count" id="wishlistCountBadge" style="background: #181818; color: white; border-radius: 50%; width: 18px; height: 18px; display: none; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
+      </div>
 
-<div class="wishlist-icon" title="Wishlist" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
-    <i class="fa-regular fa-heart" style="font-weight: 300;" onclick="openWishlist()"></i>
-    <span class="wishlist-count" style="background: #181818; color: var(--white); border-radius: 50%; width: 18px; height: 18px; display: none; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
-</div>
+      <!-- Cart Icon with Heroicons Shopping Bag -->
+      <div class="cart-icon" id="open-cart" title="Open Cart" style="position: relative; cursor: pointer; margin-top: 2px;">
+        <button class="hero-icon-btn" onclick="openCartSidebar()" aria-label="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hero-icon-svg" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+        </button>
+        <span class="cart-count" id="cartCountBadge" style="background: #000; color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; position: absolute; top: -8px; right: -8px;">0</span>
+      </div>
 
+      <!-- Mobile menu toggle with Heroicons Bars3 (Hamburger) -->
+      <div class="mobile-menu-btn" id="mobileMenuToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hero-icon-svg" width="22" height="22" style="stroke: #1f1f1f;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </div>
+    </div>
+  </div>
 
-                <div class="cart-icon" id="open-cart" title="Open Cart" style="position: relative; cursor: pointer; margin-top: 2px; font-size: 17px;">
-                    <i class="fa-regular fa-shopping-bag"  style="font-weight: 300;"></i>
-                    <span class="cart-count" style="background: #000;">0</span>
-                </div>
-                <div class="mobile-menu-btn">
-                    <i style="font-weight: 300;" class="fa-regular fa-bars"></i>
-                </div>
-            </div>
-
-
-        <!-- Mobile Navigation -->
-        <div class="mobile-nav">
-            <div class="mobile-nav-links">
-                <a href="#home-section">Home</a>
-                <a href="#products-section">Shop</a>
-                <a href="#about-section">About</a>
-
-                                 <a href="#video-section">Our Identity</a>
-                <a href="#contact-section">Contact</a>
- 
-            </div>
-        </div>
-    </header>
-
+  <!-- Mobile Navigation Panel -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-links">
+      <a href="#home-section">Home</a>
+      <a href="#products-section">Shop</a>
+      <a href="#about-section">About</a>
+      <a href="#video-section">Our Identity</a>
+      <a href="#contact-section">Contact</a>
+    </div>
+  </div>
+</header>
   <div class="main-content">
         <!-- Hero Section -->
         <section class="hero" id="home-section">
@@ -3739,7 +3874,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
   <div class="payment-feature">
-    <i class="fa-regular fa-truck-fast icon"></i>
+    <i class="fa-solid fa-truck-fast icon"></i>
     <h4>FAST DELIVERY</h4>
     <p>Enjoy delivery at reasonable price on all orders, ensuring a seamless shopping experience right to your doorstep.</p>
   </div>
