@@ -15,9 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ===================================================
-           BASE & VARIABLES
-           =================================================== */
         :root {
             --black: #0d0d0d;
             --white: #ffffff;
@@ -59,19 +56,12 @@
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1),
-                        transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
             will-change: opacity, transform;
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-            will-change: auto;
-        }
+        .reveal.active { opacity: 1; transform: translateY(0); will-change: auto; }
 
-        /* ===================================================
-           HEADER & LOGO
-           =================================================== */
+        /* HEADER */
         header {
             position: fixed; top: 0; width: 100%;
             background: rgba(255, 255, 255, 0.98);
@@ -138,9 +128,7 @@
         .mobile-nav-links { display: flex; flex-direction: column; gap: 15px; }
         .mobile-nav-links a { text-decoration: none; color: var(--black); font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--dark-gray); }
 
-        /* ===================================================
-           MAIN & HERO
-           =================================================== */
+        /* MAIN & HERO */
         .main-content { margin-top: 68px; flex: 1; }
 
         .hero {
@@ -177,9 +165,7 @@
         .btn-gold::before { background: var(--white); }
         .btn-gold:hover { color: var(--black); }
 
-        /* ===================================================
-           TRUST BAR
-           =================================================== */
+        /* TRUST BAR */
         .trust-bar { background: var(--black); padding: 0; margin: 0; position: relative; z-index: 5; }
         .trust-bar-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 4%; }
         .trust-item { display: flex; align-items: center; gap: 16px; padding: 28px 20px; color: #fff; border-right: 1px solid rgba(255,255,255,0.08); transition: background 0.3s; }
@@ -203,18 +189,14 @@
             .trust-item p { font-size: 11px; }
         }
 
-        /* ===================================================
-           SECTION HEADINGS
-           =================================================== */
+        /* SECTION HEADINGS */
         .section-block { padding: 70px 4%; max-width: 1400px; margin: 0 auto; }
         .section-head { text-align: center; margin-bottom: 45px; }
         .section-head .eyebrow { display: inline-block; font-family: var(--font-ui); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
         .section-head h2 { font-family: var(--font-display); font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.5px; color: var(--text-dark); margin-bottom: 12px; }
         .section-head p { font-size: 15px; color: var(--text-muted); max-width: 520px; margin: 0 auto; font-weight: 300; }
 
-        /* ===================================================
-           CATEGORY CARDS
-           =================================================== */
+        /* CATEGORY CARDS */
         .category-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .category-box { position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; box-shadow: var(--shadow-sm); }
         .category-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0.6, 0.3, 1); }
@@ -235,9 +217,7 @@
             .category-box { height: 280px; }
         }
 
-        /* ===================================================
-           FILTER TOOLBAR
-           =================================================== */
+        /* FILTER TOOLBAR */
         .filter-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
         .filter-buttons { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px; padding: 6px 0; scrollbar-width: none; -ms-overflow-style: none; flex: 1; min-width: 0; }
         .filter-buttons::-webkit-scrollbar { display: none; }
@@ -286,9 +266,7 @@
             .product-badge { font-size: 7px; padding: 2px 6px; top: 6px; left: 6px; }
         }
 
-        /* ===================================================
-           PRODUCT GRID
-           =================================================== */
+        /* PRODUCT GRID */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; transition: gap 0.3s ease, grid-template-columns 0.3s ease; }
         .products-grid.layout-2 { grid-template-columns: repeat(2, 1fr); gap: 24px; }
         .products-grid.layout-3 { grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -342,9 +320,7 @@
             }
         }
 
-        /* ===================================================
-           MODERN PRODUCT CARD — SAYA.STYLE
-           =================================================== */
+        /* MODERN PRODUCT CARD — SAYA.STYLE */
         .product-card {
             position: relative;
             cursor: pointer;
@@ -539,9 +515,7 @@
             .product-badge { font-size: 8px; padding: 3px 6px; }
         }
 
-        /* ===================================================
-           BUY NOW VIBRATE ANIMATION
-           =================================================== */
+        /* BUY NOW VIBRATE ANIMATION */
         @keyframes vibrateOnce {
             0%, 100% { transform: translateX(0); }
             10% { transform: translateX(-5px); }
@@ -572,17 +546,10 @@
             position: relative;
             overflow: hidden;
         }
-        .buy-it-now-btn.vibrating {
-            animation: vibrateOnce 1.2s ease-in-out 1;
-        }
-        .buy-it-now-btn:hover {
-            background: var(--accent-dark);
-            box-shadow: 0 5px 15px rgba(198, 164, 92, 0.4);
-        }
+        .buy-it-now-btn.vibrating { animation: vibrateOnce 1.2s ease-in-out 1; }
+        .buy-it-now-btn:hover { background: var(--accent-dark); box-shadow: 0 5px 15px rgba(198, 164, 92, 0.4); }
 
-        /* ===================================================
-           ABOUT / BRAND STORY
-           =================================================== */
+        /* ABOUT / BRAND STORY */
         .brand-story { background: #fff; padding: 80px 4%; }
         .brand-story-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .brand-story-img { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); height: 480px; }
@@ -601,9 +568,7 @@
             .brand-story-img { height: 340px; }
         }
 
-        /* ===================================================
-           VIDEO
-           =================================================== */
+        /* VIDEO */
         .video-section { margin: 0; padding: 0; overflow: hidden; width: 100%; height: 560px; position: relative; }
         .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-container video { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -618,9 +583,7 @@
             .video-overlay-text p { font-size: 14px; }
         }
 
-        /* ===================================================
-           TESTIMONIALS
-           =================================================== */
+        /* TESTIMONIALS */
         .testimonial-section { padding: 70px 4%; background: #f0ede8; }
         .testimonial-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .testimonial-card { background: white; border-radius: 14px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -634,9 +597,7 @@
         @media (max-width: 900px) { .testimonial-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 560px) { .testimonial-grid { grid-template-columns: 1fr; } }
 
-        /* ===================================================
-           NEWSLETTER
-           =================================================== */
+        /* NEWSLETTER */
         .newsletter-strip { background: var(--black); padding: 70px 4%; text-align: center; position: relative; overflow: hidden; }
         .newsletter-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(198,164,92,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(198,164,92,0.06) 0%, transparent 50%); }
         .newsletter-strip .inner { max-width: 560px; margin: 0 auto; position: relative; z-index: 2; }
@@ -649,9 +610,7 @@
         .newsletter-form button:hover { background: var(--accent-dark); }
         @media (max-width: 500px) { .newsletter-form { flex-direction: column; } }
 
-        /* ===================================================
-           CONTACT
-           =================================================== */
+        /* CONTACT */
         .contact-section { padding: 80px 4%; max-width: 1200px; margin: 0 auto; }
         .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         .contact-info h3 { font-size: 26px; margin-bottom: 25px; font-family: var(--font-display); }
@@ -673,9 +632,7 @@
         .contact-form button:hover { background: var(--accent); }
         @media (max-width: 800px) { .contact-container { grid-template-columns: 1fr; gap: 40px; } }
 
-        /* ===================================================
-           PRODUCT DETAIL
-           =================================================== */
+        /* PRODUCT DETAIL */
         .product-detail-section { display: none; background: var(--white); min-height: 100vh; padding-top: 72px; }
         .product-detail-section.active { display: block; }
         .main-content.hidden { display: none !important; }
@@ -739,9 +696,7 @@
             .shipping-security-grid { grid-template-columns: 1fr; }
         }
 
-        /* ===================================================
-           IMAGE ZOOM LIGHTBOX
-           =================================================== */
+        /* IMAGE ZOOM LIGHTBOX */
         .zoom-lightbox {
             display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
             z-index: 4000; align-items: center; justify-content: center; padding: 20px;
@@ -769,9 +724,7 @@
             backdrop-filter: blur(4px); max-width: 80%;
         }
 
-        /* ===================================================
-           ALSO LIKE SLIDER — now uses same product-card style
-           =================================================== */
+        /* ALSO LIKE SLIDER */
         .also-like-section { display: none; background: var(--gray); padding: 50px 3%; border-top: 1px solid var(--border-light); }
         .also-like-section.active { display: block; }
         .also-like-container { max-width: 1400px; margin: 0 auto; position: relative; }
@@ -792,7 +745,6 @@
         .also-like-nav-btn.next-btn { right: 0; }
         .also-like-nav-btn svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2.2; fill: none; }
 
-        /* Slider card wrapper — uses SAME .product-card look */
         .also-like-card {
             flex: 0 0 calc(25% - 9px);
             min-width: calc(25% - 9px);
@@ -819,18 +771,14 @@
             .also-like-nav-btn { width: 32px; height: 32px; }
         }
 
-        /* ===================================================
-           TICKER
-           =================================================== */
+        /* TICKER */
         .ticker-container { width: 100%; overflow: hidden; white-space: nowrap; background-color: var(--black); padding: 12px 0; border-bottom: 0.7px solid #333; }
         .ticker-content { display: inline-block; color: white; padding-left: 100%; animation: ticker-scroll 100s linear infinite; }
         @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
         .ticker-item { display: inline-block; margin-right: 50px; font-size: 14px; letter-spacing: 0.4px; }
         .ticker-item i { color: var(--gold); margin-right: 8px; }
 
-        /* ===================================================
-           FOOTER
-           =================================================== */
+        /* FOOTER */
         footer { background: var(--black); color: var(--white); padding: 70px 5% 25px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
         .footer-logo { font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--white); }
@@ -847,9 +795,7 @@
         @media (max-width: 1024px) { .footer-container { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .footer-container { grid-template-columns: 1fr; } }
 
-        /* ===================================================
-           MOBILE BOTTOM NAV
-           =================================================== */
+        /* MOBILE BOTTOM NAV */
         .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); box-shadow: 0 -5px 15px rgba(0,0,0,0.05); z-index: 1000; justify-content: space-around; align-items: center; padding: 12px 0; border-top: 1px solid var(--border-light); }
         .mobile-nav-item { display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; color: #777; font-size: 11px; font-weight: 600; position: relative; font-family: var(--font-ui); }
         .mobile-nav-item.active { color: var(--black); }
@@ -864,8 +810,205 @@
         }
 
         /* ===================================================
-           CART PAGE (NEW)
+           WISHLIST PAGE (NEW — proper well design)
            =================================================== */
+        .wishlist-page {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--saya-bg);
+            z-index: 2050;
+            overflow-y: auto;
+            font-family: var(--font-ui);
+        }
+        .wishlist-page.active { display: block; }
+
+        .wishlist-page-header {
+            background: var(--saya-cream);
+            border-bottom: 1px solid var(--saya-border);
+            padding: 0 5%;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .wishlist-page-header .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-dark);
+            background: transparent;
+            padding: 10px 0;
+            font-size: 14px;
+            font-family: var(--font-ui);
+            border: none;
+            transition: opacity 0.2s;
+        }
+        .wishlist-page-header .back-btn:hover { opacity: 0.6; }
+        .wishlist-page-header .wishlist-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-dark);
+        }
+        .wishlist-page-header .wishlist-count-header {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .wishlist-page-body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 5% 60px;
+        }
+
+        .wishlist-intro-bar {
+            background: #fff;
+            border: 1px solid var(--saya-border);
+            padding: 18px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .wishlist-intro-bar h2 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        .wishlist-intro-bar .wishlist-intro-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .wishlist-intro-bar .wishlist-intro-count {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .wishlist-clear-btn {
+            background: transparent;
+            border: 1px solid var(--saya-border);
+            padding: 8px 16px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-family: var(--font-ui);
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .wishlist-clear-btn:hover { border-color: #e74c3c; color: #e74c3c; }
+
+        /* Wishlist grid — reuses product-card look */
+        .wishlist-grid-page {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 1200px) { .wishlist-grid-page { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .wishlist-grid-page { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .wishlist-grid-page { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+
+        /* Wishlist card wrapper */
+        .wishlist-card-wrap {
+            position: relative;
+        }
+        .wishlist-card-wrap .product-card {
+            box-shadow: var(--shadow-sm);
+        }
+        .wishlist-remove-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 5;
+            color: #b33a3a;
+            transition: all 0.2s ease;
+        }
+        .wishlist-remove-icon:hover {
+            background: #e74c3c;
+            color: #fff;
+            transform: scale(1.08);
+        }
+        .wishlist-remove-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.2;
+        }
+
+        /* Empty state */
+        .wishlist-empty-state {
+            background: #fff;
+            border: 1px solid var(--saya-border);
+            padding: 80px 20px;
+            text-align: center;
+            display: none;
+        }
+        .wishlist-empty-state.show { display: block; }
+        .wishlist-empty-state svg {
+            width: 70px;
+            height: 70px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        .wishlist-empty-state h4 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        .wishlist-empty-state p {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        .wishlist-empty-state button {
+            padding: 14px 32px;
+            background: var(--text-dark);
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            font-family: var(--font-ui);
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .wishlist-empty-state button:hover { background: var(--accent); }
+
+        @media (max-width: 600px) {
+            .wishlist-page-body { padding: 20px 4% 40px; }
+            .wishlist-page-header .wishlist-count-header { display: none; }
+            .wishlist-intro-bar { padding: 14px 16px; }
+            .wishlist-intro-bar h2 { font-size: 16px; }
+        }
+
+        /* CART PAGE */
         .cart-page {
             display: none;
             position: fixed;
@@ -1122,9 +1265,7 @@
             .cart-items-list-header { padding: 14px 16px; }
         }
 
-        /* ===================================================
-           SAYA-STYLE CHECKOUT PAGE
-           =================================================== */
+        /* CHECKOUT PAGE */
         .checkout-page {
             display: none;
             position: fixed;
@@ -1358,13 +1499,11 @@
             .checkout-summary { padding: 24px; }
         }
 
-        /* ===================================================
-           TOAST
-           =================================================== */
+        /* TOAST */
         .toast {
             visibility: hidden; min-width: 220px; max-width: calc(100% - 40px);
             background-color: var(--black); color: #fff; text-align: center; padding: 14px 20px;
-            position: fixed; z-index: 3000; opacity: 0; font-size: 14px;
+            position: fixed; z-index: 5000; opacity: 0; font-size: 14px;
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             left: 50%; transform: translateX(-50%) translateY(-20px) scale(0.9); top: 20px;
             border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -1372,15 +1511,7 @@
         }
         .toast.show { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
 
-        /* ===================================================
-           WISHLIST MODAL
-           =================================================== */
-        .wishlist-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f5f5f5; z-index: 2001; overflow-y: auto; }
-        .wishlist-modal-header { padding: 20px; background: #fff; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; gap: 15px; position: sticky; top: 0; z-index: 5; }
-
-        /* ===================================================
-           FLOATING WHATSAPP
-           =================================================== */
+        /* FLOATING WHATSAPP */
         .wa-float {
             position: fixed; bottom: 90px; right: 20px;
             background: #25d366; color: #fff;
@@ -1400,9 +1531,6 @@
             .wa-float { bottom: 90px; right: 16px; width: 50px; height: 50px; font-size: 22px; }
         }
 
-        /* ===================================================
-           RESPONSIVE TWEAKS
-           =================================================== */
         @media (max-width: 480px) {
             .hero { height: 70vh; min-height: 450px; text-align: left; }
             .hero h1 { font-size: clamp(34px, 9vw, 46px); }
@@ -1908,22 +2036,43 @@
         </a>
     </nav>
 
-    <!-- FLOATING WHATSAPP -->
     <a href="https://wa.me/923412825465?text=Hi%20Haseeb%20Collection%2C%20I%27d%20like%20to%20know%20more%20about%20your%20products." class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- WISHLIST MODAL -->
-    <div class="wishlist-modal" id="wishlist-modal">
-        <div class="wishlist-modal-header">
-            <button onclick="closeWishlist()" style="background:none;border:none;font-size:24px;cursor:pointer;">&larr;</button>
-            <h2 style="font-size:18px;font-weight:500;">Your Wishlist</h2>
+    <!-- ===================================================
+         WISHLIST PAGE (NEW — proper well design)
+         =================================================== -->
+    <div class="wishlist-page" id="wishlist-page">
+        <div class="wishlist-page-header">
+            <button class="back-btn" onclick="closeWishlist()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                Continue Shopping
+            </button>
+            <div class="wishlist-title">My Wishlist</div>
+            <div class="wishlist-count-header" id="wishlist-page-count">0 items</div>
         </div>
-        <div style="padding:20px;max-width:1400px;margin:0 auto;">
-            <div id="wishlist-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;"></div>
-            <div class="empty-wishlist" id="empty-wishlist" style="text-align:center;padding:60px 40px;display:none;">
-                <i class="fa-regular fa-heart" style="font-size:60px;color:#ccc;margin-bottom:20px;"></i>
-                <p style="color:#888;font-size:16px;">Your wishlist is empty</p>
+
+        <div class="wishlist-page-body">
+            <div class="wishlist-intro-bar">
+                <h2>Saved Items</h2>
+                <div class="wishlist-intro-actions">
+                    <span class="wishlist-intro-count" id="wishlist-page-count-label">0 items saved</span>
+                    <button class="wishlist-clear-btn" onclick="clearWishlist()">Clear All</button>
+                </div>
+            </div>
+
+            <div class="wishlist-grid-page" id="wishlist-grid-page"></div>
+
+            <div class="wishlist-empty-state" id="wishlist-empty-state">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+                <h4>Your wishlist is empty</h4>
+                <p>Browse our collection and add your favourite items to your wishlist.</p>
+                <button onclick="closeWishlist(); goShop();">Start Shopping</button>
             </div>
         </div>
     </div>
@@ -1937,7 +2086,7 @@
         <div class="zoom-caption" id="zoom-caption"></div>
     </div>
 
-    <!-- CART PAGE (NEW) -->
+    <!-- CART PAGE -->
     <div class="cart-page" id="cart-page">
         <div class="cart-header">
             <button class="back-btn" onclick="closeCartPage()">
@@ -1990,7 +2139,7 @@
         </div>
     </div>
 
-    <!-- SAYA-STYLE CHECKOUT PAGE -->
+    <!-- CHECKOUT PAGE -->
     <div class="checkout-page" id="checkout-page">
         <div class="checkout-header">
             <button class="back-btn" onclick="backToCartFromCheckout()">
@@ -2211,6 +2360,7 @@
         const toast = document.getElementById('toast');
         const checkoutPage = document.getElementById('checkout-page');
         const cartPage = document.getElementById('cart-page');
+        const wishlistPage = document.getElementById('wishlist-page');
         const productsGrid = document.getElementById('main-products-grid');
 
         function parsePrice(str) { return parseFloat(str.replace(/[^0-9.]/g, '')) || 0; }
@@ -2229,9 +2379,7 @@
             if (target) window.scrollTo({ top: target.offsetTop - 68, behavior: 'smooth' });
         }
 
-        /* ===================================================
-           IMAGE ZOOM LIGHTBOX
-           =================================================== */
+        /* IMAGE ZOOM LIGHTBOX */
         function openZoom(src, caption) {
             const lb = document.getElementById('zoom-lightbox');
             document.getElementById('zoom-image').src = src;
@@ -2248,9 +2396,7 @@
         window.openZoom = openZoom;
         window.closeZoom = closeZoom;
 
-        /* ===================================================
-           GRID LAYOUT
-           =================================================== */
+        /* GRID LAYOUT */
         function applyGridLayout(layout) {
             currentLayout = layout;
             localStorage.setItem('gridLayout', String(layout));
@@ -2295,9 +2441,7 @@
             applyMobileGridLayout(currentMobileLayout);
         }
 
-        /* ===================================================
-           RENDER PRODUCTS
-           =================================================== */
+        /* RENDER PRODUCTS */
         function loadAllProducts() {
             productsGrid.innerHTML = '';
             Object.keys(products).forEach(id => {
@@ -2358,11 +2502,11 @@
             localStorage.setItem('wishlist', JSON.stringify(wishlist));
             document.getElementById('wishlistCountBadge').textContent = wishlist.length;
             document.getElementById('wishlistCountBadge').style.display = wishlist.length > 0 ? 'flex' : 'none';
+            // If wishlist page is open, re-render it live
+            if (wishlistPage.classList.contains('active')) renderWishlistPage();
         };
 
-        /* ===================================================
-           NAVIGATION
-           =================================================== */
+        /* NAVIGATION */
         function goHome() {
             detailSection.classList.remove('active');
             alsoLikeSection.classList.remove('active');
@@ -2395,9 +2539,7 @@
         const mobileNav = document.getElementById('mobileNav');
         mobileMenuBtn.addEventListener('click', () => { mobileNav.classList.toggle('active'); });
 
-        /* ===================================================
-           PRODUCT DETAIL
-           =================================================== */
+        /* PRODUCT DETAIL */
         function openProductDetail(productId) {
             const product = products[productId];
             if (!product) return;
@@ -2484,9 +2626,7 @@
 
         document.getElementById('back-to-home').addEventListener('click', goHome);
 
-        /* ===================================================
-           ALSO LIKE SLIDER — now uses SAME product-card style
-           =================================================== */
+        /* ALSO LIKE SLIDER */
         let alsoLikeAutoScrollTimer = null;
 
         function renderAlsoLike(currentId, currentCategory) {
@@ -2604,9 +2744,7 @@
             document.getElementById('also-like-next').addEventListener('click', () => { stopAlsoLikeAutoScroll(); scrollAlsoLikeBy(1); });
         });
 
-        /* ===================================================
-           CART
-           =================================================== */
+        /* CART */
         function saveCart() { localStorage.setItem('cart', JSON.stringify(cart)); }
         function updateCartBadge() {
             const count = cart.reduce((s, i) => s + i.quantity, 0);
@@ -2628,9 +2766,7 @@
             return { subtotal, discount, shipping, total };
         }
 
-        /* ===================================================
-           CART PAGE (NEW)
-           =================================================== */
+        /* CART PAGE */
         function renderCartPage() {
             const listContent = document.getElementById('cart-items-list-content');
             const wrapper = document.getElementById('cart-items-wrapper');
@@ -2723,8 +2859,111 @@
         };
 
         /* ===================================================
-           SAYA-STYLE CHECKOUT
+           WISHLIST PAGE (NEW — proper well design)
            =================================================== */
+        function renderWishlistPage() {
+            const grid = document.getElementById('wishlist-grid-page');
+            const emptyState = document.getElementById('wishlist-empty-state');
+            const headerCount = document.getElementById('wishlist-page-count');
+            const introCount = document.getElementById('wishlist-page-count-label');
+            const introBar = document.querySelector('.wishlist-intro-bar');
+
+            // Remove any existing cards
+            grid.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                emptyState.classList.add('show');
+                headerCount.textContent = '0 items';
+                introCount.textContent = '0 items saved';
+                introBar.style.display = 'none';
+                return;
+            }
+
+            emptyState.classList.remove('show');
+            introBar.style.display = 'flex';
+            headerCount.textContent = wishlist.length + (wishlist.length === 1 ? ' item' : ' items');
+            introCount.textContent = wishlist.length + (wishlist.length === 1 ? ' item' : ' items') + ' saved';
+
+            wishlist.forEach((id) => {
+                const p = products[id];
+                if (!p) return;
+
+                const sizesHTML = `
+                    <div class="size-box">S</div>
+                    <div class="size-box disabled">M</div>
+                    <div class="size-box disabled">L</div>
+                `;
+                const ratingHTML = `<div class="product-rating"><span class="star">★</span> 4.8 (5)</div>`;
+
+                const wrap = document.createElement('div');
+                wrap.className = 'wishlist-card-wrap';
+                wrap.innerHTML = `
+                    <button class="wishlist-remove-icon" title="Remove from wishlist" onclick="event.stopPropagation(); removeFromWishlistPage('${id}');">
+                        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+                    </button>
+                    <div class="product-card">
+                        <span class="product-badge">${p.badge.replace('-', '').replace('% Off', '% OFF').trim()}</span>
+                        <div class="product-image-wrap">
+                            <img src="${p.images[0]}" alt="${p.title}" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">${p.title}</h3>
+                            <div class="price-box">
+                                <del class="old-price">${p.oldPrice}</del>
+                                <p class="product-price">${p.price}</p>
+                            </div>
+                            ${ratingHTML}
+                            <div class="product-options">${sizesHTML}</div>
+                        </div>
+                    </div>
+                `;
+                wrap.querySelector('.product-card').addEventListener('click', () => {
+                    closeWishlist();
+                    openProductDetail(id);
+                });
+                grid.appendChild(wrap);
+            });
+        }
+
+        window.removeFromWishlistPage = function(id) {
+            const idx = wishlist.indexOf(id);
+            if (idx > -1) {
+                wishlist.splice(idx, 1);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                document.getElementById('wishlistCountBadge').textContent = wishlist.length;
+                document.getElementById('wishlistCountBadge').style.display = wishlist.length > 0 ? 'flex' : 'none';
+                showToast('Removed from wishlist');
+                renderWishlistPage();
+                // Also refresh product cards' wishlist state
+                document.querySelectorAll('.wishlist-quick-btn').forEach(btn => {
+                    if (btn.dataset.id === id) btn.classList.remove('wishlisted');
+                });
+            }
+        };
+
+        window.clearWishlist = function() {
+            if (wishlist.length === 0) { showToast('Wishlist is already empty'); return; }
+            if (!confirm('Are you sure you want to clear your entire wishlist?')) return;
+            wishlist = [];
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            document.getElementById('wishlistCountBadge').textContent = '0';
+            document.getElementById('wishlistCountBadge').style.display = 'none';
+            document.querySelectorAll('.wishlist-quick-btn').forEach(btn => btn.classList.remove('wishlisted'));
+            showToast('Wishlist cleared');
+            renderWishlistPage();
+        };
+
+        window.openWishlist = function() {
+            wishlistPage.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            renderWishlistPage();
+        };
+        window.closeWishlist = function() {
+            wishlistPage.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        /* CHECKOUT */
         function renderCheckoutPage() {
             const cartItems = document.getElementById('checkout-cart-items');
             const emptyState = document.getElementById('checkout-empty-state');
@@ -2858,49 +3097,7 @@
             setTimeout(() => closeCheckoutPage(), 1600);
         });
 
-        /* ===================================================
-           WISHLIST
-           =================================================== */
-        function openWishlist() {
-            document.getElementById('wishlist-modal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            renderWishlistUI();
-        }
-        function closeWishlist() {
-            document.getElementById('wishlist-modal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        function renderWishlistUI() {
-            const grid = document.getElementById('wishlist-grid');
-            const empty = document.getElementById('empty-wishlist');
-            grid.innerHTML = '';
-            if (wishlist.length === 0) empty.style.display = 'block';
-            else {
-                empty.style.display = 'none';
-                wishlist.forEach(id => {
-                    const p = products[id];
-                    if (!p) return;
-                    const div = document.createElement('div');
-                    div.className = 'product-card';
-                    div.innerHTML = `
-                        <img src="${p.images[0]}" class="product-image" loading="lazy">
-                        <div class="product-info">
-                            <h3 class="product-title">${p.title}</h3>
-                            <div class="price-box">
-                                <del class="old-price">${p.oldPrice}</del>
-                                <p class="product-price">${p.price}</p>
-                            </div>
-                        </div>
-                    `;
-                    div.onclick = () => { closeWishlist(); openProductDetail(id); };
-                    grid.appendChild(div);
-                });
-            }
-        }
-
-        /* ===================================================
-           SEARCH
-           =================================================== */
+        /* SEARCH */
         function performSearch() {
             const term = document.getElementById('cute-search').value.toLowerCase();
             filterProducts(term);
@@ -2924,9 +3121,7 @@
         document.getElementById('cute-search').addEventListener('keypress', e => { if (e.key === 'Enter') performSearch(); });
         document.getElementById('mobile-cute-search').addEventListener('keypress', e => { if (e.key === 'Enter') performMobileSearch(); });
 
-        /* ===================================================
-           FILTER BUTTONS
-           =================================================== */
+        /* FILTER BUTTONS */
         function setupFilterButtons() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             filterBtns.forEach(btn => {
@@ -2952,9 +3147,7 @@
             });
         }
 
-        /* ===================================================
-           REVEAL
-           =================================================== */
+        /* REVEAL */
         function reveal() {
             const reveals = document.querySelectorAll(".reveal:not(.active)");
             for (let i = 0; i < reveals.length; i++) {
@@ -2968,9 +3161,7 @@
             if (alsoLikeSection.classList.contains('active')) updateAlsoLikeArrowStates();
         });
 
-        /* ===================================================
-           INIT
-           =================================================== */
+        /* INIT */
         document.addEventListener('DOMContentLoaded', () => {
             loadAllProducts();
             updateCartBadge();
@@ -2999,7 +3190,7 @@
                 if (e.key === 'Escape') {
                     if (checkoutPage.classList.contains('active')) closeCheckoutPage();
                     if (cartPage.classList.contains('active')) closeCartPage();
-                    if (document.getElementById('wishlist-modal').style.display === 'block') closeWishlist();
+                    if (wishlistPage.classList.contains('active')) closeWishlist();
                     if (document.getElementById('zoom-lightbox').classList.contains('active')) closeZoom();
                 }
             });
